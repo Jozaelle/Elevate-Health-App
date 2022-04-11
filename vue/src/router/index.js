@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import Profile from '../views/Profile.vue'
 
 Vue.use(Router)
 
@@ -53,6 +54,15 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: '/profile', //Probably need to add :userid (or whatever) to this to get to a unique profile page.
+      name: 'profile',
+      component: Profile,
+      meta: {
+        requiresAuth: false //Change this to true so only signed in users can access.
+      }
+    },
+
   ]
 })
 
