@@ -6,7 +6,7 @@
 
     <label for="display-name">Display Name: </label>
     <br>
-    <input type="text">
+    <input type="text" placeholder="Display Name">
     <br>
     <br>
 
