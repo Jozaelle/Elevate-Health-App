@@ -2,6 +2,7 @@ BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS foodIntake;
+DROP TABLE IF EXISTS profile;
 
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -32,6 +33,19 @@ CREATE TABLE foodIntake (
 	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT PK_food_intake PRIMARY KEY (food_intake_id)
 
+);
+
+CREATE TABLE profile (
+	profile_id serial NOT NULL,
+	user_id int NOT NULL,
+	display_name varchar(64) NOT NULL,
+	age int,
+	height_feet int NOT NULL,
+	height_inches int NOT NULL,
+	current_weight int NOT NULL,
+	goal_weight int NOT NULL,
+	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT PK_profile PRIMARY KEY (profile_id)
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
