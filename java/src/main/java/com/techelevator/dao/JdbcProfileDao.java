@@ -54,9 +54,9 @@ public class JdbcProfileDao implements ProfileDao{
 
     public Profile updateProfile(int profile_id, Profile profile) {
         String sql = "UPDATE profile" +
-        "SET user_id= 2, display_name = ?, age= ?, height_feet= ?, height_inches= ?, current_weight= ?, goal_weight= ?" +
+        "SET display_name = ?, age= ?, height_feet= ?, height_inches= ?, current_weight= ?, goal_weight= ?" +
         "WHERE profile_id = ?;";
-        jdbcTemplate.update(sql, profile.getProfile_id(), profile.getProfile_id());
+        jdbcTemplate.update(sql, profile.getDisplay_name(),profile.getAge(),profile.getHeight_feet(),profile.getHeight_inches(), profile.getCurrent_weight(), profile.getGoal_weight());
         return getProfileById(profile_id);
     }
 
