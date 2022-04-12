@@ -15,17 +15,6 @@ public class Profile {
 
     }
 
-    public Profile(int profile_id, int user_id, String display_name,
-                   int age, int height_feet, int height_inches, int current_weight, int goal_weight) {
-        this.profile_id = profile_id;
-        this.user_id = user_id;
-        this.display_name = display_name;
-        this.age = age;
-        this.height_feet = height_feet;
-        this.height_inches = height_inches;
-        this.current_weight = current_weight;
-        this.goal_weight = goal_weight;
-    }
 
     public int getProfile_id() {
         return profile_id;

@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import FoodIntakeView from '../views/FoodIntakeView.vue'
 import Profile from '../views/Profile.vue'
+import CreateProfile from "@/views/CreateProfile.vue"
 
 Vue.use(Router)
 
@@ -61,12 +62,17 @@ const router = new Router({
       component: FoodIntakeView
     },
     {
-      path: '/profile', //Probably need to add :userid (or whatever) to this to get to a unique profile page.
-      name: 'profile',
-      component: Profile,
+      path: '/create-profile', //Probably need to add :userid (or whatever) to this to get to a unique profile page.
+      name: 'create-profile',
+      component: CreateProfile,
       meta: {
         requiresAuth: false //Change this to true so only signed in users can access.
       }
+    },
+    {
+      path: "/profile/:profile_id",
+      name: "profile",
+      component: Profile
     },
 
   ]
