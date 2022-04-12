@@ -8,7 +8,7 @@ import java.util.List;
 public interface FoodIntakeDao {
 
     // get all food intakes
-    List<FoodIntake> getAll ();
+    List<FoodIntake> getAll (int id);
 
     // get food by date
     List<FoodIntake> getByDate(Date date);

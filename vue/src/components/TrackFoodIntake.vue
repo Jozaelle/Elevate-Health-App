@@ -54,7 +54,7 @@ export default {
 data() {
   return {
     foodIntake: {
-      user_id: "1",
+      user_id: "",
       food_type: "",
       serving_size: "",
       number_of_servings: "",
@@ -67,8 +67,15 @@ data() {
 methods: {
 
    createFoodIntake() {
-
-    foodIntakeService.createFoodIntake(this.foodIntake)
+    foodIntakeService.createFoodIntake(this.foodIntake),
+    this.foodIntake = {
+      user_id: "",
+      food_type: "",
+      serving_size: "",
+      number_of_servings: "",
+      meal_type: "",
+      day_of_meal: "",
+    }
   }
 }
 

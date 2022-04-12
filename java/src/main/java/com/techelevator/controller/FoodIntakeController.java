@@ -1,10 +1,12 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.FoodIntakeDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.FoodIntake;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 @CrossOrigin
@@ -15,8 +17,13 @@ public class FoodIntakeController {
     @Autowired
     private FoodIntakeDao foodIntakeDao;
 
+    @Autowired
+    private UserDao userDao;
+
     @GetMapping(path = "/getAll")
-    public List<FoodIntake> getAll(){return foodIntakeDao.getAll();}
+    public List<FoodIntake> getAll(Principal principal){
+        return foodIntakeDao.getAll(userDao.findIdByUsername(principal.getName()));
+    }
 
     @GetMapping(path = "/get/{id}")
     public FoodIntake getFoodIntakeId(@PathVariable int id){
@@ -34,7 +41,8 @@ public class FoodIntakeController {
     }
 
     @PostMapping(path = "")
-    public FoodIntake createFoodIntake(@RequestBody FoodIntake foodIntake){
+    public FoodIntake createFoodIntake(@RequestBody FoodIntake foodIntake, Principal principal){
+        foodIntake.setUser_id(userDao.findIdByUsername(principal.getName()));
         return foodIntakeDao.createFoodIntake(foodIntake);
     }
 
@@ -42,4 +50,6 @@ public class FoodIntakeController {
     public void deleteFoodIntakeById(@PathVariable int id){
         foodIntakeDao.deleteFoodIntakeById(id);
     }
+
+
 }

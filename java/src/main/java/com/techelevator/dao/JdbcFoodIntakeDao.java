@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.FoodIntake;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
@@ -14,15 +15,18 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
 
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+     private UserDao userDao;
+
     public JdbcFoodIntakeDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public List<FoodIntake> getAll() {
+    public List<FoodIntake> getAll(int id) {
         List<FoodIntake> foodIntakeList = new ArrayList<>();
-        String sql = "SELECT * FROM foodintake";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        String sql = "SELECT * FROM foodintake WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while(results.next()) {
             FoodIntake foodIntake = mapRowToFoodIntake(results);
             foodIntakeList.add(foodIntake);
