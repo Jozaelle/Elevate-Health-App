@@ -42,10 +42,29 @@ public class JdbcProfileDao implements ProfileDao{
         return null;
     }
 
+
+    public Profile deleteProfile(int profile_id, Profile profile) {
+        String sql = "DELETE FROM profile" +
+        "WHERE profile_id = ?;";
+        jdbcTemplate.update(sql, profile.getProfile_id(), profile.getProfile_id());
+        return getProfileById(profile_id);
+    }
+
+
+
+    public Profile updateProfile(int profile_id, Profile profile) {
+        String sql = "UPDATE profile" +
+        "SET user_id= 2, display_name = ?, age= ?, height_feet= ?, height_inches= ?, current_weight= ?, goal_weight= ?" +
+        "WHERE profile_id = ?;";
+        jdbcTemplate.update(sql, profile.getProfile_id(), profile.getProfile_id());
+        return getProfileById(profile_id);
+    }
+
     private Profile mapRowToProfile(SqlRowSet resultSet) {
         Profile profile = new Profile();
         profile.setProfile_id(resultSet.getInt("profile_id"));
         profile.setUser_id(resultSet.getInt("user_id"));
+        profile.setDisplay_name(resultSet.getString("display_name"));
         profile.setAge(resultSet.getInt("age"));
         profile.setHeight_feet(resultSet.getInt("height_feet"));
         profile.setHeight_inches(resultSet.getInt("height_inches"));
