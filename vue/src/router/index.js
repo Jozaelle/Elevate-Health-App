@@ -70,7 +70,7 @@ const router = new Router({
       }
     },
     {
-      path: "/profile/:profile_id",
+      path: "/profile",
       name: "profile",
       component: Profile
     },

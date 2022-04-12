@@ -21,9 +21,9 @@ public class JdbcProfileDao implements ProfileDao{
     }
 
     @Override
-    public Profile getProfileById(int profile_id) {
-        String sql = "SELECT * FROM profile WHERE profile_id = ?;";
-        SqlRowSet resultSet = jdbcTemplate.queryForRowSet(sql, profile_id);
+    public Profile getProfileById(int userId) {
+        String sql = "SELECT * FROM profile WHERE user_id = ?;";
+        SqlRowSet resultSet = jdbcTemplate.queryForRowSet(sql, userId);
 
         Profile result = null;
         if (resultSet.next()) {

@@ -29,8 +29,8 @@ export default {
     return {
       isLoading: true,
       profile: {
-          user_id:"",
-         display_name: "bob",
+         user_id:"",
+         display_name: "",
          age:"" ,
          height_feet:"" ,
          height_inches:"" ,
@@ -41,7 +41,7 @@ export default {
   },
   created() {
     
-    ProfileService.getProfile(this.$route.params.profile_id)
+    ProfileService.getProfile()
       .then( response => {
         //response responding to http request specifically
         this.profile = response.data;

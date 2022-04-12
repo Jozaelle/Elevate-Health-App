@@ -55,7 +55,7 @@ export default {
     data() {
     return {
       profile: {
-         user_id:"1",
+         user_id:"",
          display_name: "",
          age:"" ,
          height_feet:"" ,
