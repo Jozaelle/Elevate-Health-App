@@ -59,14 +59,17 @@ const router = new Router({
     {
       path: "/food-intake",
       name: "food-intake",
-      component: FoodIntakeView
+      component: FoodIntakeView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/create-profile', //Probably need to add :userid (or whatever) to this to get to a unique profile page.
       name: 'create-profile',
       component: CreateProfile,
       meta: {
-        requiresAuth: false //Change this to true so only signed in users can access.
+        requiresAuth: true //Change this to true so only signed in users can access.
       }
     },
     {
