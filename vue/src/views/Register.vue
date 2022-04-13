@@ -2,10 +2,12 @@
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <br>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <label for="username" class="sr-only">Username</label>
+      <br>
       <input
         type="text"
         id="username"
@@ -15,7 +17,9 @@
         required
         autofocus
       />
+      <br><br>
       <label for="password" class="sr-only">Password</label>
+      <br>
       <input
         type="password"
         id="password"
@@ -24,6 +28,7 @@
         v-model="user.password"
         required
       />
+      <br><br>
       <input
         type="password"
         id="confirmPassword"
@@ -32,10 +37,12 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br><br><br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
+      <br><br>
+      <router-link :to="{ name: 'login' }">Have an account?</router-link>
     </form>
   </div>
 </template>
@@ -90,4 +97,24 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+
+  top: 50%;
+  left: 30%;
+  transform: translate(0, -50%);
+  position: absolute;
+
+  /* shadow  */
+  background: white;
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+  width: 500px;
+  height: 500px;
+}
+</style>

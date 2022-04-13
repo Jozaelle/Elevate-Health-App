@@ -15,6 +15,7 @@
       <br>
       <br>
       <label for="username" class="sr-only">Username</label>
+      <br>
       <input
         type="text"
         id="username"
@@ -27,6 +28,7 @@
       <br>
       <br>
       <label for="password" class="sr-only">Password</label>
+      <br>
       <input
         type="password"
         id="password"
@@ -35,6 +37,8 @@
         v-model="user.password"
         required
       />
+      <br>
+      <br>
       <br />
       <br />
       <button type="submit">Sign in</button>
@@ -87,13 +91,30 @@ export default {
 
 <style scoped>
 #login {
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40rem;
+    text-align: center;
+    vertical-align: middle;
 
+  top: 50%;
+  left: 30%;
+  transform: translate(0, -50%);
+  position: absolute;
+
+
+  /*This centers things in case we need it again*/
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+  /*text-align: center;*/
+
+  /* shadow  */
+  background: white;
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+  width: 500px;
+  height: 500px;
 }
-
 </style>
