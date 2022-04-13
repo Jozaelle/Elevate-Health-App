@@ -99,17 +99,16 @@ export default {
 
 <style>
 #register {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  vertical-align: middle;
 
-  top: 50%;
-  left: 30%;
-  transform: translate(0, -50%);
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 
   /* shadow  */
   background: white;

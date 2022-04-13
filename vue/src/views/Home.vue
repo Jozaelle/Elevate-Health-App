@@ -23,7 +23,7 @@
         </tbody>
       </table>
     </div>
-
+    <br>
     <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
   </div>
 </template>
@@ -51,7 +51,7 @@ table {
   width: 800px;
   border-collapse: collapse;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
 }
 
 th, td {
@@ -62,9 +62,25 @@ th, td {
 
 th {
   text-align: left;
-  background-color: #55608f;
+  background-color: #ff4658;
 }
 
+tr:hover {
+       background-color: rgba(255,255,255,0.3);
+}
 
+td{
+  position: relative;
+}
 
+td:hover::before{
+        content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+}
 </style>
