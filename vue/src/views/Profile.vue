@@ -1,21 +1,25 @@
 <template>
 
   <div>
-      
-      <svg></svg>
 
       <h1>{{profile.display_name}}</h1>
-      <h2>Age: {{profile.age}}
+      <h3>Age: {{profile.age}}
       <br>
-      Height: {{profile.height_feet}},{{profile.height_inches}}
       <br>
+      Height: {{profile.height_feet}}', {{profile.height_inches}}"
+      <br>
+      <br>
+      Current Weight: {{profile.current_weight}} pounds
+      <br>
+      <br>
+      Goal Weight: {{profile.goal_weight}} pounds
+      <br>
+      <br>
+      BMI: {{bmi.toFixed(1)}}
+      </h3>
 
-      Current Weight: {{profile.current_weight}}
-      <br>
-      Goal Weight: {{profile.goal_weight}}
-      <br>
-      BMI:
-      </h2>
+      <button @click="$router.push('create-profile')">Update Profile</button>
+
       
     </div>
 </template>
@@ -36,7 +40,8 @@ export default {
          height_inches:"" ,
          current_weight:"" ,
          goal_weight: ""
-      }
+      },
+      bmi: "",
     }
   },
   created() {
@@ -45,12 +50,24 @@ export default {
       .then( response => {
         //response responding to http request specifically
         this.profile = response.data;
+        this.calculateBMI();
       })
   },
   methods: {
       calculateBMI(){
-         (this.profile.current_weight / (this.profile.height_feet * 12 + this.profile.height_inches) * 703)
+         this.bmi = (this.profile.current_weight / ((this.profile.height_feet * 12 + this.profile.height_inches) * (this.profile.height_feet * 12 + this.profile.height_inches))) * 703
       }
   }
 };
 </script>
+
+<style scoped>
+button {
+  border: none;
+  border-radius: 12px;
+  color: black;
+  padding: 15px 15px;
+  text-align: center;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+}
+</style>
