@@ -6,9 +6,10 @@
       <router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>
     </div>
     <router-view />
+    
   </div>
+  
 </template>
-
 <script>
 export default {
   
