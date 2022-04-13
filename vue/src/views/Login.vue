@@ -7,16 +7,17 @@
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1> 
-      <div
-        class="alert alert-danger"
+      <div id="invalid"
+        class="alert-danger"
         role="alert"
         v-if="invalidCredentials"
-      >Invalid username and password!</div>
+      >Invalid username and password, try again.</div>
       <div
-        class="alert alert-success"
+        
+        class="alert-success"
         role="alert"
         v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
+      >Thank you for registering! Please sign in.</div>
       <br>
       <br>
       <label for="username" class="sr-only">Username</label>
@@ -119,7 +120,6 @@ export default {
   height: 500px;
 }
 div.picture1 {
-   width:px; /*width of your image*/
    height:950px; /*height of your image*/
    background-image:url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
    margin:0; /* If you want no margin */
@@ -128,6 +128,22 @@ div.picture1 {
   background-size:  cover;
   background-position: center;
   
+}
+.alert-danger{
+  background: rgba(233, 118, 118, 0.774);
+  height: 20px;
+  align-items: center;
+  padding: 5%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.alert-success{
+  background: rgba(136, 231, 184, 0.774);
+  height: 20px;
+  align-items: center;
+  padding: 5%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 </style>
