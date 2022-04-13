@@ -1,7 +1,12 @@
 <template id="template">
+  <div id="app">
+    <!-- <img src="vue/public/fitness-femenino-.jpg"> -->
+    <div class="picture1">&nbsp;</div>
+
+  
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1> 
       <div
         class="alert alert-danger"
         role="alert"
@@ -49,12 +54,16 @@
       
     </form>
   </div>
+  </div>
+  
+  
 </template>
 
 <script>
 import authService from "../services/AuthService";
 
 export default {
+
   name: "login",
   components: {},
   data() {
@@ -66,6 +75,7 @@ export default {
       invalidCredentials: false
     };
   },
+  
   methods: {
     login() {
       authService
@@ -108,4 +118,12 @@ export default {
   width: 500px;
   height: 500px;
 }
+div.picture1 {
+   width:px; /*width of your image*/
+   height:900px; /*height of your image*/
+   background-image:url('https://www.cinconoticias.com/wp-content/uploads/fitness-femenino-.jpg');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+}
+
 </style>
