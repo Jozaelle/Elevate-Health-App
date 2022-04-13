@@ -4,7 +4,7 @@ import com.techelevator.model.Profile;
 
 public interface ProfileDao {
 
-    Profile addProfile(Profile data);
+    Profile addProfile(int userId);
 
     Profile getProfileById(int profile_id);
 

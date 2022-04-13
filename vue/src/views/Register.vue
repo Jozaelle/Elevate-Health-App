@@ -49,6 +49,7 @@
 
 <script>
 import authService from '../services/AuthService';
+import profileService from '../services/ProfileService';
 
 export default {
   name: 'register',
@@ -59,6 +60,15 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
+      },
+      profile: {
+         user_id: 1,
+         display_name: "",
+         age:"" ,
+         height_feet:"" ,
+         height_inches:"" ,
+         current_weight:"" ,
+         goal_weight: ""
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -88,6 +98,10 @@ export default {
             }
           });
       }
+    },
+    saveProfile() {
+       profileService
+        .createProfile(this.profile)
     },
     clearErrors() {
       this.registrationErrors = false;

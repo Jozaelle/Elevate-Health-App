@@ -38,12 +38,12 @@ CREATE TABLE foodIntake (
 CREATE TABLE profile (
 	profile_id serial NOT NULL,
 	user_id int NOT NULL,
-	display_name varchar(64) NOT NULL,
+	display_name varchar(64),
 	age int,
-	height_feet int NOT NULL,
-	height_inches int NOT NULL,
-	current_weight int NOT NULL,
-	goal_weight int NOT NULL,
+	height_feet int,
+	height_inches int,
+	current_weight int,
+	goal_weight int,
 	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT PK_profile PRIMARY KEY (profile_id)
 );

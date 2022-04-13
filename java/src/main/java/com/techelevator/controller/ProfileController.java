@@ -24,11 +24,11 @@ public class ProfileController {
         this.profileDao = profileDao;
     }
 
-    @RequestMapping(path = "", method = RequestMethod.POST)
-    public Profile addProfile(@RequestBody Profile data, Principal principal) {
-        data.setUser_id(userDao.findIdByUsername(principal.getName()));
-        return profileDao.addProfile(data);
-    }
+//    @RequestMapping(path = "", method = RequestMethod.POST)
+//    public Profile addProfile( int userId, String username, Principal principal) {
+//        data.setUser_id(userDao.findIdByUsername(username));
+//        return profileDao.addProfile(userId);
+//    }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
     public Profile getProfileById(Principal principal) {

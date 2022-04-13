@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -17,6 +18,8 @@ import com.techelevator.model.User;
 public class JdbcUserDao implements UserDao {
 
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private ProfileDao profileDao;
 
     public JdbcUserDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -82,6 +85,9 @@ public class JdbcUserDao implements UserDao {
                 }
                 , keyHolder) == 1;
         int newUserId = (int) keyHolder.getKeys().get(id_column);
+       // String sql = "INSERT INTO profile (user_id) VALUES (?);";
+       // SqlRowSet resultSet = jdbcTemplate.queryForRowSet(sql, newUserId);
+        profileDao.addProfile(newUserId);
 
         return userCreated;
     }

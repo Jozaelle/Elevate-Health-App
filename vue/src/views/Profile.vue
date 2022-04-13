@@ -9,13 +9,12 @@
       Height: {{profile.height_feet}}', {{profile.height_inches}}"
       <br>
       <br>
-      Current Weight: {{profile.current_weight}} pounds
+      Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})
       <br>
       <br>
-      Goal Weight: {{profile.goal_weight}} pounds
+      Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})
       <br>
       <br>
-      BMI: {{bmi.toFixed(1)}}
       </h3>
 
       <button @click="$router.push('create-profile')">Update Profile</button>
@@ -42,6 +41,7 @@ export default {
          goal_weight: ""
       },
       bmi: "",
+      bmiGoal: "",
     }
   },
   created() {
@@ -51,11 +51,16 @@ export default {
         //response responding to http request specifically
         this.profile = response.data;
         this.calculateBMI();
+        this.calculateGoalBMI();
       })
   },
   methods: {
       calculateBMI(){
          this.bmi = (this.profile.current_weight / ((this.profile.height_feet * 12 + this.profile.height_inches) * (this.profile.height_feet * 12 + this.profile.height_inches))) * 703
+      },
+
+      calculateGoalBMI() {
+        this.bmiGoal = (this.profile.goal_weight / ((this.profile.height_feet * 12 + this.profile.height_inches) * (this.profile.height_feet * 12 + this.profile.height_inches))) * 703
       }
   }
 };
