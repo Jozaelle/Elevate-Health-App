@@ -1,4 +1,4 @@
-<template>
+<template id="template">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -35,8 +35,14 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <br />
+      <br />
       <button type="submit">Sign in</button>
+      
+      <br />
+      <br />
+      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      
     </form>
   </div>
 </template>
@@ -77,3 +83,17 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+#login {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+
+}
+
+</style>
