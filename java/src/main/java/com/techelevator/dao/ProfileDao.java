@@ -10,5 +10,5 @@ public interface ProfileDao {
 
     Profile deleteProfile(int profile_id);
 
-    Profile updateProfile(int profile_id);
+    void updateProfile(Profile profile);
 }
