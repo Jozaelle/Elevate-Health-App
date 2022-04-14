@@ -4,6 +4,7 @@ import com.techelevator.dao.FoodIntakeDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.FoodIntake;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -11,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 @CrossOrigin
 @RestController
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("/foodIntake")
 public class FoodIntakeController {
 
