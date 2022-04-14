@@ -38,6 +38,7 @@ public class ProfileController {
 
     @PutMapping(path = "/update")
     public void updateProfile(@RequestBody Profile updatedProfile, Principal principal) {
+        System.out.println(updatedProfile.getBirthday());
         updatedProfile.setUser_id(userDao.findIdByUsername(principal.getName()));
         profileDao.updateProfile(updatedProfile);
     }

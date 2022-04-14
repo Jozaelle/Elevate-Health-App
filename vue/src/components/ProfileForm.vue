@@ -95,6 +95,7 @@ export default {
   
   methods: {
     saveProfile() {
+      console.log(this.profile)
        profileService
         .createProfile(this.profile)
         .then((response) => {
