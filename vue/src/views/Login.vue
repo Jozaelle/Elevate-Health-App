@@ -119,16 +119,7 @@ export default {
   width: 500px;
   height: 500px;
 }
-div.picture1 {
-   height:950px; /*height of your image*/
-   background-image:url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-   margin:0; /* If you want no margin */
-   padding:0; /*if your want to padding */
-  background-repeat: no-repeat;
-  background-size:  cover;
-  background-position: center;
-  
-}
+
 .alert-danger{
   background: rgba(233, 118, 118, 0.774);
   height: 20px;

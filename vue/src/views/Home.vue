@@ -25,14 +25,22 @@
     </div>
     <br>
     <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
+    <LineChart />
+    <LineChart />
+    <LineChart />
+    <LineChart />
   </div>
 </template>
 
 <script>
 import foodIntakeService from '../services/FoodIntakeService'
+import LineChart from '../components/Line.vue'
 
 export default {
   name: "home",
+  components:{
+    LineChart
+  },
   data() {
     return{
       foodIntake: []

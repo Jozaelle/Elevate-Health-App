@@ -1,7 +1,6 @@
 <template>
 
   <div>
-
       <h1>{{profile.display_name}}</h1>
       Photo: {{profile.photo}}
       <br>
@@ -22,10 +21,7 @@
       <br>
       <br>
       </h3>
-
       <button @click="$router.push('create-profile')">Update Profile</button>
-
-      
     </div>
 </template>
 
