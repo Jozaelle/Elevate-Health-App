@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="createHydration">
-      <p>Daily Recommended Water Intake: {{getRecommendedHydration(current_weight)}} ounces</p>
+      <p>Daily Recommended Water Intake: {{recommended_hydration}} ounces</p>
       <label for="hydration">How Many 8 oz. Glasses of Water Did You Drink Today?</label>
       <br>
       <br>
@@ -28,13 +28,15 @@ export default {
               curr_date: "",
               amount_drank: ""
             },
-            current_weight: ""
+            current_weight: "",
+            recommended_hydration: ""
         }
     },
   created() {
     ProfileService.getProfile()
         .then( response => {
           this.current_weight = response.data.current_weight
+          this.getRecommendedHydration(this.current_weight);
         })
   },
   methods: {
@@ -46,11 +48,9 @@ export default {
         curr_date: "",
         amount_drank: ""
       }
-    }
-  },
-  computed:{
+    },
     getRecommendedHydration(currentWeight){
-      return (currentWeight * .75 * .8)
+      this.recommended_hydration = (currentWeight * .75 * .8)
     }
   }
 }
