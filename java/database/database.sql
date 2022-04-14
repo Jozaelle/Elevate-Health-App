@@ -30,16 +30,15 @@ CREATE TABLE foodIntake (
 	food_type varchar(50) NOT NULL,
 	serving_size NUMERIC(10,2) NOT NULL,
 	number_of_servings NUMERIC(10,2) NOT NULL,
-	calories NUMERIC(10,2) NULL,
-	carbs NUMERIC(10,2) NULL,
-	fats NUMERIC(10,2) NULL,
-	proteins NUMERIC(10,2) NULL,
+	calories NUMERIC(10,2) NOT NULL,
+	carbs NUMERIC(10,2) NOT NULL,
+	fats NUMERIC(10,2) NOT NULL,
+	proteins NUMERIC(10,2) NOT NULL,
 	meal_type varchar(10) NOT NULL,
 	day_of_meal date NOT NULL,
 	
 	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT PK_food_intake PRIMARY KEY (food_intake_id)
-
 );
 
 CREATE TABLE hydration (
