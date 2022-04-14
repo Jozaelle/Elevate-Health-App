@@ -147,7 +147,5 @@ div.picture1 {
   background-repeat: no-repeat;
   background-size:  cover;
   background-position: center;
-  
-  
 }
 </style>
