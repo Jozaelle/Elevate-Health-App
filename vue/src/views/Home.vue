@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <!-- <h1>Home</h1> -->
     <br>
     <br>
     <div id="tableholder">
@@ -48,10 +48,11 @@ export default {
 
 <style scoped>
 table {
-  width: 800px;
+  width: 700px;
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+  margin-bottom: 600px;
 }
 
 th, td {

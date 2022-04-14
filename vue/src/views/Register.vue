@@ -148,5 +148,6 @@ div.picture1 {
   background-size:  cover;
   background-position: center;
   
+  
 }
 </style>
