@@ -1,9 +1,10 @@
 <template>
   <div id="register" class="text-center">
+    <div class="picture1">&nbsp;</div>
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <br>
-      <div class="alert alert-danger" role="alert" v-if="registrationErrors">
+      <div class="alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <label for="username" class="sr-only">Username</label>
@@ -78,7 +79,7 @@ export default {
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+        this.registrationErrorMsg = 'Passwords do not match.';
       } else {
         authService
           .register(this.user)
@@ -129,5 +130,23 @@ export default {
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 500px;
   height: 500px;
+}
+.alert-danger{
+  background: rgba(233, 118, 118, 0.774);
+  height: 20px;
+  align-items: center;
+  padding: 3%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+div.picture1 {
+   height:950px; /*height of your image*/
+   background-image:url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+   margin:0; /* If you want no margin */
+   padding:0; /*if your want to padding */
+  background-repeat: no-repeat;
+  background-size:  cover;
+  background-position: center;
+  
 }
 </style>
