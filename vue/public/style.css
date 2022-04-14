@@ -9,13 +9,13 @@ body{
     font-family: 'Quicksand', sans-serif;
     display: flex;
     flex-grow: 1;
-    flex-direction: column;
+    flex-direction:inherit;
     align-items:center;
     justify-content: center;
     text-align: center;
     height: 100vh;
     color: black;
-    transition: background-image 1s ease-in-out;
+    
 }
 
 * {
@@ -56,25 +56,28 @@ h2{
     width: 5.1em;
     background-color: transparent;
     border-color: black;
-    position: fixed;
+    position:fixed;
     top: 0;
     left: 0;
     margin-top: 5px;
     margin-left: 5px;  
     border-color: white;
+    
+    
 }
 #sideBarIcon{
     border-radius: 50%;
     height: 5.2em;
     width: 5.2em;
-    background-color: transparent;
-    border-color: black;
+    background-color: transparent,;
+    border-color: rgb(255, 255, 255);
     position: fixed;
     top: 6.5em;
     left: 0;
     margin-top: 5px;
     margin-left: 5px;  
     border-color: white;
+    
 }
 
 
@@ -86,11 +89,11 @@ h2{
     z-index: 15; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: rgb(0, 0, 0); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 0; 
     transition: 0.4s; 
-    opacity: .5;
+    opacity: .6;
   }
   
   
@@ -101,16 +104,7 @@ h2{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
-  /* .sidenav .clear-btn{
-      position: absolute;
-      bottom: 0;
-      outline: 5px solid white;
-      width: 100%;
-      transform: translate(-50%, 0);
-      background-color: transparent;
-      color: white;
-      font-size: 35px;
-  } */
+  
   .login-home{
     
         height:950px; /*height of your image*/
