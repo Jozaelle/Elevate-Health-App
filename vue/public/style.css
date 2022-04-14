@@ -6,7 +6,120 @@ html {
 body{
     width: 100%;
     height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-grow: 1;
+    flex-direction:inherit;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: black;
+    
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin-bottom: 3rem;
+}
+
+h2{
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+@media(max-width: 700px){
+    #time{
+        font-size: 6rem;
+    }
+}
+@media(max-height: 450px){
+    .sound-picker{
+        opacity: 0;
+    }
+    
+}
+@media(max-height: 350px){
+    .location{
+        opacity: 0;
+    }
+}
+
+#darkMode{
+    border-radius: 50%;
+    height: 5.1em;
+    width: 5.1em;
+    background-color: transparent;
+    border-color: black;
+    position:fixed;
+    top: 0;
+    left: 0;
+    margin-top: 5px;
+    margin-left: 5px;  
+    border-color: white;
+    
+    
+}
+#sideBarIcon{
+    border-radius: 50%;
+    height: 5.2em;
+    width: 5.2em;
+    background-color: transparent,;
+    border-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 6.5em;
+    left: 0;
+    margin-top: 5px;
+    margin-left: 5px;  
+    border-color: white;
+    
+}
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 80px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 15; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(0, 0, 0); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0; 
+    transition: 0.4s; 
+    opacity: .6;
+  }
+  
+  
+  
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+  .login-home{
+    
+        height:950px; /*height of your image*/
+        background-image:url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        margin:0; /* If you want no margin */
+        padding:0; /*if your want to padding */
+       background-repeat: no-repeat;
+       background-size:  cover;
+       background-position: center;
+       
+     
+  }
+  
+
+
 
 
 

@@ -9,6 +9,7 @@ import FoodIntakeView from '../views/FoodIntakeView.vue'
 import Profile from '../views/Profile.vue'
 import CreateProfile from "@/views/CreateProfile.vue"
 
+
 Vue.use(Router)
 
 /**
