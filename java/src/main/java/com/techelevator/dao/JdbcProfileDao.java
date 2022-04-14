@@ -39,9 +39,11 @@ public class JdbcProfileDao implements ProfileDao{
 
     @Override
     public void updateProfile(Profile profile) {
-        String sql = "UPDATE profile SET display_name = ?, age = ?, height_feet = ?," +
+        String sql = "UPDATE profile SET display_name = ?, photo = ?, birthday = ?, age = ?, height_feet = ?," +
                 "height_inches = ?, current_weight = ?, goal_weight = ? WHERE user_id = ?;";
-        jdbcTemplate.update(sql, profile.getDisplay_name(),profile.getAge(),profile.getHeight_feet(),profile.getHeight_inches(), profile.getCurrent_weight(), profile.getGoal_weight(), profile.getUser_id());
+        jdbcTemplate.update(sql, profile.getDisplay_name(),profile.getPhoto(),profile.getBirthday(),profile.getAge(),
+                profile.getHeight_feet(),profile.getHeight_inches(), profile.getCurrent_weight(), profile.getGoal_weight(),
+                profile.getUser_id());
 
     }
 
@@ -68,6 +70,8 @@ public class JdbcProfileDao implements ProfileDao{
         profile.setProfile_id(resultSet.getInt("profile_id"));
         profile.setUser_id(resultSet.getInt("user_id"));
         profile.setDisplay_name(resultSet.getString("display_name"));
+        profile.setPhoto(resultSet.getString("photo"));
+        profile.setBirthday(resultSet.getDate("birthday").toLocalDate());
         profile.setAge(resultSet.getInt("age"));
         profile.setHeight_feet(resultSet.getInt("height_feet"));
         profile.setHeight_inches(resultSet.getInt("height_inches"));

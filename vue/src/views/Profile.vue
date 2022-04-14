@@ -3,6 +3,12 @@
   <div>
 
       <h1>{{profile.display_name}}</h1>
+      Photo: {{profile.photo}}
+      <br>
+      <br>
+      Birthday: {{profile.birthday}}
+      <br>
+      <br>
       <h3>Age: {{profile.age}}
       <br>
       <br>
@@ -34,6 +40,8 @@ export default {
       profile: {
          user_id:"",
          display_name: "",
+         photo: "",
+         birthday: "",
          age:"" ,
          height_feet:"" ,
          height_inches:"" ,

@@ -10,6 +10,18 @@
     <br>
     <br>
 
+    <label for="photo">Display Photo: </label>
+    <br>
+    <input type="text" placeholder="Photo URL" v-model="profile.photo">
+    <br>
+    <br>
+
+    <label for="display-birthday">Birthday: </label>
+    <br>
+    <input type="date" placeholder="Birthday" v-model="profile.birthday">
+    <br>
+    <br>
+
     <label for="age">Age: </label>
     <br>
     <input type="number" id="age" name="age"
@@ -57,6 +69,8 @@ export default {
       profile: {
          user_id: "",
          display_name: "",
+         photo: "",
+         birthday: "",
          age:"" ,
          height_feet:"" ,
          height_inches:"" ,
@@ -69,6 +83,8 @@ export default {
   created() {
           this.profile = {
               display_name: this.profile.display_name,
+              photo: this.profile.photo,
+              birthday: this.profile.birthday,
               age: this.profile.age,
               height_feet: this.profile.height_feet,
               height_inches: this.profile.height_inches,

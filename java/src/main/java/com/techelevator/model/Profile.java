@@ -1,10 +1,15 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Profile {
 
     private int profile_id;
     private int user_id;
     private String display_name;
+    private String photo;
+    private LocalDate birthday;
     private int age;
     private int height_feet;
     private int height_inches;
@@ -38,6 +43,22 @@ public class Profile {
 
     public void setDisplay_name(String display_name) {
         this.display_name = display_name;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public int getAge() {
