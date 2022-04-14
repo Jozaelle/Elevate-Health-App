@@ -23,6 +23,26 @@
       />
       <br />
       <br />
+      <label for="calories">Calories</label>
+      <br>
+      <input type="text" id="calories" placeholder="Calories" v-model="foodIntake.calories" />
+      <br>
+      <br>
+      <label for="carbs">Carbs</label>
+      <br>
+      <input type="text" id="carbs" placeholder="Carbs" v-model="foodIntake.carbs" />
+      <br>
+      <br>
+      <label for="fats">Fats</label>
+      <br>
+      <input type="text" id="fats" placeholder="Fats" v-model="foodIntake.fats" />
+      <br>
+      <br>
+      <label for="proteins">Proteins</label>
+      <br>
+      <input type="text" id="proteins" placeholder="Proteins" v-model="foodIntake.proteins" />
+      <br>
+      <br>
 
       <label for="meal-type">Meal Breakfast/Lunch/Dinner/Snack</label>
       <br />
@@ -60,6 +80,10 @@ data() {
       number_of_servings: "",
       meal_type: "",
       day_of_meal: "",
+      calories: "",
+      carbs: "",
+      fats: "",
+      proteins: "",
     },
   }
 },
@@ -75,6 +99,10 @@ methods: {
       number_of_servings: "",
       meal_type: "",
       day_of_meal: "",
+      calories: "",
+      carbs: "",
+      fats: "",
+      proteins: "",
     }
   }
 }
