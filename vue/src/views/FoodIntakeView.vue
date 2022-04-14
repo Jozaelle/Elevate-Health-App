@@ -1,11 +1,18 @@
 <template>
-  <track-food-intake />
+  <div>
+    <track-food-intake />
+    <br>
+    <br>
+    <br>
+    <hydration-input />
+  </div>
 </template>
 
 <script>
 import TrackFoodIntake from '../components/TrackFoodIntake.vue'
+import HydrationInput from "@/components/HydrationInput";
 export default {
-  components: { TrackFoodIntake },
+  components: {HydrationInput, TrackFoodIntake },
 
 }
 </script>

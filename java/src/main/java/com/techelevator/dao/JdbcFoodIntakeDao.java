@@ -62,13 +62,13 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
 
     @Override
     public FoodIntake createFoodIntake(FoodIntake foodIntake) {
-        FoodIntake newFoodIntake = new FoodIntake();
         String sql = "INSERT INTO foodIntake (user_id, food_type, serving_size, number_of_servings, " +
-                "meal_type, day_of_meal)" +
-                "VALUES (?,?,?,?,?,?) RETURNING food_intake_id";
+                "calories, carbs, fats, proteins, meal_type, day_of_meal)" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?) RETURNING food_intake_id";
         Integer id = jdbcTemplate.queryForObject(sql,Integer.class,foodIntake.getUser_id(),
                 foodIntake.getFood_type(),foodIntake.getServing_size(),foodIntake.getNumber_of_servings(),
-                foodIntake.getMeal_type(),foodIntake.getDay_of_meal());
+                foodIntake.getCalories(), foodIntake.getCarbs(), foodIntake.getFats(),
+                foodIntake.getProteins(), foodIntake.getMeal_type(),foodIntake.getDay_of_meal());
         return getFoodIntakeById(id);
     }
 
@@ -96,6 +96,10 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
         foodIntake.setFood_type(results.getString("food_type"));
         foodIntake.setServing_size(results.getFloat("serving_size"));
         foodIntake.setNumber_of_servings(results.getFloat("number_of_servings"));
+        foodIntake.setCalories(results.getFloat("calories"));
+        foodIntake.setCarbs(results.getFloat("carbs"));
+        foodIntake.setFats(results.getFloat("fats"));
+        foodIntake.setProteins(results.getFloat("proteins"));
         foodIntake.setMeal_type(results.getString("meal_type"));
 
         return foodIntake;

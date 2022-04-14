@@ -3,6 +3,8 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS foodIntake CASCADE;
 DROP TABLE IF EXISTS profile CASCADE;
+DROP TABLE IF EXISTS hydration CASCADE;
+
 
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -28,11 +30,24 @@ CREATE TABLE foodIntake (
 	food_type varchar(50) NOT NULL,
 	serving_size NUMERIC(10,2) NOT NULL,
 	number_of_servings NUMERIC(10,2) NOT NULL,
+	calories NUMERIC(10,2) NOT NULL,
+	carbs NUMERIC(10,2) NOT NULL,
+	fats NUMERIC(10,2) NOT NULL,
+	proteins NUMERIC(10,2) NOT NULL,
 	meal_type varchar(10) NOT NULL,
 	day_of_meal date NOT NULL,
+	
 	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT PK_food_intake PRIMARY KEY (food_intake_id)
+);
 
+CREATE TABLE hydration (
+   hydration_id serial NOT NULL,
+   user_id int NOT NULL,
+   curr_date date NOT NULL,
+   amount_drank NUMERIC(10,2),
+   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+   CONSTRAINT PK_hydration_id PRIMARY KEY (hydration_id)
 );
 
 CREATE TABLE profile (

@@ -11,6 +11,10 @@ public class FoodIntake {
     private String food_type;
     private float serving_size;
     private float number_of_servings;
+    private float calories;
+    private float carbs;
+    private float fats;
+    private float proteins;
     private String meal_type;
 
     //@JsonFormat(pattern = "yyyy/MM/dd")
@@ -58,6 +62,38 @@ public class FoodIntake {
 
     public void setNumber_of_servings(float number_of_servings) {
         this.number_of_servings = number_of_servings;
+    }
+
+    public float getCalories() {
+        return calories;
+    }
+
+    public void setCalories(float calories) {
+        this.calories = calories;
+    }
+
+    public float getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(float carbs) {
+        this.carbs = carbs;
+    }
+
+    public float getFats() {
+        return fats;
+    }
+
+    public void setFats(float fats) {
+        this.fats = fats;
+    }
+
+    public float getProteins() {
+        return proteins;
+    }
+
+    public void setProteins(float proteins) {
+        this.proteins = proteins;
     }
 
     public String getMeal_type() {
