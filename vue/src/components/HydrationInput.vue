@@ -50,7 +50,7 @@ export default {
       }
     },
     getRecommendedHydration(currentWeight){
-      this.recommended_hydration = (currentWeight * .75 * .8)
+      this.recommended_hydration = ((currentWeight * .5) * .8)
     }
   }
 }

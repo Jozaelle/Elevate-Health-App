@@ -147,8 +147,6 @@ div.picture1 {
   background-repeat: no-repeat;
   background-size:  cover;
   background-position: center;
-  
-  
 }
 .h3-mb-3-font-weight-normal{
   margin-bottom:40px;
