@@ -54,6 +54,8 @@ CREATE TABLE profile (
 	profile_id serial NOT NULL,
 	user_id int NOT NULL,
 	display_name varchar(64),
+	photo varchar(500),
+	birthday date,
 	age int,
 	height_feet int,
 	height_inches int,
