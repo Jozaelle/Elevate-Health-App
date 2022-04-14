@@ -7,6 +7,9 @@ export default {
   },
   getAllFoodIntakes(){
     return axios.get(`/foodIntake/getAll`)
+  },
+  deleteFoodIntake(id){
+    return axios.delete(`foodIntake/${id}`)
   }
 
 }

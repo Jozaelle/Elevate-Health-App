@@ -11,6 +11,8 @@
           <th>Number Of Servings</th>
           <th>Meal Type</th>
           <th>Date</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </thead>
         <tbody>
           <tr v-for="intake in foodIntake" v-bind:key="intake.id">
@@ -19,6 +21,12 @@
             <td>{{intake.number_of_servings}}</td>
             <td>{{intake.meal_type}}</td>
             <td>{{intake.day_of_meal}}</td>
+            <td>
+              <button @click="$router.push('Food-Intake')">Edit</button>
+            </td>
+            <td>
+              <button v-on:click="deleteFood(intake.food_intake_id)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -31,6 +39,7 @@
 <script>
 import foodIntakeService from '../services/FoodIntakeService'
 
+
 export default {
   name: "home",
   data() {
@@ -42,6 +51,19 @@ export default {
     foodIntakeService.getAllFoodIntakes().then(response => {
       this.foodIntake = response.data
     });
+  },
+  methods: {
+    deleteFood(id) {
+      foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
+        this.reloadTable()
+      }) 
+    },
+
+    reloadTable() {
+      foodIntakeService.getAllFoodIntakes().then(response => {
+        this.foodIntake = response.data
+      })
+    }
   }
 };
 </script>
