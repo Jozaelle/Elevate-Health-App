@@ -62,7 +62,6 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
 
     @Override
     public FoodIntake createFoodIntake(FoodIntake foodIntake) {
-        FoodIntake newFoodIntake = new FoodIntake();
         String sql = "INSERT INTO foodIntake (user_id, food_type, serving_size, number_of_servings, " +
                 "meal_type, day_of_meal)" +
                 "VALUES (?,?,?,?,?,?) RETURNING food_intake_id";
