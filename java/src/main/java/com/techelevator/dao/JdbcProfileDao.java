@@ -71,7 +71,7 @@ public class JdbcProfileDao implements ProfileDao{
         profile.setUser_id(resultSet.getInt("user_id"));
         profile.setDisplay_name(resultSet.getString("display_name"));
         profile.setPhoto(resultSet.getString("photo"));
-        profile.setBirthday(resultSet.getDate("birthday").toLocalDate());
+        profile.setBirthday(resultSet.getDate("birthday"));
         profile.setAge(resultSet.getInt("age"));
         profile.setHeight_feet(resultSet.getInt("height_feet"));
         profile.setHeight_inches(resultSet.getInt("height_inches"));
