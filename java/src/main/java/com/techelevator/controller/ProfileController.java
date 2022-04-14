@@ -34,4 +34,10 @@ public class ProfileController {
     public Profile getProfileById(Principal principal) {
         return profileDao.getProfileById(userDao.findIdByUsername(principal.getName()));
     }
+
+    @PutMapping(path = "/update")
+    public void updateProfile(@RequestBody Profile updatedProfile, Principal principal) {
+        updatedProfile.setUser_id(userDao.findIdByUsername(principal.getName()));
+        profileDao.updateProfile(updatedProfile);
+    }
 }
