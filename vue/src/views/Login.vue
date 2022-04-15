@@ -1,9 +1,6 @@
 <template id="template">
   <div id="app">
-    <!-- <img src="vue/public/fitness-femenino-.jpg"> -->
     <div class="picture1">&nbsp;</div>
-
-  
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1> 
@@ -13,7 +10,6 @@
         v-if="invalidCredentials"
       >Invalid username and password, try again.</div>
       <div
-        
         class="alert-success"
         role="alert"
         v-if="this.$route.query.registration"
@@ -48,16 +44,12 @@
       <br />
       <br />
       <button type="submit">Sign in</button>
-      
       <br />
       <br />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      
     </form>
   </div>
   </div>
-  
-  
 </template>
 
 <script>
@@ -102,7 +94,6 @@ export default {
 
 <style scoped>
 #login {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,16 +110,7 @@ export default {
   width: 500px;
   height: 500px;
 }
-div.picture1 {
-   height:950px; /*height of your image*/
-   background-image:url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-   margin:0; /* If you want no margin */
-   padding:0; /*if your want to padding */
-  background-repeat: no-repeat;
-  background-size:  cover;
-  background-position: center;
-  
-}
+
 .alert-danger{
   background: rgba(233, 118, 118, 0.774);
   height: 20px;
@@ -143,7 +125,5 @@ div.picture1 {
   align-items: center;
   padding: 5%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
-
 </style>

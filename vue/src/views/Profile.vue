@@ -1,32 +1,14 @@
 <template>
-
-  <div>
-
-      <h1>{{profile.display_name}}</h1>
-      Photo: {{profile.photo}}
-      <br>
-      <br>
-      Birthday: {{profile.birthday}}
-      <br>
-      <br>
-      <h3>Age: {{profile.age}}
-      <br>
-      <br>
-      Height: {{profile.height_feet}}', {{profile.height_inches}}"
-      <br>
-      <br>
-      Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})
-      <br>
-      <br>
-      Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})
-      <br>
-      <br>
-      </h3>
-
-      <button @click="$router.push('create-profile')">Update Profile</button>
-
-      
-    </div>
+  <div class="profile-container">
+    <p>Name: {{profile.display_name}}</p>
+    <p>Photo: {{profile.photo}}</p>
+    <p>Birthday: {{profile.birthday}}</p>
+    <p>Age: {{profile.age}}</p>
+    <p>Height: {{profile.height_feet}}', {{profile.height_inches}}"</p>
+    <p>Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})</p>
+    <p>Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})</p>
+    <button @click="$router.push('create-profile')">Update Profile</button>
+  </div>
 </template>
 
 <script >
@@ -82,5 +64,19 @@ button {
   padding: 15px 15px;
   text-align: center;
   box-shadow: 0 3px 3px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+}
+.profile-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  /* shadow  */
+  background: #dfe5ff;
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+  width: 450px;
+  height: 325px;
+  border-radius: 25px;
 }
 </style>
