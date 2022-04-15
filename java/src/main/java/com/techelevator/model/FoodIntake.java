@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class FoodIntake {
@@ -18,7 +19,7 @@ public class FoodIntake {
     private String meal_type;
 
     //@JsonFormat(pattern = "yyyy/MM/dd")
-    private Date day_of_meal;
+    private LocalDate day_of_meal;
 
     public FoodIntake(){
 
@@ -104,11 +105,11 @@ public class FoodIntake {
         this.meal_type = meal_type;
     }
 
-    public Date getDay_of_meal() {
+    public LocalDate getDay_of_meal() {
         return day_of_meal;
     }
 
-    public void setDay_of_meal(Date day_of_meal) {
+    public void setDay_of_meal(LocalDate day_of_meal) {
         this.day_of_meal = day_of_meal;
     }
 }

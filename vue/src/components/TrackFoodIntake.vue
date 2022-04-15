@@ -61,6 +61,8 @@
       <br />
       <br />
       <button type="submit" >Submit</button>
+      <br>
+      <button type="submit" v-on:click="editFood(food_intake_id)">Edit</button>
     </form>
   </div>
 </template>
@@ -103,7 +105,18 @@ methods: {
       fats: "",
       proteins: "",
     }
-  }
+  },
+
+   editFood() {
+      foodIntakeService
+      .editFoodIntake(this.food_intake_id)
+      .then((response) => {
+        if (response.status == 200) {
+          this.$router.push("/")
+        }
+      })
+
+   },
 }
 };
 </script>

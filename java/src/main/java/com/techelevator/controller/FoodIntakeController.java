@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 @CrossOrigin
@@ -33,7 +34,7 @@ public class FoodIntakeController {
     }
 
     @GetMapping(path = "/getByDate/{date}")
-    public List<FoodIntake> getByDate(@PathVariable Date date){
+    public List<FoodIntake> getByDate(@PathVariable LocalDate date){
         return foodIntakeDao.getByDate(date);
     }
 
@@ -52,6 +53,10 @@ public class FoodIntakeController {
     public void deleteFoodIntakeById(@PathVariable int id){
         foodIntakeDao.deleteFoodIntakeById(id);
     }
+
+    @PutMapping(path = "/edit/{id}")
+    public FoodIntake editFoodIntake(@PathVariable int id) {
+        return foodIntakeDao.editFoodIntakeById(id); }
 
 
 }
