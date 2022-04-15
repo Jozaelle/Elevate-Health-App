@@ -34,7 +34,7 @@
     </div>
     <br>
     <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
-    <LineChart />
+    <LineChart :lineGraphData="weightLineGraphData" />
     <DoughnutChart />
     <BarChart />
   </div>
@@ -58,6 +58,8 @@ export default {
   data() {
     return{
       foodIntake: [],
+      //TODO weight line graph get this from database
+      weightLineGraphData: [175, 182, 180, 178, 175, 177, 173]
     }
   },
   created(){
