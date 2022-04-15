@@ -53,6 +53,7 @@ export default {
     });
   },
   methods: {
+
     deleteFood(id) {
       foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
         this.reloadTable()

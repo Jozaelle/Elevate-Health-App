@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
 
 
     @Override
-    public List<FoodIntake> getByDate(Date date) {
+    public List<FoodIntake> getByDate(LocalDate date) {
         List<FoodIntake> foodIntakeList = new ArrayList<>();
         String sql = "SELECT * FROM foodintake WHERE day_of_meal = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, date);
@@ -83,6 +84,20 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
     }
 
     @Override
+    public FoodIntake editFoodIntakeById(int id) {
+        String sql = "UPDATE foodintake  SET user_id = ?, food_type = ?, serving_size = ?, " +
+                "number_of_servings = ?, calories = ?, carbs = ?, fats = ?, proteins = ?, meal_type = ?, " +
+                "day_of_meal = ? WHERE food_intake_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
+        if(result.next()){
+            return mapRowToFoodIntake(result);
+        }
+        return null;
+
+
+    }
+
+    @Override
     public void deleteFoodIntakeById(int id) {
         String sql = "DELETE FROM foodintake WHERE food_intake_id = ?";
         jdbcTemplate.update(sql,id);
@@ -90,7 +105,7 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
 
     private FoodIntake mapRowToFoodIntake(SqlRowSet results) {
         FoodIntake foodIntake =  new FoodIntake();
-        foodIntake.setDay_of_meal(results.getDate("day_of_meal"));
+        foodIntake.setDay_of_meal(results.getDate("day_of_meal").toLocalDate());
         foodIntake.setUser_id(results.getInt("user_id"));
         foodIntake.setFood_intake_id(results.getInt("food_intake_id"));
         foodIntake.setFood_type(results.getString("food_type"));

@@ -10,6 +10,10 @@ export default {
   },
   deleteFoodIntake(id){
     return axios.delete(`foodIntake/${id}`)
+  },
+
+  editFoodIntake(id){
+    return axios.put(`/foodIntake/edit/${id}`)
   }
 
 }
