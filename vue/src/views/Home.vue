@@ -33,26 +33,23 @@
     </div>
     <br>
     <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
-    <LineChart />
-    <LineChart />
-    <LineChart />
-    <LineChart />
+<!--    <LineChart />-->
   </div>
 </template>
 
 <script>
 import foodIntakeService from '../services/FoodIntakeService'
-import LineChart from '../components/Line.vue'
-
+ // import LineChart from '../components/Line.vue'
 
 export default {
   name: "home",
   components:{
-    LineChart
+     // LineChart,
   },
+
   data() {
     return{
-      foodIntake: []
+      foodIntake: [],
     }
   },
   created(){
@@ -64,14 +61,13 @@ export default {
     deleteFood(id) {
       foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
         this.reloadTable()
-      }) 
+      })
     },
-
     reloadTable() {
       foodIntakeService.getAllFoodIntakes().then(response => {
         this.foodIntake = response.data
       })
-    }
+    },
   }
 };
 </script>
