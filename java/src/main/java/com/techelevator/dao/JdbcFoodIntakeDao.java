@@ -84,17 +84,16 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
     }
 
     @Override
-    public FoodIntake editFoodIntakeById(int id) {
-        String sql = "UPDATE foodintake  SET user_id = ?, food_type = ?, serving_size = ?, " +
+    public void editFoodIntakeById(FoodIntake foodIntake) {
+        String sql = "UPDATE foodintake SET user_id = ?, food_type = ?, serving_size = ?, " +
                 "number_of_servings = ?, calories = ?, carbs = ?, fats = ?, proteins = ?, meal_type = ?, " +
                 "day_of_meal = ? WHERE food_intake_id = ?";
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
-        if(result.next()){
-            return mapRowToFoodIntake(result);
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, foodIntake.getUser_id(), foodIntake.getFood_type(), foodIntake.getServing_size(),
+                foodIntake.getNumber_of_servings(), foodIntake.getCalories(), foodIntake.getCarbs(), foodIntake.getFats(), foodIntake.getProteins(),
+                foodIntake.getMeal_type(), foodIntake.getDay_of_meal(), foodIntake.getFood_intake_id());
+        if(result.next()) {
+            mapRowToFoodIntake(result);
         }
-        return null;
-
-
     }
 
     @Override
@@ -102,6 +101,19 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
         String sql = "DELETE FROM foodintake WHERE food_intake_id = ?";
         jdbcTemplate.update(sql,id);
     }
+
+    @Override
+    public List<FoodIntake> getLastWeek() {
+        List<FoodIntake> foodIntakeList = new ArrayList<>();
+        String sql = "SELECT * FROM foodIntake WHERE day_of_meal > (NOW() - interval '7 day') ORDER BY day_of_meal DESC;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            FoodIntake foodIntake = mapRowToFoodIntake(results);
+            foodIntakeList.add(foodIntake);
+        }
+        return foodIntakeList;
+    }
+
 
     private FoodIntake mapRowToFoodIntake(SqlRowSet results) {
         FoodIntake foodIntake =  new FoodIntake();

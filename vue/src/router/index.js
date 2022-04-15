@@ -58,7 +58,7 @@ const router = new Router({
       }
     },
     {
-      path: "/food-intake",
+      path: "/food-intake/:foodIntakeID",
       name: "food-intake",
       component: FoodIntakeView,
       meta: {

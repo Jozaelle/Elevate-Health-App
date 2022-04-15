@@ -24,9 +24,13 @@ public interface FoodIntakeDao {
     FoodIntake getFoodIntakeById(int id);
 
     //edit food intake by id
-    FoodIntake editFoodIntakeById(int id);
+    void editFoodIntakeById(FoodIntake foodIntake);
 
     // delete
     void deleteFoodIntakeById(int id);
+
+    //get last week
+    List<FoodIntake> getLastWeek();
+
 
 }

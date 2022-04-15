@@ -22,7 +22,8 @@
             <td>{{intake.meal_type}}</td>
             <td>{{intake.day_of_meal}}</td>
             <td>
-              <button @click="$router.push('Food-Intake')">Edit</button>
+              <router-link tag="button" :to="{ name: 'food-intake', 
+              params: {foodIntakeID: intake.food_intake_id} }">Edit</router-link>
             </td>
             <td>
               <button v-on:click="deleteFood(intake.food_intake_id)">Delete</button>
@@ -32,7 +33,7 @@
       </table>
     </div>
     <br>
-    <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
+    <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
     <LineChart />
     <DoughnutChart />
     <BarChart />
@@ -60,11 +61,12 @@ export default {
     }
   },
   created(){
-    foodIntakeService.getAllFoodIntakes().then(response => {
+    foodIntakeService.getLastWeek().then(response => {
       this.foodIntake = response.data
     });
   },
   methods: {
+
 
     deleteFood(id) {
       foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
