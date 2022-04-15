@@ -13,7 +13,6 @@ import TrackFoodIntake from '../components/TrackFoodIntake.vue'
 import HydrationInput from "@/components/HydrationInput";
 export default {
   components: {HydrationInput, TrackFoodIntake },
-
 }
 </script>
 

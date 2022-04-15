@@ -1,9 +1,6 @@
 <template id="template">
   <div id="app">
-    <!-- <img src="vue/public/fitness-femenino-.jpg"> -->
     <div class="picture1">&nbsp;</div>
-
-  
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1> 
@@ -13,7 +10,6 @@
         v-if="invalidCredentials"
       >Invalid username and password, try again.</div>
       <div
-        
         class="alert-success"
         role="alert"
         v-if="this.$route.query.registration"
@@ -48,16 +44,12 @@
       <br />
       <br />
       <button type="submit">Sign in</button>
-      
       <br />
       <br />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      
     </form>
   </div>
   </div>
-  
-  
 </template>
 
 <script>
@@ -102,7 +94,6 @@ export default {
 
 <style scoped>
 #login {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,7 +125,5 @@ export default {
   align-items: center;
   padding: 5%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
-
 </style>

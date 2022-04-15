@@ -1,23 +1,8 @@
 body{
-    width: 100%;
-    font-family: 'Quicksand', sans-serif;
     display: flex;
-    flex-grow: 1;
-    flex-direction:inherit;
-    align-items:center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
-    color: black;
-    
 }
-
-* {
-    box-sizing: border-box;
-    margin-top: 0;
-    padding: 0;
-}
-
 h1{
     margin-bottom: 3rem;
 }
@@ -38,7 +23,6 @@ h2{
     left: 0;
     margin-top: 5px;
     margin-left: 5px;
-    
 }
 
 
@@ -57,15 +41,7 @@ h2{
     opacity: .6;
   }
   
-  
-  
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  
+
   .login-home{
         height:950px; /*height of your image*/
         background-image:url('https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
