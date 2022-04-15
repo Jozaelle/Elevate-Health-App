@@ -33,18 +33,21 @@
     </div>
     <br>
     <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
-<!--    <LineChart />-->
+    <LineChart />
+    <DoughnutChart />
   </div>
 </template>
 
 <script>
 import foodIntakeService from '../services/FoodIntakeService'
- // import LineChart from '../components/Line.vue'
+import LineChart from '../components/Line.vue'
+import DoughnutChart from '../components/Doughnut.vue'
 
 export default {
   name: "home",
   components:{
-     // LineChart,
+    LineChart,
+    DoughnutChart
   },
 
   data() {
