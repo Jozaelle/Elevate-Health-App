@@ -101,7 +101,16 @@ export default {
             //TODO need to get the calculation from profile
             data: [160,160,160,160,160,160,160]
           }
-        ]
+        ],
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
       },
       chartOptions: {
         responsive: true,

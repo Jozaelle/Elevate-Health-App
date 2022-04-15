@@ -1,9 +1,7 @@
 <template>
   <div class="home">
-    <!-- <h1>Home</h1> -->
-    <br>
-    <br>
-    <div id="tableholder">
+    <div id="emptyLeftSpace"></div>
+    <div id="tableholder" class="grid-item">
       <table>
         <thead>
           <th>Food Type</th>
@@ -30,12 +28,11 @@
           </tr>
         </tbody>
       </table>
+      <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
     </div>
-    <br>
-    <router-link :to="{ name: 'food-intake' }">Add Food Link</router-link>
-    <LineChart :lineGraphData="weightLineGraphData" />
-    <DoughnutChart />
-    <BarChart />
+    <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" />
+    <BarChart class="grid-item" id="hydrationBarChart" />
+    <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
   </div>
 </template>
 
@@ -58,7 +55,9 @@ export default {
     return{
       foodIntake: [],
       //TODO weight line graph get this from database
-      weightLineGraphData: [175, 182, 180, 178, 175, 177, 173]
+      weightLineGraphData: [175, 182, 180, 178, 175, 177, 173],
+      //TODO pie chart graph set this from database
+      nutritionPieGraphData: [33, 20, 80, 10]
     }
   },
   created(){
@@ -84,7 +83,7 @@ export default {
 
 <style scoped>
 table {
-  width: 700px;
+  /*width: 700px;*/
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
@@ -119,5 +118,37 @@ td:hover::before{
 				bottom: -9999px;
 				background-color: rgba(255,255,255,0.2);
 				z-index: -1;
+}
+.home{
+  display: grid;
+  grid-template-columns: 100px 30% 30% 30%;
+  grid-template-areas: "empty weight weight weight"
+                        "empty hydration hydration nutrition";
+  padding-top: 20px;
+  grid-gap: 10px;
+
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, .95);
+  /*border: 20px solid rgba(0, 0, 0, 0.8);*/
+  /*padding: 20px;*/
+  text-align: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+
+}
+
+#hydrationBarChart{
+  grid-area: hydration;
+}
+#nutritionPieChart{
+  grid-area: nutrition;
+}
+#weightLineChart{
+  grid-area: weight;
+}
+#emptyLeftSpace{
+  grid-area: empty;
 }
 </style>

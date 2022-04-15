@@ -9,6 +9,7 @@
       :styles="styles"
       :width="width"
       :height="height"
+      :pieGraphData="pieGraphData"
   />
 </template>
 
@@ -59,16 +60,19 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    pieGraphData:{
+      type: Array
     }
   },
   data() {
     return {
       chartData: {
-        labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+        labels: ['Calories', 'Proteins', 'Fats', 'Carbs'],
         datasets: [
           {
             backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-            data: [40, 20, 80, 10]
+            data: this.pieGraphData
           }
         ]
       },
