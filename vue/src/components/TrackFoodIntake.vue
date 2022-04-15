@@ -80,6 +80,7 @@ export default {
 
 data() {
   return {
+
     foodIntake: {
       food_intake_id: "",
       user_id: "",
@@ -93,6 +94,7 @@ data() {
       fats: "",
       proteins: "",
     },
+    
   }
 },
 
@@ -109,23 +111,11 @@ created() {
 methods: {
 
   submitForm() {
-      const newFoodIntake = {
-        user_id: this.foodIntake.user_id,
-        food_type: this.foodIntake.food_type,
-        serving_size: this.foodIntake.serving_size,
-        number_of_servings: this.foodIntake.number_of_servings,
-        meal_type: this.foodIntake.meal_type,
-        day_of_meal: this.foodIntake.day_of_meal,
-        calories: this.foodIntake.calories,
-        carbs: this.foodIntake.carbs,
-        fats: this.foodIntake.fats,
-        proteins: this.foodIntake.proteins,
-      };
 
       if (this.foodIntakeID === 0) {
         // add
         foodIntakeService
-          .createFoodIntake(newFoodIntake)
+          .createFoodIntake(this.foodIntake)
           .then(response => {
             if (response.status === 201) {
               this.$router.push(`/food-intake`);
@@ -136,9 +126,9 @@ methods: {
           });
       } else {
         // update
-        newFoodIntake.foodIntakeID = this.foodIntake.foodIntakeID
+        //newFoodIntake.foodIntakeID = this.foodIntake.foodIntakeID
         foodIntakeService
-          .editFoodIntake(newFoodIntake)
+          .editFoodIntake(this.foodIntake)
           .then(response => {
             if (response.status === 200) {
               this.$router.push(`/`);

@@ -21,7 +21,7 @@ export default {
   },
 
   getFoodIntakeById(id) {
-    return axios.get(`/foodIntake/${id}`)
+    return axios.get(`/foodIntake/get/${id}`)
   }
 
 }

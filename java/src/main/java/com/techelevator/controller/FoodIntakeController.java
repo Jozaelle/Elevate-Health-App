@@ -4,8 +4,10 @@ import com.techelevator.dao.FoodIntakeDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.FoodIntake;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.time.LocalDate;
@@ -55,8 +57,13 @@ public class FoodIntakeController {
     }
 
     @PutMapping(path = "/edit")
-    public void editFoodIntake(@RequestBody FoodIntake foodIntake) {
-        foodIntakeDao.editFoodIntakeById(foodIntake);
+    public FoodIntake editFoodIntake( @RequestBody FoodIntake foodIntake) {
+        //foodIntake.setFood_intake_id(id);
+        if (foodIntakeDao.editFoodIntakeById(foodIntake)) {
+            return foodIntake;
+        }else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Food not found to update.");
+        }
     }
 
     @GetMapping(path = "/week")

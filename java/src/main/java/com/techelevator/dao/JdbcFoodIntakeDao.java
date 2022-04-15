@@ -84,16 +84,14 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
     }
 
     @Override
-    public void editFoodIntakeById(FoodIntake foodIntake) {
+    public boolean editFoodIntakeById(FoodIntake foodIntake) {
         String sql = "UPDATE foodintake SET user_id = ?, food_type = ?, serving_size = ?, " +
                 "number_of_servings = ?, calories = ?, carbs = ?, fats = ?, proteins = ?, meal_type = ?, " +
                 "day_of_meal = ? WHERE food_intake_id = ?";
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, foodIntake.getUser_id(), foodIntake.getFood_type(), foodIntake.getServing_size(),
+        int count = jdbcTemplate.update(sql, foodIntake.getUser_id(), foodIntake.getFood_type(), foodIntake.getServing_size(),
                 foodIntake.getNumber_of_servings(), foodIntake.getCalories(), foodIntake.getCarbs(), foodIntake.getFats(), foodIntake.getProteins(),
                 foodIntake.getMeal_type(), foodIntake.getDay_of_meal(), foodIntake.getFood_intake_id());
-        if(result.next()) {
-            mapRowToFoodIntake(result);
-        }
+        return count == 1;
     }
 
     @Override

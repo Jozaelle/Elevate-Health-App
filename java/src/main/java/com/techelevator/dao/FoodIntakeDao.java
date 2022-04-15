@@ -24,7 +24,7 @@ public interface FoodIntakeDao {
     FoodIntake getFoodIntakeById(int id);
 
     //edit food intake by id
-    void editFoodIntakeById(FoodIntake foodIntake);
+    boolean editFoodIntakeById(FoodIntake foodIntake);
 
     // delete
     void deleteFoodIntakeById(int id);
