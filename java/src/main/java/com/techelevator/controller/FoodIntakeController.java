@@ -54,9 +54,15 @@ public class FoodIntakeController {
         foodIntakeDao.deleteFoodIntakeById(id);
     }
 
-    @PutMapping(path = "/edit/{id}")
-    public FoodIntake editFoodIntake(@PathVariable int id) {
-        return foodIntakeDao.editFoodIntakeById(id); }
+    @PutMapping(path = "/edit")
+    public void editFoodIntake(@RequestBody FoodIntake foodIntake) {
+        foodIntakeDao.editFoodIntakeById(foodIntake);
+    }
+
+    @GetMapping(path = "/week")
+    public List<FoodIntake> getLastWeek() {
+        return foodIntakeDao.getLastWeek();
+    }
 
 
 }

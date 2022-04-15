@@ -12,8 +12,16 @@ export default {
     return axios.delete(`foodIntake/${id}`)
   },
 
-  editFoodIntake(id){
-    return axios.put(`/foodIntake/edit/${id}`)
+  editFoodIntake(foodIntake){
+    return axios.put(`/foodIntake/edit`, foodIntake)
+  },
+
+  getLastWeek(){
+    return axios.get(`/foodIntake/week`)
+  },
+
+  getFoodIntakeById(id) {
+    return axios.get(`/foodIntake/${id}`)
   }
 
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="createFoodIntake">
+    <form @submit.prevent="submitForm">
       <h2>Food Intake Form</h2>
       <label for="food-type">Type of Food</label>
       <br />
@@ -62,7 +62,6 @@
       <br />
       <button type="submit" >Submit</button>
       <br>
-      <button type="submit" v-on:click="editFood(food_intake_id)">Edit</button>
     </form>
   </div>
 </template>
@@ -72,10 +71,17 @@
 import foodIntakeService from '../services/FoodIntakeService'
 
 export default {
+  props: {
+    foodIntakeID: {
+      type: Number,
+      default: 0
+    }
+  },
 
 data() {
   return {
     foodIntake: {
+      food_intake_id: "",
       user_id: "",
       food_type: "",
       serving_size: "",
@@ -90,33 +96,86 @@ data() {
   }
 },
 
-methods: {
-   createFoodIntake() {
-    foodIntakeService.createFoodIntake(this.foodIntake),
-    this.foodIntake = {
-      user_id: "",
-      food_type: "",
-      serving_size: "",
-      number_of_servings: "",
-      meal_type: "",
-      day_of_meal: "",
-      calories: "",
-      carbs: "",
-      fats: "",
-      proteins: "",
-    }
-  },
-
-   editFood() {
-      foodIntakeService
-      .editFoodIntake(this.food_intake_id)
-      .then((response) => {
-        if (response.status == 200) {
-          this.$router.push("/")
-        }
+created() {
+  if (this.foodIntakeID != 0) {
+    foodIntakeService
+      .getFoodIntakeById(this.foodIntakeID)
+      .then(response => {
+        this.foodIntake = response.data;
       })
+  }
+},
 
-   },
+methods: {
+
+  submitForm() {
+      const newFoodIntake = {
+        user_id: this.foodIntake.user_id,
+        food_type: this.foodIntake.food_type,
+        serving_size: this.foodIntake.serving_size,
+        number_of_servings: this.foodIntake.number_of_servings,
+        meal_type: this.foodIntake.meal_type,
+        day_of_meal: this.foodIntake.day_of_meal,
+        calories: this.foodIntake.calories,
+        carbs: this.foodIntake.carbs,
+        fats: this.foodIntake.fats,
+        proteins: this.foodIntake.proteins,
+      };
+
+      if (this.foodIntakeID === 0) {
+        // add
+        foodIntakeService
+          .createFoodIntake(newFoodIntake)
+          .then(response => {
+            if (response.status === 201) {
+              this.$router.push(`/food-intake`);
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "adding");
+          });
+      } else {
+        // update
+        newFoodIntake.foodIntakeID = this.foodIntake.foodIntakeID
+        foodIntakeService
+          .editFoodIntake(newFoodIntake)
+          .then(response => {
+            if (response.status === 200) {
+              this.$router.push(`/`);
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "updating");
+          });
+      }
+    },
+
+  //  createFoodIntake() {
+  //   foodIntakeService.createFoodIntake(this.foodIntake),
+  //   this.foodIntake = {
+  //     user_id: "",
+  //     food_type: "",
+  //     serving_size: "",
+  //     number_of_servings: "",
+  //     meal_type: "",
+  //     day_of_meal: "",
+  //     calories: "",
+  //     carbs: "",
+  //     fats: "",
+  //     proteins: "",
+  //   }
+  // },
+
+  //  editFood(foodIntake) {
+  //     foodIntakeService
+  //     .editFoodIntake(foodIntake)
+  //     .then((response) => {
+  //       if (response.status == 200) {
+  //         this.$router.push("/")
+  //       }
+  //     })
+
+  //  },
 }
 };
 </script>

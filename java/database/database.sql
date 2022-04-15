@@ -68,6 +68,42 @@ CREATE TABLE profile (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-15');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'cereal', 1, 1, 250, 30, 20, 10, 'breakfast', '2022-04-15');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'soup', 1, 1, 300, 25, 10, 5, 'dinner', '2022-04-14');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 275, 30, 20, 15, 'lunch', '2022-04-14');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'steak', 1, 1, 400, 5, 40, 50, 'dinner', '2022-04-13');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-13');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'bacon and eggs', 1, 1, 500, 25, 30, 25, 'breakfast', '2022-04-13');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'potatoes', 1, 1, 300, 45, 10, 5, 'dinner', '2022-04-12');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-04-11');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-04-10');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-04-09');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-08');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-04-07');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-04-07');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-04-06');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-04-06');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-05');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-04-04');
 
 --- USER SETUP (Do Not Modify)
 DROP USER IF EXISTS final_capstone_owner;
