@@ -1,15 +1,18 @@
 <template>
-  <LineChartGenerator
-      :chart-options="chartOptions"
-      :chart-data="chartData"
-      :chart-id="chartId"
-      :dataset-id-key="datasetIdKey"
-      :plugins="plugins"
-      :css-classes="cssClasses"
-      :styles="styles"
-      :width="width"
-      :height="height"
-  />
+  <div>
+    <LineChartGenerator
+        :chart-options="chartOptions"
+        :chart-data="chartData"
+        :chart-id="chartId"
+        :dataset-id-key="datasetIdKey"
+        :plugins="plugins"
+        :css-classes="cssClasses"
+        :styles="styles"
+        :width="width"
+        :height="height"
+        :lineGraphData="lineGraphData"
+    />
+  </div>
 </template>
 
 <script>
@@ -69,33 +72,45 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    lineGraphData: {
+      type: Array,
     }
   },
   data() {
     return {
       chartData: {
         labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July'
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
         ],
         datasets: [
           {
-            label: 'Data One',
+            label: 'Current Weight',
             backgroundColor: '#f87979',
-            data: [40, 39, 10, 40, 39, 80, 40]
+            data: this.lineGraphData
+          },
+          {
+            label: 'Goal Weight',
+            backgroundColor: '#0022ff',
+            //TODO need to get the calculation from profile
+            data: [160,160,160,160,160,160,160]
           }
         ]
       },
       chartOptions: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       }
     }
+  },
+  created() {
+
   }
 }
 </script>

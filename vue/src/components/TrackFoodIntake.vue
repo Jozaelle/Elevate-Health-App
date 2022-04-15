@@ -89,7 +89,6 @@ data() {
 },
 
 methods: {
-
    createFoodIntake() {
     foodIntakeService.createFoodIntake(this.foodIntake),
     this.foodIntake = {
@@ -106,7 +105,6 @@ methods: {
     }
   }
 }
-
 };
 </script>
 
