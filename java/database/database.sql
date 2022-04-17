@@ -114,6 +114,36 @@ VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-05');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-04-04');
 
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-17', 190);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-16', 195);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-15', 200);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-14', 200);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-13', 205);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-12', 205);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-11', 210);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-10', 215);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-09', 220);
+
+
+
 --- USER SETUP (Do Not Modify)
 DROP USER IF EXISTS final_capstone_owner;
 DROP USER IF EXISTS final_capstone_appuser;
