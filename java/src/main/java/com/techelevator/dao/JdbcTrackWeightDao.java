@@ -4,11 +4,13 @@ import com.techelevator.model.TrackWeight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcTrackWeight implements TrackWeightDao {
+@Service
+public class JdbcTrackWeightDao implements TrackWeightDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -29,7 +31,7 @@ public class JdbcTrackWeight implements TrackWeightDao {
     @Override
     public void createTrackWeight(TrackWeight trackWeight) {
 
-        String sql = "INSERT INTO (user_id, curr_date, curr_weight " +
+        String sql = "INSERT INTO weight (user_id, curr_date, curr_weight) " +
                 "VALUES (?, ?, ?)";
                 jdbcTemplate.queryForRowSet(sql, trackWeight.getUser_id(), trackWeight.getCurr_date(),
                         trackWeight.getCurr_weight());
