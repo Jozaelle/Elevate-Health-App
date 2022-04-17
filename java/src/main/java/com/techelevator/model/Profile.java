@@ -9,7 +9,7 @@ public class Profile {
     private int user_id;
     private String display_name;
     private String photo;
-    private LocalDate birthday;
+    private Date birthday;
     private int age;
     private int height_feet;
     private int height_inches;
@@ -53,11 +53,11 @@ public class Profile {
         this.photo = photo;
     }
 
-    public LocalDate getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
