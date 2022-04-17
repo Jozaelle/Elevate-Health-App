@@ -33,6 +33,8 @@ public class ProfileController {
 
     @RequestMapping(path = "", method = RequestMethod.GET)
     public Profile getProfileById(Principal principal) {
+        System.out.println(principal.getName());
+        System.out.println(userDao.findIdByUsername(principal.getName()));
         return profileDao.getProfileById(userDao.findIdByUsername(principal.getName()));
     }
 
