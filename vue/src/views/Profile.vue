@@ -8,15 +8,22 @@
     <p>Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})</p>
     <p>Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})</p>
     <button @click="$router.push('create-profile')">Update Profile</button>
+    <weight-input />
+    <hydration-input />
   </div>
 </template>
 
 <script >
 import ProfileService from '@/services/ProfileService'
+import FoodIntakeView from '@/views/FoodIntakeView.vue';
+import WeightInput from '@/components/WeightInput';
+import HydrationInput from '@/components/HydrationInput';
 
 export default {
+  components: { WeightInput, HydrationInput },
   name: "profile-detail",
   data() {
+    FoodIntakeView
     return {
       isLoading: true,
       profile: {

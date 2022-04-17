@@ -21,7 +21,8 @@ public class HydrationController {
     private UserDao userDao;
 
     @PostMapping(path = "")
-    public void createHydration(@RequestBody Hydration hydration){
+    public void createHydration(@RequestBody Hydration hydration, Principal principal){
+        hydration.setUser_id(userDao.findIdByUsername(principal.getName()));
         hydrationDao.createHydration(hydration);
     }
 

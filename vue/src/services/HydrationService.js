@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export default {
     getAllHydrations(){
-        return axios.get("")
+        return axios.get("/hydration")
     },
 
     createHydration(hydration){
-        return axios.post("", hydration)
+        return axios.post("/hydration", hydration)
     }
 }

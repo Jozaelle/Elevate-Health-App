@@ -4,7 +4,7 @@
       <label for="hydration">How much did you weigh today?</label>
       <br>
       <br>
-      <input v-model="weight.weight" type="number" id="weight" name="weight"
+      <input v-model="weight.curr_weight" type="number" id="weight" name="weight"
        min="0" max="1000" />&nbsp; Pounds
        <br>
        <br>
@@ -26,7 +26,7 @@ export default {
               weight_id: "",
               user_id: "",
               curr_date: "",
-              weight: ""
+              curr_weight: ""
             },
         }
     },
@@ -37,7 +37,7 @@ export default {
         weight_id: "",
         user_id: "",
         curr_date: "",
-        weight: ""
+        curr_weight: ""
       }
     }
   }
