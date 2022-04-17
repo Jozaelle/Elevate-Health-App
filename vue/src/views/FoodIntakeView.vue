@@ -5,6 +5,9 @@
       <br>
       <br>
       <hydration-input />
+      <br>
+      <br>
+      <weight-input />
     </div>
   </div>
 </template>
@@ -12,8 +15,9 @@
 <script>
 import TrackFoodIntake from '../components/TrackFoodIntake.vue'
 import HydrationInput from "@/components/HydrationInput";
+import WeightInput from '../components/WeightInput.vue';
 export default {
-  components: {HydrationInput, TrackFoodIntake },
+  components: {HydrationInput, TrackFoodIntake, WeightInput },
 }
 </script>
 

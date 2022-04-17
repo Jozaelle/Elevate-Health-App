@@ -65,6 +65,15 @@ CREATE TABLE profile (
 	CONSTRAINT PK_profile PRIMARY KEY (profile_id)
 );
 
+CREATE TABLE weight (
+   weight_id serial NOT NULL,
+   user_id int NOT NULL,
+   curr_date date NOT NULL,
+   curr_weight NUMERIC(10,2),
+   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+   CONSTRAINT PK_weight_id PRIMARY KEY (weight_id)
+);
+
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
@@ -104,6 +113,36 @@ INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, ca
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-05');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-04-04');
+
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-17', 190);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-16', 195);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-15', 200);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-14', 200);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-13', 205);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-12', 205);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-11', 210);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-10', 215);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-09', 220);
+
+
 
 --- USER SETUP (Do Not Modify)
 DROP USER IF EXISTS final_capstone_owner;
