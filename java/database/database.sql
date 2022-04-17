@@ -65,6 +65,15 @@ CREATE TABLE profile (
 	CONSTRAINT PK_profile PRIMARY KEY (profile_id)
 );
 
+CREATE TABLE weight (
+   weight_id serial NOT NULL,
+   user_id int NOT NULL,
+   curr_date date NOT NULL,
+   curr_weight NUMERIC(10,2),
+   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+   CONSTRAINT PK_weight_id PRIMARY KEY (weight_id)
+);
+
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
