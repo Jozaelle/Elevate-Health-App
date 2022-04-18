@@ -63,7 +63,6 @@ export default {
       calculateGoalBMI() {
         this.bmiGoal = (this.profile.goal_weight / ((this.profile.height_feet * 12 + this.profile.height_inches) * (this.profile.height_feet * 12 + this.profile.height_inches))) * 703
       },
-      
   }
 };
 </script>
@@ -88,7 +87,7 @@ button {
   background: #dfe5ff;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 450px;
-  height: 625px;
+  height: 930px;
   border-radius: 25px;
 }
 #photo{

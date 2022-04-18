@@ -57,7 +57,7 @@ export default {
   background: #dfe5ff;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 450px;
-  height: 620px;
+  height: 850px;
   border-radius: 25px;
 }
 </style>
