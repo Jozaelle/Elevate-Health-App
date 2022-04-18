@@ -8,6 +8,7 @@ import store from '../store/index'
 import FoodIntakeView from '../views/FoodIntakeView.vue'
 import Profile from '../views/Profile.vue'
 import CreateProfile from "@/views/CreateProfile.vue"
+import Nutrition from "@/views/Nutrition.vue"
 
 
 Vue.use(Router)
@@ -77,6 +78,12 @@ const router = new Router({
       path: "/profile",
       name: "profile",
       component: Profile
+    },
+
+    {
+      path: "/nutrition",
+      name: "nutrition",
+      component: Nutrition
     },
 
   ]

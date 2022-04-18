@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div id="emptyLeftSpace"></div>
+<<<<<<< HEAD
     <div id="tableholder" class="grid-item">
       <table>
         <thead>
@@ -32,6 +33,9 @@
       <br>
       <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
     </div>
+=======
+    
+>>>>>>> b4698a9b07b705b85d40105b97ab486e28b51e00
     <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
     <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" />
     <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
@@ -96,41 +100,7 @@ export default {
 </script>
 
 <style scoped>
-table {
-  border-collapse: collapse;
-  overflow: hidden;
-  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
-}
 
-th, td {
-  padding: 15px;
-  background-color: rgba(255,255,255,0.2);
-  color: black;
-}
-
-th {
-  text-align: left;
-  background-color: #ff4658;
-}
-
-tr:hover {
-       background-color: rgba(255,255,255,0.3);
-}
-
-td{
-  position: relative;
-}
-
-td:hover::before{
-        content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: -9999px;
-				bottom: -9999px;
-				background-color: rgba(255,255,255,0.2);
-				z-index: -1;
-}
 .home{
   display: grid;
   grid-template-columns: 100px 30% 30% 30%;
