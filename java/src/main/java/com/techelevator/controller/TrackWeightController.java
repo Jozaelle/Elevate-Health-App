@@ -25,7 +25,8 @@ public class TrackWeightController {
     private UserDao userDao;
 
     @PostMapping(path = "")
-    public void createTrackWeight(@RequestBody TrackWeight trackWeight){
+    public void createTrackWeight(@RequestBody TrackWeight trackWeight, Principal principal){
+        trackWeight.setUser_id(userDao.findIdByUsername(principal.getName()));
         trackWeightDao.createTrackWeight(trackWeight);
     }
 

@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS foodIntake CASCADE;
 DROP TABLE IF EXISTS profile CASCADE;
 DROP TABLE IF EXISTS hydration CASCADE;
-
+DROP TABLE IF EXISTS weight CASCADE;
 
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -76,6 +76,9 @@ CREATE TABLE weight (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+INSERT INTO profile (user_id) VALUES (1);
+INSERT INTO profile (user_id) VALUES (2);
 
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-15');
