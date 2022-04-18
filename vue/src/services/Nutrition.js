@@ -1,5 +1,5 @@
 import axios from 'axios';
-//import foodIntake from './FoodIntakeService';
+//import FoodIntakeService from '../services/FoodIntakeService';
 
 export default {
 
