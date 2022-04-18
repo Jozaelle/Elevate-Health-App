@@ -29,7 +29,8 @@
           </tr>
         </tbody>
       </table>
-          <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
+      <br>
+      <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
     </div>
     <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
     <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" />
@@ -77,6 +78,7 @@ export default {
       this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
       this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
     });
+
   },
   methods: {
     deleteFood(id) {
@@ -95,11 +97,9 @@ export default {
 
 <style scoped>
 table {
-  /*width: 700px;*/
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
-  margin-bottom: 600px;
 }
 
 th, td {
@@ -135,7 +135,8 @@ td:hover::before{
   display: grid;
   grid-template-columns: 100px 30% 30% 30%;
   grid-template-areas: "empty weight weight weight"
-                        "empty hydration hydration nutrition";
+                        "empty hydration hydration nutrition"
+                        "empty tableHolder tableHolder tableHolder";
   padding-top: 20px;
   grid-gap: 10px;
 
@@ -151,6 +152,9 @@ td:hover::before{
 
 }
 
+#tableHolder{
+  grid-area: tableHolder;
+}
 #hydrationBarChart{
   grid-area: hydration;
 }
