@@ -8,6 +8,10 @@ export default {
 
   getAllWeight(){
     return axios.get('/weight')
-  }
+  },
+
+  // getLastWeekWeight(){
+  //   return axios.get(`/weight/week`)
+  // },
 
 }
