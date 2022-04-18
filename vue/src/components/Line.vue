@@ -11,6 +11,7 @@
         :width="width"
         :height="height"
         :lineGraphData="lineGraphData"
+        :lineGraphDates ="lineGraphDates"
     />
   </div>
 </template>
@@ -75,20 +76,24 @@ export default {
     },
     lineGraphData: {
       type: Array,
+    },
+    lineGraphDates: {
+      type: Array,
     }
   },
   data() {
     return {
       chartData: {
-        labels: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
-        ],
+        labels: this.lineGraphDates,
+        //     [
+        //   'Monday',
+        //   'Tuesday',
+        //   'Wednesday',
+        //   'Thursday',
+        //   'Friday',
+        //   'Saturday',
+        //   'Sunday'
+        // ],
         datasets: [
           {
             label: 'Current Weight',
@@ -118,8 +123,6 @@ export default {
       }
     }
   },
-  created() {
 
-  }
 }
 </script>

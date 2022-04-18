@@ -31,8 +31,8 @@
       </table>
           <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
     </div>
-    <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" />
-    <BarChart class="grid-item" id="hydrationBarChart" />
+    <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
+    <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" />
     <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
   </div>
 </template>
@@ -42,6 +42,7 @@ import foodIntakeService from '../services/FoodIntakeService'
 import LineChart from '../components/Line.vue'
 import DoughnutChart from '../components/Doughnut.vue'
 import BarChart from '../components/Bar.vue'
+import WeightInputService from "@/services/WeightInputService";
 
 
 export default {
@@ -49,26 +50,35 @@ export default {
   components:{
     LineChart,
     DoughnutChart,
-    BarChart
+    BarChart,
   },
 
   data() {
     return{
       foodIntake: [],
-      //TODO weight line graph get this from database
-      weightLineGraphData: [175, 182, 180, 178, 175, 177, 173],
+      // this is inputted as prop for the weight line graph
+      weightObject: [],
+      weightLineGraphData: [],
+      weightLineGraphDates: [],
+
       //TODO pie chart graph set this from database
-      nutritionPieGraphData: [33, 20, 80, 10]
+      nutritionPieGraphData: [33, 20, 80, 10],
+
+      // this is inputted as prop for hydration bar graph
+      hydrationBarGraphData: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12]
     }
   },
   created(){
     foodIntakeService.getLastWeek().then(response => {
       this.foodIntake = response.data
     });
+    WeightInputService.getAllWeight().then(response => {
+      this.weightObject = response.data
+      this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
+      this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+    });
   },
   methods: {
-
-
     deleteFood(id) {
       foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
         this.reloadTable()

@@ -139,13 +139,26 @@ VALUES (2, '2022-04-12', 205);
 INSERT INTO weight (user_id, curr_date, curr_weight)
 VALUES (2, '2022-04-11', 210);
 
-INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-10', 215);
 
-INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-09', 220);
+/*added some hydration test data*/
 
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/14',90);
 
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/15',50);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/16',30);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/17',70);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/18',45);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/19',80);
 
 --- USER SETUP (Do Not Modify)
 DROP USER IF EXISTS final_capstone_owner;

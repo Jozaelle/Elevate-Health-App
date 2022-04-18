@@ -2,7 +2,7 @@
   <div class="profile-container">
     <br>
     <br>
-     <img :src="profile.photo" id="photo">
+     <img :src="profile.photo" id="photo" alt="">
      <br>
     <p>Name: {{profile.display_name}}</p>
     <p>Birthday: {{profile.birthday}}</p>
