@@ -64,9 +64,17 @@
 <script>
 import profileService from "@/services/ProfileService.js"
 export default {
+  props: {
+    profile_id: {
+      type: Number,
+      default: 0
+    }
+  },
+
     data() {
     return {
       profile: {
+         profile_id: "",
          user_id: "",
          display_name: "",
          photo: "",
@@ -81,17 +89,27 @@ export default {
   },
 
   created() {
-          this.profile = {
-              display_name: this.profile.display_name,
-              photo: this.profile.photo,
-              birthday: this.profile.birthday,
-              age: this.profile.age,
-              height_feet: this.profile.height_feet,
-              height_inches: this.profile.height_inches,
-              current_weight: this.profile.current_weight,
-              goal_weight: this.profile.goal_weight
-            }
+    if (this.profile_id != 0) {
+      profileService
+        .getProfile(this.profile_id)
+        .then(response => {
+          this.profile = response.data;
+        })
+    }
   },
+
+  // created() {
+  //         this.profile = {
+  //             display_name: this.profile.display_name,
+  //             photo: this.profile.photo,
+  //             birthday: this.profile.birthday,
+  //             age: this.profile.age,
+  //             height_feet: this.profile.height_feet,
+  //             height_inches: this.profile.height_inches,
+  //             current_weight: this.profile.current_weight,
+  //             goal_weight: this.profile.goal_weight
+  //           }
+  // },
   
   methods: {
     saveProfile() {
