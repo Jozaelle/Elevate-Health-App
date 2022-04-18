@@ -1,41 +1,6 @@
 <template>
   <div class="home">
     <div id="emptyLeftSpace"></div>
-<<<<<<< HEAD
-    <div id="tableholder" class="grid-item">
-      <table>
-        <thead>
-          <th>Food Type</th>
-          <th>Serving Size</th>
-          <th>Number Of Servings</th>
-          <th>Meal Type</th>
-          <th>Date</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </thead>
-        <tbody>
-          <tr v-for="intake in foodIntake" v-bind:key="intake.id">
-            <td>{{intake.food_type}}</td>
-            <td>{{intake.serving_size}}</td>
-            <td>{{intake.number_of_servings}}</td>
-            <td>{{intake.meal_type}}</td>
-            <td>{{intake.day_of_meal}}</td>
-            <td>
-              <router-link tag="button" :to="{ name: 'food-intake', 
-              params: {foodIntakeID: intake.food_intake_id} }">Edit</router-link>
-            </td>
-            <td>
-              <button v-on:click="deleteFood(intake.food_intake_id)">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-      <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
-    </div>
-=======
-    
->>>>>>> b4698a9b07b705b85d40105b97ab486e28b51e00
     <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
     <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" />
     <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
