@@ -10,9 +10,6 @@
     <p>Height: {{profile.height_feet}}', {{profile.height_inches}}"</p>
     <p>Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})</p>
     <p>Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})</p>
-   
-
-
     <button @click="$router.push('create-profile')">Update Profile</button>
   
   </div>

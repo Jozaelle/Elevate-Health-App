@@ -1,6 +1,28 @@
 <template>
   <div class="profile-container">
       <profile-form />
+    <br>
+    <br>
+    <form>
+      <button type="button" v-on:click="toggleShowPassword">Update Password</button>
+      <div v-if="showPassword">
+        <label>Current Password</label>
+        <br>
+        <input type="text">
+        <br>
+        <br>
+        <label>New Password</label>
+        <br>
+        <input type="text">
+        <br>
+        <br>
+        <label>Confirm Password</label>
+        <br>
+        <input type="text">
+        <br>
+        <br>
+      </div>
+    </form>
 
   </div>
 </template>
@@ -9,6 +31,16 @@
 import ProfileForm from '../components/ProfileForm.vue'
 export default {
   components: { ProfileForm },
+  data() {
+    return {
+      showPassword : false
+    }
+  },
+  methods:{
+    toggleShowPassword(){
+      this.showPassword = !this.showPassword;
+    }
+  }
 
 }
 </script>
