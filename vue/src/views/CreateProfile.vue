@@ -3,6 +3,7 @@
       <profile-form />
     <br>
     <br>
+<!-- TODO need to update passwords -->
     <form>
       <button type="button" v-on:click="toggleShowPassword">Update Password</button>
       <div v-if="showPassword">
