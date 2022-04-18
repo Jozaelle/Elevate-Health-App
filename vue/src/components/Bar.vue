@@ -9,6 +9,7 @@
       :styles="styles"
       :width="width"
       :height="height"
+      :barGraphData="barGraphData"
   />
 </template>
 
@@ -60,6 +61,9 @@ export default {
     plugins: {
       type: Array,
       default: () => []
+    },
+    barGraphData: {
+      type: Array
     }
   },
   data() {
@@ -81,10 +85,15 @@ export default {
         ],
         datasets: [
           {
-            label: 'Data One',
+            label: 'Current Hydration',
             backgroundColor: '#f87979',
-            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-          }
+            data: this.barGraphData
+          },
+          {
+            label: 'Recommended Hydration',
+            backgroundColor: 'rgba(132,169,255,0.62)',
+            data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]
+          },
         ]
       },
       chartOptions: {
