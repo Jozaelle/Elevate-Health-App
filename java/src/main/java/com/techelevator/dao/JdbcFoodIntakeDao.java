@@ -19,7 +19,7 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
     @Autowired
      private UserDao userDao;
 
-    public JdbcFoodIntakeDao(JdbcTemplate jdbcTemplate) {
+     public JdbcFoodIntakeDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

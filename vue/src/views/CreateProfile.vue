@@ -1,5 +1,6 @@
 <template>
   <div class="profile-container">
+      <profile-form v-bind:profile_id="parseInt($route.params.profile_id)"/>
       <profile-form />
     <br>
     <br>
