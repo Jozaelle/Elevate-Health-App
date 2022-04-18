@@ -2,7 +2,7 @@
   <div class="home">
     <div id="emptyLeftSpace"></div>
     <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
-    <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" />
+    <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates" />
     <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
   </div>
 </template>
@@ -13,6 +13,7 @@ import LineChart from '../components/Line.vue'
 import DoughnutChart from '../components/Doughnut.vue'
 import BarChart from '../components/Bar.vue'
 import WeightInputService from "@/services/WeightInputService";
+import HydrationService from "@/services/HydrationService";
 
 
 export default {
@@ -26,6 +27,7 @@ export default {
   data() {
     return{
       foodIntake: [],
+
       // this is inputted as prop for the weight line graph
       weightObject: [],
       weightLineGraphData: [],
@@ -35,7 +37,10 @@ export default {
       nutritionPieGraphData: [33, 20, 80, 10],
 
       // this is inputted as prop for hydration bar graph
-      hydrationBarGraphData: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12]
+      hydrationObject:[],
+      hydrationBarGraphData: [],
+      hydrationBarGraphRecommendedData: [],
+      hydrationBarDates: []
     }
   },
   created(){
@@ -47,6 +52,12 @@ export default {
       this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
       this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
     });
+    HydrationService.getAllHydrations().then(response => {
+      this.hydrationObject = response.data
+      this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
+      this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+      this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+    })
 
   },
   methods: {

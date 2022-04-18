@@ -10,6 +10,8 @@
       :width="width"
       :height="height"
       :barGraphData="barGraphData"
+      :barGraphRecommended="barGraphRecommended"
+      :barGraphDates="barGraphDates"
   />
 </template>
 
@@ -64,25 +66,19 @@ export default {
     },
     barGraphData: {
       type: Array
+    },
+    barGraphRecommended: {
+      type: Array
+    },
+    barGraphDates: {
+      type: Array
     }
   },
   data() {
     return {
+      profile: {},
       chartData: {
-        labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December'
-        ],
+        labels: this.barGraphDates,
         datasets: [
           {
             label: 'Current Hydration',
@@ -92,7 +88,7 @@ export default {
           {
             label: 'Recommended Hydration',
             backgroundColor: 'rgba(132,169,255,0.62)',
-            data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]
+            data: this.barGraphRecommended,
           },
         ]
       },
@@ -101,6 +97,6 @@ export default {
         maintainAspectRatio: false
       }
     }
-  }
+  },
 }
 </script>

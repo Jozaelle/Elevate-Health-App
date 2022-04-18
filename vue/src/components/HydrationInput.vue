@@ -18,6 +18,7 @@
 <script>
 import hydrationService from "@/services/HydrationService";
 import ProfileService from "@/services/ProfileService";
+
 export default {
   components: {},
   data() {

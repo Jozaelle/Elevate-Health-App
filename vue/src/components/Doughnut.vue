@@ -15,7 +15,6 @@
 
 <script>
 import { Doughnut } from 'vue-chartjs/legacy'
-
 import {
   Chart as ChartJS,
   Title,

@@ -79,13 +79,11 @@ const router = new Router({
       name: "profile",
       component: Profile
     },
-
     {
       path: "/nutrition",
       name: "nutrition",
       component: Nutrition
     },
-
   ]
 })
 
