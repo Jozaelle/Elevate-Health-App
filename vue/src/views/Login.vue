@@ -3,7 +3,8 @@
     <div class="picture1">&nbsp;</div>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1> 
+      <img src="vue\public\logo.jpg" id="logo">
+      <h1 class="h3 mb-3 font-weight-normal">Member Login</h1> 
       <div id="invalid"
         class="alert-danger"
         role="alert"
@@ -12,7 +13,7 @@
       <div
         class="alert-success"
         role="alert"
-        v-if="this.$route.query.registration"
+        v-if="this.$route.query.registration" 
       >Thank you for registering! Please sign in.</div>
       <br>
       <br>
@@ -43,7 +44,7 @@
       <br>
       <br />
       <br />
-      <button type="submit">Sign in</button>
+      <button type="submit" id="submit">Sign in</button>
       <br />
       <br />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
@@ -84,15 +85,18 @@ export default {
           const response = error.response;
           if (response.status === 401) {
             this.invalidCredentials = true;
+            this.$route.query.registration = false;
           }
         });
     }
   }
-};
+  
+}
 </script>
 
 
 <style scoped>
+
 #login {
   display: flex;
   flex-direction: column;
@@ -108,7 +112,18 @@ export default {
   background: white;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 500px;
-  height: 500px;
+  height: 620px;
+
+}
+#logo{
+  
+  height: 110px;
+  width: 500px;
+  
+}
+#submit{
+  width: 200px;
+ 
 }
 
 .alert-danger{

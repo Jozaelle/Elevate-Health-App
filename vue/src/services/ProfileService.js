@@ -7,5 +7,8 @@ export default {
     },
     getProfile(){
         return axios.get(`/profile`)
+    },
+    editProfile() {
+        return axios.put(`/profile/edit`)
     }
 }
