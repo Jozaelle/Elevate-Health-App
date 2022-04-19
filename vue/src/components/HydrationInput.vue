@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="createHydration">
+    <form @submit.prevent="createHydration" id="water">
       <p>Daily Recommended Water Intake: {{recommended_hydration}} ounces</p>
       <label for="hydration">How Many 8 oz. Glasses of Water Did You Drink Today?</label>
       <br>
@@ -58,5 +58,20 @@ export default {
 </script>
 
 <style>
+#water{
+  position: absolute;
+  top: 160%;
+  left: 39%;
+  text-align: center;
+
+  background: #dfe5ff;
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+  width: 450px;
+  height: 200px;
+  border-radius: 25px;
+
+  
+
+}
 
 </style>

@@ -14,4 +14,8 @@ export default {
   //   return axios.get(`/weight/week`)
   // },
 
+  getWeightByMonth() {
+    return axios.get(`/weight/month`)
+  }
+
 }

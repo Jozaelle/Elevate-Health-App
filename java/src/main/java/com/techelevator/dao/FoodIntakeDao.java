@@ -30,7 +30,7 @@ public interface FoodIntakeDao {
     void deleteFoodIntakeById(int id);
 
     //get last week
-    List<FoodIntake> getLastWeek();
+    List<FoodIntake> getLastWeek(int user_id);
 
 
 }

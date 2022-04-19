@@ -1,6 +1,8 @@
 <template>
   <div class="nutrition-container">
-   
+    <input type="button" onClick="document.getElementById('middle').scrollIntoView();" />
+
+   <!-- <button type="button" v-on:click="toggleShowNutrition">Nutrition</button> -->
     <div id="tableholder" class="grid-item">
       <table>
         <thead>
@@ -29,13 +31,14 @@
           </tr>
         </tbody>
       </table>
-          <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}">Add Food Link</router-link>
+          <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
     </div>
      <weight-input />
     <hydration-input />
   </div>
   
 </template>
+
 
 <script >
 
@@ -72,15 +75,35 @@ export default {
         this.foodIntake = response.data
       })
     },
+    toggleShowNutrition(){
+      this.showNutrition.tableHolder = !this.showNutrition.tableHolder;
+      
+    }
   }
 };
 </script>
 
 <style scoped>
 table {
-  border-collapse: collapse;
+  margin-top: 100px;
   overflow: hidden;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+  
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  /* shadow  */
+  opacity: 0.9;
+  
+  background-color:rgb(255, 255, 255);
+  
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+  width: 450px;
+  height: 930px;
+  border-radius: 25px;
 }
 
 th, td {
@@ -111,6 +134,16 @@ td:hover::before{
 				bottom: -9999px;
 				background-color: rgba(255,255,255,0.2);
 				z-index: -1;
+}
+#add-link{
+  position: absolute;
+  top: 7%;
+  left: 46%;
+  text-align: center;
+  font-size: xx-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  
+
 }
 
 </style>

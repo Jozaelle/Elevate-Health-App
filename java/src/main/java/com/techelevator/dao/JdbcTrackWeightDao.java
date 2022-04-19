@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.FoodIntake;
 import com.techelevator.model.TrackWeight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -36,6 +37,19 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
                 jdbcTemplate.queryForRowSet(sql, trackWeight.getUser_id(), trackWeight.getCurr_date(),
                         trackWeight.getCurr_weight());
 
+    }
+
+    @Override
+    public List<TrackWeight> WeightByMonth(int user_id) {
+        List<TrackWeight> WeightByMonthList = new ArrayList<>();
+        String sql = "SELECT * FROM weight WHERE curr_date > (NOW() - interval '30 day') AND user_id = ? " +
+                "ORDER BY curr_date ASC";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
+        while(results.next()) {
+            TrackWeight trackWeight = mapRowToWeight(results);
+            WeightByMonthList.add(trackWeight);
+        }
+        return WeightByMonthList;
     }
 
     private TrackWeight mapRowToWeight(SqlRowSet results) {
