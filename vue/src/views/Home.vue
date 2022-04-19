@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home loading" v-if="isLoading">
     <div id="emptyLeftSpace"></div>
     <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
     <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates" />
@@ -14,6 +14,7 @@ import DoughnutChart from '../components/Doughnut.vue'
 import BarChart from '../components/Bar.vue'
 import WeightInputService from "@/services/WeightInputService";
 import HydrationService from "@/services/HydrationService";
+import Nutrition from "@/services/Nutrition";
 
 
 export default {
@@ -26,6 +27,7 @@ export default {
 
   data() {
     return{
+      isLoading: false,
       foodIntake: [],
 
       // this is inputted as prop for the weight line graph
@@ -34,18 +36,21 @@ export default {
       weightLineGraphDates: [],
 
       //TODO pie chart graph set this from database
-      nutritionPieGraphData: [33, 20, 80, 10],
+      nutritionObject:[],
+      nutritionPieGraphData: [],
+          //[33, 20, 80, 10],
 
       // this is inputted as prop for hydration bar graph
       hydrationObject:[],
       hydrationBarGraphData: [],
       hydrationBarGraphRecommendedData: [],
-      hydrationBarDates: []
+      hydrationBarDates: [],
     }
   },
   created(){
     foodIntakeService.getLastWeek().then(response => {
       this.foodIntake = response.data
+      this.isLoading =false;
     });
     WeightInputService.getAllWeight().then(response => {
       this.weightObject = response.data
@@ -58,7 +63,14 @@ export default {
       this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
       this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
     })
-
+    Nutrition.getNutritionByDate().then(response => {
+      this.nutritionObject = response.data;
+      this.nutritionPieGraphData.push(this.nutritionObject.calories)
+      this.nutritionPieGraphData.push(this.nutritionObject.carbs)
+      this.nutritionPieGraphData.push(this.nutritionObject.fats)
+      this.nutritionPieGraphData.push(this.nutritionObject.proteins)
+      this.isLoading=true;
+    })
   },
   methods: {
     deleteFood(id) {
@@ -71,6 +83,9 @@ export default {
         this.foodIntake = response.data
       })
     },
+    turnOnLoading(){
+      this.isLoading = true
+    }
   }
 };
 </script>
@@ -90,12 +105,7 @@ export default {
 
 .grid-item {
   background-color: rgba(255, 255, 255, .95);
-  /*border: 20px solid rgba(0, 0, 0, 0.8);*/
-  /*padding: 20px;*/
   text-align: center;
-  /*display: flex;*/
-  /*justify-content: center;*/
-
 }
 
 #tableHolder{

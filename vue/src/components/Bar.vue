@@ -76,6 +76,7 @@ export default {
   },
   data() {
     return {
+
       profile: {},
       chartData: {
         labels: this.barGraphDates,
@@ -94,7 +95,7 @@ export default {
       },
       chartOptions: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       }
     }
   },
