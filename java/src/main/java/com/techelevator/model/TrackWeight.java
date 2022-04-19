@@ -1,12 +1,13 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class TrackWeight {
 
     private int weight_id;
     private int user_id;
-    private Date curr_date;
+    private LocalDate curr_date;
     private float curr_weight;
 
     public TrackWeight() {
@@ -29,11 +30,11 @@ public class TrackWeight {
         this.user_id = user_id;
     }
 
-    public Date getCurr_date() {
+    public LocalDate getCurr_date() {
         return curr_date;
     }
 
-    public void setCurr_date(Date curr_date) {
+    public void setCurr_date(LocalDate curr_date) {
         this.curr_date = curr_date;
     }
 

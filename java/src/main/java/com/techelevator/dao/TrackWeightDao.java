@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.FoodIntake;
 import com.techelevator.model.TrackWeight;
 
 import java.util.List;
@@ -17,5 +18,11 @@ public interface TrackWeightDao {
     List<TrackWeight> WeightByWeek (int user_id);
 
     List<TrackWeight> WeightByYear (int user_id);
+
+    //edit weight by id
+    boolean editWeightById(TrackWeight trackWeight);
+
+    // delete
+    void deleteWeightById(int id);
 }
 

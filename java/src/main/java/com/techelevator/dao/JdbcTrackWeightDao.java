@@ -78,11 +78,26 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
         return WeightByMonthList;
     }
 
+    @Override
+    public boolean editWeightById(TrackWeight trackWeight) {
+        String sql = "UPDATE weight SET user_id = ?, curr_date = ?, curr_weight = ? " +
+               "WHERE weight_id = ?";
+        int count = jdbcTemplate.update(sql, trackWeight.getUser_id(), trackWeight.getCurr_date(),
+                 trackWeight.getCurr_weight(), trackWeight.getWeight_id());
+        return count == 1;
+    }
+
+    @Override
+    public void deleteWeightById(int id) {
+        String sql = "DELETE FROM weight WHERE weight_id = ?";
+        jdbcTemplate.update(sql,id);
+    }
+
     private TrackWeight mapRowToWeight(SqlRowSet results) {
         TrackWeight trackWeight = new TrackWeight();
         trackWeight.setWeight_id(results.getInt("weight_id"));
         trackWeight.setCurr_weight(results.getFloat("curr_weight"));
-        trackWeight.setCurr_date(results.getDate("curr_date"));
+        trackWeight.setCurr_date(results.getDate("curr_date").toLocalDate());
         trackWeight.setUser_id(results.getInt("user_id"));
         return trackWeight;
     }
