@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <form @submit.prevent="createWeight">
-      <label for="hydration">How much did you weigh today?</label>
+  <div id="weight">
+    <form @submit.prevent="createWeight" >
+      <label for="weight">Weight Update?</label>
       <br>
       <br>
-      <input v-model="weight.curr_weight" type="number" id="weight" name="weight"
+      <input v-model="weight.curr_weight" type="number"  name="weight"
        min="0" max="1000" />&nbsp; Pounds
        <br>
        <br>
@@ -45,5 +45,19 @@ export default {
 </script>
 
 <style>
+#weight{
+ position: absolute;
+  top: 350%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 
+  border-radius: 25px;
+  background: #dfe5ff;
+  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+  width: 600px;
+  height: 900px;
+  padding-top: 50px;
+  
+}
 </style>
