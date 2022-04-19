@@ -3,14 +3,12 @@ import axios from 'axios';
 
 export default {
 
-  createFoodIntake(foodIntake){
-    return axios.post('/nutrition', foodIntake)
-  },
-  getAllFoodIntakes(){
-    return axios.get(`/nutrition/getAll`)
-  },
-  deleteFoodIntake(id){
-    return axios.delete(`nutrition/${id}`)
-  }
 
+  getNutritionByDate(){
+    return axios.get(`/nutrition/today`)
+  },
+  getLastWeekNutrition(){
+    return axios.get(`/nutrition/week`)
+  }
+ 
 }
