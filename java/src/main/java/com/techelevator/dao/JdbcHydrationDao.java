@@ -5,11 +5,18 @@ import com.techelevator.model.Hydration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin
+@RestController
+@PreAuthorize("isAuthenticated()")
+@RequestMapping("/water")
 @Service
 public class JdbcHydrationDao implements HydrationDao {
 
@@ -78,12 +85,17 @@ public class JdbcHydrationDao implements HydrationDao {
 
     @Override
     public boolean editHydrationById(Hydration hydration) {
-        return false;
+        String sql = "UPDATE hydration SET user_id = ?, curr_date = ?, amount_drank = ? " +
+                "WHERE hydration_id = ?";
+        int count = jdbcTemplate.update(sql, hydration.getUser_id(), hydration.getCurr_date(),
+                hydration.getAmount_drank(), hydration.getHydration_id());
+        return count == 1;
     }
 
     @Override
     public void deleteHydrationById(int id) {
-
+        String sql = "DELETE FROM hydration WHERE hydration_id = ?";
+        jdbcTemplate.update(sql,id);
     }
 
     private Hydration mapRowToHydration(SqlRowSet results) {

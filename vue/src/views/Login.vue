@@ -1,10 +1,10 @@
 <template id="template">
-  <div id="app">
-    <div class="picture1">&nbsp;</div>
+  <div id="app" >
+    
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <img src="vue\public\logo.jpg" id="logo">
-      <h1 class="h3 mb-3 font-weight-normal">Member Login</h1> 
+
+      <h1 class="h3 mb-3 font-weight-normal" >Member Login</h1> 
       <div id="invalid"
         class="alert-danger"
         role="alert"
@@ -115,12 +115,6 @@ export default {
   height: 620px;
 
 }
-#logo{
-  
-  height: 110px;
-  width: 500px;
-  
-}
 #submit{
   width: 200px;
  
@@ -141,4 +135,6 @@ export default {
   padding: 5%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+ 
 </style>

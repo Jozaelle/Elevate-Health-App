@@ -9,7 +9,8 @@ import FoodIntakeView from '../views/FoodIntakeView.vue'
 import Profile from '../views/Profile.vue'
 import CreateProfile from "@/views/CreateProfile.vue"
 import Nutrition from "@/views/Nutrition.vue"
-import Weight from '@/views/Weight.vue'
+import WeightTableView from '@/views/WeightTableView.vue'
+import HydrationView from '@/view/HydrationView.vue'
 
 
 Vue.use(Router)
@@ -88,8 +89,13 @@ const router = new Router({
     {
       path: "/weight",
       name: "weight",
-      component: Weight
+      component: WeightTableView
     },
+    {
+      path: "/water",
+      name: "water",
+      component: HydrationView
+    }
   ]
 })
 
