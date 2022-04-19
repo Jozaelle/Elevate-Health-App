@@ -23,11 +23,11 @@
       />
       <br />
       <br />
-      <label for="calories">Calories</label>
+      <!-- <label for="calories">Calories</label>
       <br>
       <input type="text" id="calories" placeholder="Calories" v-model="foodIntake.calories" />
       <br>
-      <br>
+      <br> -->
       <label for="carbs">Carbs</label>
       <br>
       <input type="text" id="carbs" placeholder="Carbs" v-model="foodIntake.carbs" />

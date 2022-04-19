@@ -1,4 +1,5 @@
 <template>
+<div>
   <Doughnut
       :chart-options="chartOptions"
       :chart-data="chartData"
@@ -11,9 +12,11 @@
       :height="height"
       :pieGraphData="pieGraphData"
   />
+  </div>
 </template>
 
 <script>
+//import Nutrition from "@/services/Nutrition";
 import { Doughnut } from 'vue-chartjs/legacy'
 import {
   Chart as ChartJS,
@@ -31,6 +34,7 @@ export default {
   components: {
     Doughnut
   },
+
   props: {
     chartId: {
       type: String,
@@ -78,8 +82,38 @@ export default {
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false
-      }
+      },
+
+        // carbs: "",
+        // proteins: "",
+        // fats: "",
+        // number_of_servings: "",
+        // totalCalories: "",
+        // percentCarbs: "",
+        // percentProteins: "",
+        // percentFats: "",
+
+      
     }
-  }
+  },
+
+  // methods: {
+  //   totalOfCalories(carbs, proteins, fats) {
+  //       this.totalCalories = (carbs + proteins + fats)
+  //    },
+
+  //   percentOfCarbs() {
+  //       this.percentCarbs = (((this.carbs * 100) / this.totalCalories) * this.number_of_servings)
+  //   },
+
+  //   percentOfProteins() {
+  //     this.percentProteins = ((this.proteins * 100) / this.totalCalories)
+  //   },
+
+  //   percentOfFats() {
+  //     this.percentFats = ((this.fats * 100) / this.totalCalories)
+  //   },
+
+  // }
 }
 </script>

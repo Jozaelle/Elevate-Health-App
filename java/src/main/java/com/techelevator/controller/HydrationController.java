@@ -35,4 +35,14 @@ public class HydrationController {
         return hydrationDao.getLastWeekHydration(userDao.findIdByUsername(principal.getName()));
     }
 
+    @GetMapping(path = "/lastMonth")
+    public List<Hydration> getLastMonthHydration(Principal principal) {
+        return hydrationDao.getLastMonthHydration(userDao.findIdByUsername(principal.getName()));
+    }
+
+    @GetMapping(path = "/lastYear")
+    public List<Hydration> getLastYearHydration(Principal principal) {
+        return hydrationDao.getLastYearHydration(userDao.findIdByUsername(principal.getName()));
+    }
+
 }

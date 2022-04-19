@@ -2,7 +2,7 @@
   <div>
     <form v-on: submit.prevent>
 
-      <h1>Create Profile</h1>
+      <h1>Update Profile</h1>
 
     <label for="display-name">Display Name: </label>
     <br>
