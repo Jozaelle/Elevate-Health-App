@@ -7,7 +7,7 @@
       <hydration-input />
       <br>
       <br>
-      <weight-input />
+      <weight-input v-bind:weightInputID="parseInt($route.params.weightInputID)"/>
     </div>
   </div>
 </template>

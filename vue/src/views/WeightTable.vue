@@ -1,6 +1,6 @@
 <template>
   <div>
-      <weight-table />
+    <weight-table />
   </div>
 </template>
 
