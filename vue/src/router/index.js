@@ -10,7 +10,7 @@ import Profile from '../views/Profile.vue'
 import CreateProfile from "@/views/CreateProfile.vue"
 import Nutrition from "@/views/Nutrition.vue"
 import WeightTableView from '@/views/WeightTableView.vue'
-import HydrationView from '@/view/HydrationView.vue'
+import HydrationView from '@/views/HydrationView.vue'
 
 
 Vue.use(Router)
