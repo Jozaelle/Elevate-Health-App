@@ -5,6 +5,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.TrackWeightDao;
 import com.techelevator.dao.UserDao;
 
+import com.techelevator.model.FoodIntake;
 import com.techelevator.model.TrackWeight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,5 +34,10 @@ public class TrackWeightController {
     @GetMapping(path = "")
     public List<TrackWeight> getAllWeight(Principal principal){
         return trackWeightDao.getAllWeight(userDao.findIdByUsername(principal.getName()));
+    }
+
+    @GetMapping(path = "/month")
+    public List<TrackWeight> WeightByMonth(Principal principal) {
+        return trackWeightDao.WeightByMonth(userDao.findIdByUsername(principal.getName()));
     }
 }

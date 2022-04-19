@@ -11,5 +11,7 @@ public interface TrackWeightDao {
 
     // create weight
     void createTrackWeight(TrackWeight weight);
+
+    List<TrackWeight> WeightByMonth (int user_id);
 }
 

@@ -67,8 +67,8 @@ public class FoodIntakeController {
     }
 
     @GetMapping(path = "/week")
-    public List<FoodIntake> getLastWeek() {
-        return foodIntakeDao.getLastWeek();
+    public List<FoodIntake> getLastWeek(Principal principal) {
+        return foodIntakeDao.getLastWeek(userDao.findIdByUsername(principal.getName()));
     }
 
 

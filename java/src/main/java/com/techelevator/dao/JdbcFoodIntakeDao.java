@@ -101,10 +101,11 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
     }
 
     @Override
-    public List<FoodIntake> getLastWeek() {
+    public List<FoodIntake> getLastWeek(int user_id) {
         List<FoodIntake> foodIntakeList = new ArrayList<>();
-        String sql = "SELECT * FROM foodIntake WHERE day_of_meal > (NOW() - interval '7 day') ORDER BY day_of_meal DESC;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        String sql = "SELECT * FROM foodIntake WHERE day_of_meal > (NOW() - interval '7 day') " +
+                "AND user_id = ? ORDER BY day_of_meal DESC;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
         while(results.next()) {
             FoodIntake foodIntake = mapRowToFoodIntake(results);
             foodIntakeList.add(foodIntake);
