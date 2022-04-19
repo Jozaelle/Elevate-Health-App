@@ -90,10 +90,6 @@ export default {
     })
     Nutrition.getNutritionByDate().then(response => {
       this.nutritionObject = response.data;
-      this.nutritionPieGraphData.push((this.nutritionObject.carbs*4))
-      this.nutritionPieGraphData.push((this.nutritionObject.fats*9))
-      this.nutritionPieGraphData.push((this.nutritionObject.proteins*4))
-      this.isLoading=true;
       this.nutritionPieGraphData.push(this.nutritionObject.calories)
       this.nutritionPieGraphData.push((this.nutritionObject.carbs))
       this.nutritionPieGraphData.push(this.nutritionObject.fats)
@@ -115,20 +111,15 @@ export default {
      totalOfCalories(carbs, proteins, fats) {
         this.totalCalories = (carbs + proteins + fats)
      },
-
     percentOfCarbs() {
         this.percentCarbs = ((this.carbs * 100) / this.totalCalories)
     },
-
     percentOfProteins() {
       this.percentProteins = ((this.proteins * 100) / this.totalCalories)
     },
-
     percentOfFats() {
       this.percentFats = ((this.fats * 100) / this.totalCalories)
     },
-
-
     deleteFood(id) {
       foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
         this.reloadTable()
@@ -140,48 +131,78 @@ export default {
       })
     },
     weightWeek() {
+      this.isLoadingLineGraph = false;
       WeightInputService.getWeightLastWeek().then(response => {
         this.weightObject = response.data
+        this.weightLineGraphData = []
+        this.weightLineGraphDates = []
         this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
         this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+        this.isLoadingLineGraph = true;
       })
     },
     weightMonth() {
+      this.isLoadingLineGraph = false;
       WeightInputService.getWeightByMonth().then(response => {
         this.weightObject = response.data
+        this.weightLineGraphData = []
+        this.weightLineGraphDates = []
         this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
         this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+        this.isLoadingLineGraph = true;
       })
+
     },
     weightYear() {
+      this.isLoadingLineGraph = false;
       WeightInputService.getWeightLastYear().then(response => {
         this.weightObject = response.data
+        this.weightLineGraphData = []
+        this.weightLineGraphDates = []
         this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
         this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+        this.isLoadingLineGraph = true;
       })
     },
      hydrationWeek() {
+       this.isLoadingBarGraph = false
       HydrationService.getHydrationByWeek().then(response => {
         this.hydrationObject = response.data
+        this.hydrationBarGraphData = []
+        this.hydrationBarGraphRecommendedData = []
+        this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
+        // TODO need to add recommended
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+        this.isLoadingBarGraph = true
       })
     },
     hydrationMonth() {
+      this.isLoadingBarGraph = false
       HydrationService.getHydrationLastMonth().then(response => {
         this.hydrationObject = response.data
+        this.hydrationBarGraphData = []
+        this.hydrationBarGraphRecommendedData = []
+        this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+        this.isLoadingBarGraph = true
       })
     },
     hydrationYear() {
+      this.isLoadingBarGraph = false
       HydrationService.getHydrationLastYear().then(response => {
         this.hydrationObject = response.data
+        this.hydrationBarGraphData = []
+        this.hydrationBarGraphRecommendedData = []
+        this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+        this.isLoadingBarGraph = true
+
       })
     },
   }

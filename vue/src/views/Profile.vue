@@ -87,12 +87,11 @@ button {
   background: #dfe5ff;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 450px;
-  height: 930px;
+  height: 650px;
   border-radius: 25px;
 }
 img {
   width: 250px;
   height: 250px;
-
 }
 </style>

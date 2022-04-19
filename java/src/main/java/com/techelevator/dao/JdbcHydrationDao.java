@@ -76,6 +76,16 @@ public class JdbcHydrationDao implements HydrationDao {
         return hydrationList;
     }
 
+    @Override
+    public boolean editHydrationById(Hydration hydration) {
+        return false;
+    }
+
+    @Override
+    public void deleteHydrationById(int id) {
+
+    }
+
     private Hydration mapRowToHydration(SqlRowSet results) {
         Hydration hydration = new Hydration();
         hydration.setHydration_id(results.getInt("hydration_id"));
