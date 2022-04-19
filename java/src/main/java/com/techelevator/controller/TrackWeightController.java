@@ -40,4 +40,14 @@ public class TrackWeightController {
     public List<TrackWeight> WeightByMonth(Principal principal) {
         return trackWeightDao.WeightByMonth(userDao.findIdByUsername(principal.getName()));
     }
+
+    @GetMapping(path = "/week")
+    public List<TrackWeight> WeightByWeek(Principal principal) {
+        return trackWeightDao.WeightByWeek(userDao.findIdByUsername(principal.getName()));
+    }
+
+    @GetMapping(path = "/year")
+    public List<TrackWeight> WeightByYear(Principal principal) {
+        return trackWeightDao.WeightByYear(userDao.findIdByUsername(principal.getName()));
+    }
 }

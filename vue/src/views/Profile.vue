@@ -2,7 +2,12 @@
   <div class="profile-container">
     <br>
     <br>
+    <!--
+
     <img :src="profile.photo" id="photo" alt="">
+
+    -->
+    <img :src="profile.photo ? profile.photo : defaultPicture" :key="profile.photo" class="profile-photo">
     <br>
     <p>Name: {{profile.display_name}}</p>
     <p>Birthday: {{profile.birthday}}</p>
@@ -39,6 +44,7 @@ export default {
       },
       bmi: "",
       bmiGoal: "",
+      defaultPicture: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     }
   },
   created() {
@@ -84,9 +90,9 @@ button {
   height: 930px;
   border-radius: 25px;
 }
-#photo{
-  width: 400px;
-  height: 300px;
+img {
+  width: 250px;
+  height: 250px;
 
 }
 </style>

@@ -13,4 +13,11 @@ export default {
         return axios.get(`/hydration/lastWeek`)
     },
     
+    getHydrationLastMonth() {
+        return axios.get(`/hydration/lastMonth`)
+    },
+
+    getHydrationLastYear() {
+        return axios.get(`/hydration/lastYear`)
+    },
 }
