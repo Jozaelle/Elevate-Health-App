@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import foodIntakeService from '../services/FoodIntakeService'
 import LineChart from '../components/Line.vue'
 import DoughnutChart from '../components/Doughnut.vue'
 import BarChart from '../components/Bar.vue'
@@ -72,9 +71,6 @@ export default {
     }
   },
   created(){
-    foodIntakeService.getLastWeek().then(response => {
-      this.foodIntake = response.data
-    });
     WeightInputService.getAllWeight().then(response => {
       this.weightObject = response.data
       this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
@@ -119,16 +115,6 @@ export default {
     },
     percentOfFats() {
       this.percentFats = ((this.fats * 100) / this.totalCalories)
-    },
-    deleteFood(id) {
-      foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
-        this.reloadTable()
-      })
-    },
-    reloadTable() {
-      foodIntakeService.getAllFoodIntakes().then(response => {
-        this.foodIntake = response.data
-      })
     },
     weightWeek() {
       this.isLoadingLineGraph = false;
@@ -226,9 +212,6 @@ export default {
   margin-bottom: 20px;
 }
 
-#tableHolder{
-  grid-area: tableHolder;
-}
 #hydrationBarChart{
   grid-area: hydration;
 }
