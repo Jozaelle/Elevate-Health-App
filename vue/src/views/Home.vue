@@ -45,6 +45,15 @@ export default {
       hydrationBarGraphData: [],
       hydrationBarGraphRecommendedData: [],
       hydrationBarDates: [],
+
+       carbs: "",
+        proteins: "",
+        fats: "",
+        number_of_servings: "",
+        totalCalories: "",
+        percentCarbs: "",
+        percentProteins: "",
+        percentFats: "",
     }
   },
   created(){
@@ -65,14 +74,40 @@ export default {
     })
     Nutrition.getNutritionByDate().then(response => {
       this.nutritionObject = response.data;
-      this.nutritionPieGraphData.push(this.nutritionObject.calories)
-      this.nutritionPieGraphData.push(this.nutritionObject.carbs)
-      this.nutritionPieGraphData.push(this.nutritionObject.fats)
-      this.nutritionPieGraphData.push(this.nutritionObject.proteins)
+      this.nutritionPieGraphData.push((this.nutritionObject.carbs*4))
+      this.nutritionPieGraphData.push((this.nutritionObject.fats*9))
+      this.nutritionPieGraphData.push((this.nutritionObject.proteins*4))
       this.isLoading=true;
+    })
+    Nutrition.getNutritionByDate()
+      .then( response => {
+        this.carbs = (response.data.carbs * 4)
+        this.proteins = (response.data.proteins * 4)
+        this.fats = (response.data.fats * 9)
+        this.totalOfCalories(this.carbs, this.proteins, this.fats)
+        this.percentOfCarbs()
+        this.percentOfProteins()
+        this.percentOfFats()
     })
   },
   methods: {
+     totalOfCalories(carbs, proteins, fats) {
+        this.totalCalories = (carbs + proteins + fats)
+     },
+
+    percentOfCarbs() {
+        this.percentCarbs = ((this.carbs * 100) / this.totalCalories)
+    },
+
+    percentOfProteins() {
+      this.percentProteins = ((this.proteins * 100) / this.totalCalories)
+    },
+
+    percentOfFats() {
+      this.percentFats = ((this.fats * 100) / this.totalCalories)
+    },
+
+
     deleteFood(id) {
       foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
         this.reloadTable()
