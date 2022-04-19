@@ -1,6 +1,6 @@
 <template>
   <div class="nutrition-container">
-   
+   <button type="button" v-on:click="toggleShowNutrition">Nutrition</button>
     <div id="tableholder" class="grid-item">
       <table>
         <thead>
@@ -37,6 +37,7 @@
   
 </template>
 
+
 <script >
 
 import foodIntakeService from '../services/FoodIntakeService'
@@ -72,6 +73,10 @@ export default {
         this.foodIntake = response.data
       })
     },
+    toggleShowNutrition(){
+      this.showNutrition.tableHolder = !this.showNutrition.tableHolder;
+      
+    }
   }
 };
 </script>
@@ -81,6 +86,8 @@ table {
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+  
+ 
 }
 
 th, td {
