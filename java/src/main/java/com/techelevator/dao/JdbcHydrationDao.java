@@ -5,11 +5,18 @@ import com.techelevator.model.Hydration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin
+@RestController
+@PreAuthorize("isAuthenticated()")
+@RequestMapping("/water")
 @Service
 public class JdbcHydrationDao implements HydrationDao {
 

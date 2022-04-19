@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="food">
     <form @submit.prevent="submitForm">
       <h2>Food Intake Form</h2>
       <label for="food-type">Type of Food</label>
