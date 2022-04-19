@@ -1,5 +1,5 @@
 <template>
-  <div id="weight">
+  <div id="weightForm">
     <form @submit.prevent="submitWeight" >
       <label for="weight">Weight Update?</label>
       <br>
@@ -79,18 +79,18 @@ export default {
 </script>
 
 <style>
-#weight{
+#weightForm {
  position: absolute;
-  top: 350%;
+  top: 200%;
   left: 54%;
   transform: translate(-50%, -50%);
   text-align: center;
 
   border-radius: 25px;
-  background: #dfe5ff;
+  background: #e8f7f7;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
-  width: 600px;
-  height: 900px;
+  width: 350px;
+  height: 200px;
   padding-top: 50px;
   
 }
