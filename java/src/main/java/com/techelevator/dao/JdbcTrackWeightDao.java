@@ -52,6 +52,32 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
         return WeightByMonthList;
     }
 
+    @Override
+    public List<TrackWeight> WeightByWeek(int user_id) {
+        List<TrackWeight> WeightByMonthList = new ArrayList<>();
+        String sql = "SELECT * FROM weight WHERE curr_date > (NOW() - interval '7 day') AND user_id = ? " +
+                "ORDER BY curr_date ASC";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
+        while(results.next()) {
+            TrackWeight trackWeight = mapRowToWeight(results);
+            WeightByMonthList.add(trackWeight);
+        }
+        return WeightByMonthList;
+    }
+
+    @Override
+    public List<TrackWeight> WeightByYear(int user_id) {
+        List<TrackWeight> WeightByMonthList = new ArrayList<>();
+        String sql = "SELECT * FROM weight WHERE curr_date > (NOW() - interval '365 day') AND user_id = ? " +
+                "ORDER BY curr_date ASC";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
+        while(results.next()) {
+            TrackWeight trackWeight = mapRowToWeight(results);
+            WeightByMonthList.add(trackWeight);
+        }
+        return WeightByMonthList;
+    }
+
     private TrackWeight mapRowToWeight(SqlRowSet results) {
         TrackWeight trackWeight = new TrackWeight();
         trackWeight.setWeight_id(results.getInt("weight_id"));

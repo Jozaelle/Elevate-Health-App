@@ -10,12 +10,16 @@ export default {
     return axios.get('/weight')
   },
 
-  // getLastWeekWeight(){
-  //   return axios.get(`/weight/week`)
-  // },
-
   getWeightByMonth() {
     return axios.get(`/weight/month`)
+  },
+
+  getWeightLastWeek() {
+    return axios.get(`/weight/week`)
+  },
+
+  getWeightLastYear() {
+    return axios.get(`/weight/year`)
   }
 
 }

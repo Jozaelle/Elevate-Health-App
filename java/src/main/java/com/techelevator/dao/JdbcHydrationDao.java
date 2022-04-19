@@ -49,6 +49,32 @@ public class JdbcHydrationDao implements HydrationDao {
         return hydrationList;
     }
 
+    @Override
+    public List<Hydration> getLastMonthHydration(int user_id) {
+        List<Hydration> hydrationList = new ArrayList<>();
+        String sql = "SELECT * FROM hydration WHERE curr_date > (NOW() - interval '30 day') AND user_id = ? " +
+                "ORDER BY curr_date ASC;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
+        while (results.next()) {
+            Hydration hydration = mapRowToHydration(results);
+            hydrationList.add(hydration);
+        }
+        return hydrationList;
+    }
+
+
+    @Override
+    public List<Hydration> getLastYearHydration(int user_id) {
+        List<Hydration> hydrationList = new ArrayList<>();
+        String sql = "SELECT * FROM hydration WHERE curr_date > (NOW() - interval '365 day') AND user_id = ? " +
+                "ORDER BY curr_date ASC;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
+        while (results.next()) {
+            Hydration hydration = mapRowToHydration(results);
+            hydrationList.add(hydration);
+        }
+        return hydrationList;
+    }
 
     private Hydration mapRowToHydration(SqlRowSet results) {
         Hydration hydration = new Hydration();
