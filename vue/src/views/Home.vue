@@ -90,10 +90,6 @@ export default {
     })
     Nutrition.getNutritionByDate().then(response => {
       this.nutritionObject = response.data;
-      this.nutritionPieGraphData.push((this.nutritionObject.carbs*4))
-      this.nutritionPieGraphData.push((this.nutritionObject.fats*9))
-      this.nutritionPieGraphData.push((this.nutritionObject.proteins*4))
-      this.isLoading=true;
       this.nutritionPieGraphData.push(this.nutritionObject.calories)
       this.nutritionPieGraphData.push((this.nutritionObject.carbs))
       this.nutritionPieGraphData.push(this.nutritionObject.fats)
