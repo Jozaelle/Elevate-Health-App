@@ -2,16 +2,22 @@
   <div class="home loading" v-if="isLoading">
     <div id="emptyLeftSpace"></div>
     <div id="weightLineChart">
-      <h1 id="graphTitle">Weight Line Graph</h1>
+      <h1 id="graphTitle">Weight</h1>
       <LineChart class="grid-item" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
+      <button type="button" v-on:click="weightWeek">Week View</button>
+      <button type="button" v-on:click="weightMonth">Month View</button>
+      <button type="button" v-on:click="weightYear">Year View</button>
     </div>
     <div id="hydrationBarChart">
-      <h1 id="graphTitle">Weight Line Graph</h1>
+      <h1 id="graphTitle">Hydration</h1>
 
       <BarChart class="grid-item" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates" />
+      <button type="button" v-on:click="hydrationWeek">Week View</button>
+      <button type="button" v-on:click="hydrationMonth">Month View</button>
+      <button type="button" v-on:click="hydrationYear">Year View</button>
     </div>
     <div id="nutritionPieChart">
-      <h1 id="graphTitle">Weight Line Graph</h1>
+      <h1 id="graphTitle">Nutrition</h1>
       <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
     </div>
   </div>
@@ -90,6 +96,51 @@ export default {
     reloadTable() {
       foodIntakeService.getAllFoodIntakes().then(response => {
         this.foodIntake = response.data
+      })
+    },
+    weightWeek() {
+      WeightInputService.getWeightLastWeek().then(response => {
+        this.weightObject = response.data
+        this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
+        this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+      })
+    },
+    weightMonth() {
+      WeightInputService.getWeightByMonth().then(response => {
+        this.weightObject = response.data
+        this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
+        this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+      })
+    },
+    weightYear() {
+      WeightInputService.getWeightLastYear().then(response => {
+        this.weightObject = response.data
+        this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
+        this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+      })
+    },
+     hydrationWeek() {
+      HydrationService.getHydrationByWeek().then(response => {
+        this.hydrationObject = response.data
+        this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
+        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+      })
+    },
+    hydrationMonth() {
+      HydrationService.getHydrationLastMonth().then(response => {
+        this.hydrationObject = response.data
+        this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
+        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+      })
+    },
+    hydrationYear() {
+      HydrationService.getHydrationLastYear().then(response => {
+        this.hydrationObject = response.data
+        this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
+        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
       })
     },
   }
