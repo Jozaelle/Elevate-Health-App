@@ -93,6 +93,5 @@ button {
 img {
   width: 250px;
   height: 250px;
-
 }
 </style>
