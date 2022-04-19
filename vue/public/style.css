@@ -1,8 +1,4 @@
-body{
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*text-align: center;*/
-}
+
 h1{
     margin-bottom: 3rem;
 }
@@ -52,8 +48,11 @@ h2{
       background-position: top center;
       background-attachment: fixed;
       width: 100%;
-  }
+
   
+  }
+ 
+
 
 
 

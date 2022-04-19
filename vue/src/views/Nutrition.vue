@@ -1,6 +1,7 @@
 <template>
   <div class="nutrition-container">
-    <input type="button" onClick="document.getElementById('middle').scrollIntoView();" />
+
+    <!-- <input type="button" onClick="document.getElementById('middle').scrollIntoView();" /> -->
 
    <!-- <button type="button" v-on:click="toggleShowNutrition">Nutrition</button> -->
     <div id="tableholder" class="grid-item">
@@ -33,8 +34,8 @@
       </table>
           <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
     </div>
-     <weight-input />
-    <hydration-input />
+     
+    
   </div>
   
 </template>
@@ -43,12 +44,10 @@
 <script >
 
 import foodIntakeService from '../services/FoodIntakeService'
-import WeightInput from '@/components/WeightInput';
-import HydrationInput from '@/components/HydrationInput';
 
 export default {
   
-  components: { WeightInput, HydrationInput },
+  components: { },
 
    data() {
     return{
@@ -75,10 +74,7 @@ export default {
         this.foodIntake = response.data
       })
     },
-    toggleShowNutrition(){
-      this.showNutrition.tableHolder = !this.showNutrition.tableHolder;
-      
-    }
+    
   }
 };
 </script>
