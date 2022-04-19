@@ -14,4 +14,10 @@ public interface HydrationDao {
     void createHydration(Hydration hydrationToCreate);
 
     public List<Hydration> getLastWeekHydration(int user_id);
+
+    public List<Hydration> getLastMonthHydration(int user_id);
+
+    public List<Hydration> getLastYearHydration(int user_id);
+
+
 }

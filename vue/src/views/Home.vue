@@ -1,9 +1,18 @@
 <template>
-  <div class="home loading" v-if="isLoading">
+  <div class="home loading">
     <div id="emptyLeftSpace"></div>
-    <LineChart class="grid-item" id="weightLineChart" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
-    <BarChart class="grid-item" id="hydrationBarChart" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates" />
-    <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
+    <div id="weightLineChart" v-if="isLoadingLineGraph">
+      <h1 id="graphTitle">Weight Line Graph</h1>
+      <LineChart class="grid-item" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
+    </div>
+    <div id="hydrationBarChart" v-if="isLoadingBarGraph">
+      <h1 id="graphTitle">Hydration Bar Graph</h1>
+      <BarChart class="grid-item" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates" />
+    </div>
+    <div id="nutritionPieChart" v-if="isLoadingPieChart">
+      <h1 id="graphTitle">Nutrition Pie Graph</h1>
+      <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
+    </div>
   </div>
 </template>
 
@@ -16,7 +25,6 @@ import WeightInputService from "@/services/WeightInputService";
 import HydrationService from "@/services/HydrationService";
 import Nutrition from "@/services/Nutrition";
 
-
 export default {
   name: "home",
   components:{
@@ -27,7 +35,9 @@ export default {
 
   data() {
     return{
-      isLoading: false,
+      isLoadingLineGraph: false,
+      isLoadingBarGraph: false,
+      isLoadingPieChart: false,
       foodIntake: [],
 
       // this is inputted as prop for the weight line graph
@@ -35,10 +45,9 @@ export default {
       weightLineGraphData: [],
       weightLineGraphDates: [],
 
-      //TODO pie chart graph set this from database
+      // this is inputted as prop for the pie/doughnut
       nutritionObject:[],
       nutritionPieGraphData: [],
-          //[33, 20, 80, 10],
 
       // this is inputted as prop for hydration bar graph
       hydrationObject:[],
@@ -59,18 +68,19 @@ export default {
   created(){
     foodIntakeService.getLastWeek().then(response => {
       this.foodIntake = response.data
-      this.isLoading =false;
     });
     WeightInputService.getAllWeight().then(response => {
       this.weightObject = response.data
       this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
       this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+      this.isLoadingLineGraph = true;
     });
     HydrationService.getAllHydrations().then(response => {
       this.hydrationObject = response.data
       this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
       this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
       this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
+      this.isLoadingBarGraph = true;
     })
     Nutrition.getNutritionByDate().then(response => {
       this.nutritionObject = response.data;
@@ -78,6 +88,11 @@ export default {
       this.nutritionPieGraphData.push((this.nutritionObject.fats*9))
       this.nutritionPieGraphData.push((this.nutritionObject.proteins*4))
       this.isLoading=true;
+      this.nutritionPieGraphData.push(this.nutritionObject.calories)
+      this.nutritionPieGraphData.push((this.nutritionObject.carbs))
+      this.nutritionPieGraphData.push(this.nutritionObject.fats)
+      this.nutritionPieGraphData.push(this.nutritionObject.proteins)
+      this.isLoadingPieChart = true;
     })
     Nutrition.getNutritionByDate()
       .then( response => {
@@ -118,9 +133,6 @@ export default {
         this.foodIntake = response.data
       })
     },
-    turnOnLoading(){
-      this.isLoading = true
-    }
   }
 };
 </script>
@@ -131,16 +143,15 @@ export default {
   display: grid;
   grid-template-columns: 100px 30% 30% 30%;
   grid-template-areas: "empty weight weight weight"
-                        "empty hydration hydration nutrition"
-                        "empty tableHolder tableHolder tableHolder";
+                        "empty hydration hydration nutrition";
   padding-top: 20px;
   grid-gap: 10px;
-
 }
 
 .grid-item {
   background-color: rgba(255, 255, 255, .95);
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #tableHolder{
@@ -151,6 +162,13 @@ export default {
 }
 #nutritionPieChart{
   grid-area: nutrition;
+}
+
+#graphTitle{
+  text-align: center;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 #weightLineChart{
   grid-area: weight;
