@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.FoodIntake;
 import com.techelevator.model.Hydration;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface HydrationDao {
 
     // create hydration
     void createHydration(Hydration hydrationToCreate);
+
+    public List<Hydration> getLastWeekHydration(int user_id);
 }

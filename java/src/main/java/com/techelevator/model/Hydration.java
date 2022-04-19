@@ -7,7 +7,7 @@ public class Hydration {
 
     private int hydration_id;
     private int user_id;
-    private Date curr_date;
+    private LocalDate curr_date;
     private float amount_drank;
 
     public Hydration() {
@@ -30,11 +30,11 @@ public class Hydration {
         this.user_id = user_id;
     }
 
-    public Date getCurr_date() {
+    public LocalDate getCurr_date() {
         return curr_date;
     }
 
-    public void setCurr_date(Date curr_date) {
+    public void setCurr_date(LocalDate curr_date) {
         this.curr_date = curr_date;
     }
 

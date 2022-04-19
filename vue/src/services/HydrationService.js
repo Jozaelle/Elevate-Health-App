@@ -7,5 +7,10 @@ export default {
 
     createHydration(hydration){
         return axios.post("/hydration", hydration)
-    }
+    },
+
+    getHydrationByWeek() {
+        return axios.get(`/hydration/lastWeek`)
+    },
+    
 }

@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.HydrationDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.FoodIntake;
 import com.techelevator.model.Hydration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,11 @@ public class HydrationController {
     @GetMapping(path = "")
     public List<Hydration> getAllHydration(Principal principal){
         return hydrationDao.getAllHydration(userDao.findIdByUsername(principal.getName()));
+    }
+
+    @GetMapping(path = "/lastWeek")
+    public List<Hydration> getLastWeekHydration(Principal principal) {
+        return hydrationDao.getLastWeekHydration(userDao.findIdByUsername(principal.getName()));
     }
 
 }
