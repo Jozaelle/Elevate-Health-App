@@ -34,8 +34,8 @@
       </table>
           <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
     </div>
-     <weight-input />
-    <hydration-input />
+     
+    
   </div>
   
 </template>
