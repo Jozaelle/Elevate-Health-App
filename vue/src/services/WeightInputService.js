@@ -20,6 +20,20 @@ export default {
 
   getWeightLastYear() {
     return axios.get(`/weight/year`)
+  },
+
+  deleteWeight(id){
+    return axios.delete(`weight/${id}`)
+  },
+
+  editWeight(weight){
+    return axios.put(`/weight/edit`, weight)
+  },
+
+  getWeightById(id) {
+    return axios.get(`/weight/${id}`)
   }
+
+
 
 }

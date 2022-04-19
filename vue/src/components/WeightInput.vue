@@ -1,6 +1,6 @@
 <template>
   <div id="weight">
-    <form @submit.prevent="createWeight" >
+    <form @submit.prevent="submitWeight" >
       <label for="weight">Weight Update?</label>
       <br>
       <br>
@@ -19,6 +19,12 @@
 <script>
 import WeightInputService from "@/services/WeightInputService";
 export default {
+   props: {
+    weightInputID: {
+      type: Number,
+      default: 0
+    }
+  },
   components: {},
   data() {
         return {
@@ -39,7 +45,35 @@ export default {
         curr_date: "",
         curr_weight: ""
       }
-    }
+    },
+
+    submitForm() {
+
+      if (this.weightInputID === 0) {
+        WeightInputService
+          .createWeightInput(this.weight)
+          .then(response => {
+            if (response.status === 201) {
+              this.$router.push(`/weight`);
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "adding");
+          });
+      } else {
+        WeightInputService
+          .editWeight(this.weight)
+          .then(response => {
+            if (response.status === 200) {
+              this.$router.push(`/weight`);
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "updating");
+          });
+      }
+    },
+  
   }
 }
 </script>
