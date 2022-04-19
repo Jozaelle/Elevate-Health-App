@@ -1,6 +1,8 @@
 <template>
   <div class="nutrition-container">
-   <button type="button" v-on:click="toggleShowNutrition">Nutrition</button>
+    <input type="button" onClick="document.getElementById('middle').scrollIntoView();" />
+
+   <!-- <button type="button" v-on:click="toggleShowNutrition">Nutrition</button> -->
     <div id="tableholder" class="grid-item">
       <table>
         <thead>
