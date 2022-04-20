@@ -134,17 +134,18 @@ td:hover::before{
 }
 #add-link{
   position: absolute;
-  top: 2%;
+  top: 1%;
   left: 43%;
   text-align: center;
   font-size: xx-large;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
-  background-color: rgb(255, 133, 133);
+  background-color: rgb(253, 112, 112);
   color: white;
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: uppercase;
+  border-radius: 10px
 }
 
 </style>
