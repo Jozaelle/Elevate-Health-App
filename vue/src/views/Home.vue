@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import foodIntakeService from '../services/FoodIntakeService'
 import LineChart from '../components/Line.vue'
 import DoughnutChart from '../components/Doughnut.vue'
 import BarChart from '../components/Bar.vue'
 import WeightInputService from "@/services/WeightInputService";
 import HydrationService from "@/services/HydrationService";
 import Nutrition from "@/services/Nutrition";
+import ProfileService from "@/services/ProfileService";
 
 export default {
   name: "home",
@@ -55,11 +55,13 @@ export default {
       nutritionObject:[],
       nutritionPieGraphData: [],
 
+
       // this is inputted as prop for hydration bar graph
       hydrationObject:[],
       hydrationBarGraphData: [],
       hydrationBarGraphRecommendedData: [],
       hydrationBarDates: [],
+      recommended_hydration: {},
 
        carbs: "",
         proteins: "",
@@ -72,9 +74,9 @@ export default {
     }
   },
   created(){
-    foodIntakeService.getLastWeek().then(response => {
-      this.foodIntake = response.data
-    });
+    ProfileService.getProfile().then(response => {
+      this.recommended_hydration = ((response.data.current_weight * .5) * .8)
+    })
     WeightInputService.getAllWeight().then(response => {
       this.weightObject = response.data
       this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
@@ -84,7 +86,9 @@ export default {
     HydrationService.getAllHydrations().then(response => {
       this.hydrationObject = response.data
       this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-      this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+      for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+        this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+      }
       this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
       this.isLoadingBarGraph = true;
     })
@@ -119,16 +123,6 @@ export default {
     },
     percentOfFats() {
       this.percentFats = ((this.fats * 100) / this.totalCalories)
-    },
-    deleteFood(id) {
-      foodIntakeService.deleteFoodIntake(parseInt(id)).then(() => {
-        this.reloadTable()
-      })
-    },
-    reloadTable() {
-      foodIntakeService.getAllFoodIntakes().then(response => {
-        this.foodIntake = response.data
-      })
     },
     weightWeek() {
       this.isLoadingLineGraph = false;
@@ -166,13 +160,16 @@ export default {
     },
      hydrationWeek() {
        this.isLoadingBarGraph = false
-      HydrationService.getHydrationByWeek().then(response => {
+       HydrationService.getHydrationByWeek().then(response => {
         this.hydrationObject = response.data
         this.hydrationBarGraphData = []
         this.hydrationBarGraphRecommendedData = []
         this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-        // TODO need to add recommended
+         this.hydrationBarGraphRecommendedData = []
+         for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+           this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+         }
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
         this.isLoadingBarGraph = true
@@ -186,7 +183,10 @@ export default {
         this.hydrationBarGraphRecommendedData = []
         this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationBarGraphRecommendedData = []
+        for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+          this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+        }
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
         this.isLoadingBarGraph = true
       })
@@ -199,10 +199,12 @@ export default {
         this.hydrationBarGraphRecommendedData = []
         this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationBarGraphRecommendedData = []
+        for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+          this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+        }
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
         this.isLoadingBarGraph = true
-
       })
     },
   }
@@ -213,7 +215,7 @@ export default {
 
 .home{
   display: grid;
-  grid-template-columns: 100px 30% 30% 30%;
+  grid-template-columns: 130px 30% 30% 30%;
   grid-template-areas: "empty weight weight weight"
                         "empty hydration hydration nutrition";
   padding-top: 20px;
@@ -226,9 +228,6 @@ export default {
   margin-bottom: 20px;
 }
 
-#tableHolder{
-  grid-area: tableHolder;
-}
 #hydrationBarChart{
   grid-area: hydration;
 }
