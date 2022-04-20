@@ -26,7 +26,7 @@ public class JdbcFoodIntakeDao implements FoodIntakeDao {
     @Override
     public List<FoodIntake> getAll(int id) {
         List<FoodIntake> foodIntakeList = new ArrayList<>();
-        String sql = "SELECT * FROM foodintake WHERE user_id = ?";
+        String sql = "SELECT * FROM foodintake WHERE user_id = ? ORDER BY day_of_meal DESC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while(results.next()) {
             FoodIntake foodIntake = mapRowToFoodIntake(results);

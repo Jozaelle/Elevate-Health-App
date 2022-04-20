@@ -4,8 +4,8 @@
       <label for="weight">Weight Update?</label>
       <br>
       <br>
-      <input v-model="weight.curr_weight" type="number"  name="weight"
-       min="0" max="1000" />&nbsp; Pounds
+      <input v-model="weight.curr_weight" type="number" 
+       min="0" max="1000"/>&nbsp;
        <br>
        <br>
       <input v-model="weight.curr_date" type="date" />&nbsp;
@@ -64,7 +64,7 @@ export default {
         WeightInputService
           .createWeightInput(this.weight)
           .then(response => {
-            if (response.status === 201) {
+            if (response.status === 200) {
               this.$router.push(`/weight`);
             }
           })
