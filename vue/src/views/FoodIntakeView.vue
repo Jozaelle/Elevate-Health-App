@@ -2,18 +2,16 @@
   <div>
     <div class="containers">
       <track-food-intake v-bind:foodIntakeID="parseInt($route.params.foodIntakeID)"/>
-      <hydration-input />
-      <!-- <weight-input v-bind:weightInputID="parseInt($route.params.weightInputID)"/> -->
+     
     </div>
   </div>
 </template>
 
 <script>
 import TrackFoodIntake from '../components/TrackFoodIntake.vue'
-import HydrationInput from "@/components/HydrationInput";
-//import WeightInput from '../components/WeightInput.vue';
+
 export default {
-  components: {HydrationInput, TrackFoodIntake, },
+  components: { TrackFoodIntake, },
 }
 </script>
 
@@ -29,7 +27,7 @@ export default {
   background: #e8f7f7;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 500px;
-  height: 575px;
+  height: 750px;
   border-radius: 25px;
 }
 </style>

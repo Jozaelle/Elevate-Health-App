@@ -3,12 +3,14 @@ package com.techelevator.dao;
 import com.techelevator.model.FoodIntake;
 import com.techelevator.model.Hydration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -33,6 +35,7 @@ public class JdbcHydrationDao implements HydrationDao {
     }
 
     @Override
+    @ResponseStatus(HttpStatus.CREATED)
     public void createHydration(Hydration hydrationToCreate) {
         String sql = "INSERT INTO hydration (user_id, curr_date, amount_drank)" +
                 " VALUES (?,?,?)";

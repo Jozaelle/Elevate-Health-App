@@ -41,13 +41,8 @@ export default {
 
    data() {
     return{
-      weightArray: {
-          weight_id: "",
-          user_id: "",
-          curr_date: "",
-          curr_weight: ""
-      }
-      }
+      weightArray: []
+    }   
    },
 
    created(){

@@ -59,6 +59,8 @@
       </label>
       <br />
       <br />
+      <div id="success" v-if="isCreated">You Successfully Added a Food</div>
+      <br />
       <button type="submit" >Submit</button>
       <br>
     </form>
@@ -78,6 +80,8 @@ export default {
 
 data() {
   return {
+
+    isCreated: false,
 
     foodIntake: {
       food_intake_id: "",
@@ -115,8 +119,23 @@ methods: {
         foodIntakeService
           .createFoodIntake(this.foodIntake)
           .then(response => {
-            if (response.status === 201) {
-              this.$router.push(`/food-intake`);
+            console.log(response.status)
+            if (response.status === 200) {
+            this.isCreated = true,
+                this.foodIntake = {
+                  food_intake_id: "",
+                  user_id: "",
+                  food_type: "",
+                  serving_size: "",
+                  number_of_servings: "",
+                  meal_type: "",
+                  day_of_meal: "",
+                  calories: "",
+                  carbs: "",
+                  fats: "",
+                  proteins: "",
+                }
+          
             }
           })
           .catch(error => {
@@ -129,7 +148,7 @@ methods: {
           .editFoodIntake(this.foodIntake)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push(`/`);
+              this.$router.push(`/nutrition`);
             }
           })
           .catch(error => {
@@ -171,5 +190,8 @@ methods: {
 <style>
 #meal-type {
   padding: 0.25rem 3rem 0.25rem 3rem;
+}
+#success {
+  background-color: rgb(181, 204, 140);
 }
 </style>

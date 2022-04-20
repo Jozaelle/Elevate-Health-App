@@ -88,15 +88,16 @@ const router = new Router({
       component: Nutrition
     },
     {
-      path: "/weight/:weightInputID",
-      name: "weightInputID",
-      component: WeightInputView
-    },
-    {
       path: "/weight",
       name: "weight",
       component: WeightTableView
     },
+    {
+      path: "/weight/:weightInputID",
+      name: "weightInputID",
+      component: WeightInputView
+    },
+   
     {
       path: "/water",
       name: "water",
