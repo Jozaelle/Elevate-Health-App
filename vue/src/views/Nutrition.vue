@@ -123,7 +123,7 @@ td{
 }
 
 td:hover::before{
-        content: "";
+       content: "";
 				position: absolute;
 				left: 0;
 				right: 0;
