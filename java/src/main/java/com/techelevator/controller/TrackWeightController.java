@@ -63,8 +63,15 @@ public class TrackWeightController {
         }
     }
 
+    @GetMapping(path = "/{weightId}")
+    public TrackWeight getWeightById (@PathVariable int weightId) {
+        return trackWeightDao.getWeightById(weightId);
+    }
+
     @DeleteMapping(path = "/{id}")
     public void deleteWeightById(@PathVariable int id){
         trackWeightDao.deleteWeightById(id);
     }
 }
+
+

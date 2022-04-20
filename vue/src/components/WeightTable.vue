@@ -15,7 +15,7 @@
             <td>{{weight.curr_date}}</td>
             <td>{{weight.curr_weight}}</td>
             <td>
-              <router-link tag="button" :to="{ name: 'food-intake', 
+              <router-link tag="button" :to="{ name: 'weightInputID', 
               params: {weightInputID: weight.weight_id} }">Edit</router-link>
             </td>
              <td>
@@ -24,6 +24,7 @@
           </tr>
         </tbody>
       </table>
+       <router-link :to="{ name: 'weightInputID', params: {weightInputID: 0}}" id="add-link">Add Current Weight</router-link>
     </div>
   </div>
   
@@ -133,8 +134,24 @@ td:hover::before{
   text-align: center;
   font-size: xx-large;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-  
 
+}
+
+#add-link{
+  position: absolute;
+  top: 1%;
+  left: 43%;
+  text-align: center;
+  opacity: 0.9;
+  font-size: xx-large;
+  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+  background-color: #ff4658;
+  color: black;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10px
 }
 
 </style>

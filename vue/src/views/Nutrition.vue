@@ -80,11 +80,12 @@ export default {
 </script>
 
 <style scoped>
+
 table {
   margin-top: 100px;
   overflow: hidden;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 10%), 0 6px 20px 0 rgb(0 0 0 / 10%);
-  
+  padding-bottom: 90px;
  position: absolute;
   top: 50%;
   left: 50%;
@@ -122,7 +123,7 @@ td{
 }
 
 td:hover::before{
-        content: "";
+       content: "";
 				position: absolute;
 				left: 0;
 				right: 0;
@@ -133,13 +134,20 @@ td:hover::before{
 }
 #add-link{
   position: absolute;
-  top: 7%;
-  left: 46%;
+  top: 1%;
+  left: 43%;
   text-align: center;
   font-size: xx-large;
-  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
-
+  opacity: 0.9;
+  background-color: #ff4658;
+  color: black;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10px
 }
 
 </style>
+

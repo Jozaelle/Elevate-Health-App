@@ -24,5 +24,7 @@ public interface TrackWeightDao {
 
     // delete
     void deleteWeightById(int id);
+
+    TrackWeight getWeightById(int weightId);
 }
 

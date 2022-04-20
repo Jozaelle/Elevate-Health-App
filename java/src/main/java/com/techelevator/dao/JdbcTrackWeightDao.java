@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.FoodIntake;
+import com.techelevator.model.Profile;
 import com.techelevator.model.TrackWeight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,7 +22,7 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
     public List<TrackWeight> getAllWeight(int user_id) {
 
         List<TrackWeight> trackWeightList = new ArrayList<>();
-        String sql = "SELECT * FROM weight WHERE user_id = ?";
+        String sql = "SELECT * FROM weight WHERE user_id = ? ORDER BY curr_date DESC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,user_id);
         while (results.next()){
             trackWeightList.add(mapRowToWeight(results));
@@ -91,6 +92,18 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
     public void deleteWeightById(int id) {
         String sql = "DELETE FROM weight WHERE weight_id = ?";
         jdbcTemplate.update(sql,id);
+    }
+
+    @Override
+    public TrackWeight getWeightById(int weightId) {
+        String sql = "SELECT * FROM weight WHERE weight_id = ?;";
+        SqlRowSet resultSet = jdbcTemplate.queryForRowSet(sql, weightId);
+
+        TrackWeight result = null;
+        if (resultSet.next()) {
+            result = mapRowToWeight(resultSet);
+        }
+        return result;
     }
 
     private TrackWeight mapRowToWeight(SqlRowSet results) {

@@ -1,11 +1,11 @@
 <template>
   <div id="weightForm">
-    <form @submit.prevent="submitWeight" >
+    <form @submit.prevent="submitForm" >
       <label for="weight">Weight Update?</label>
       <br>
       <br>
-      <input v-model="weight.curr_weight" type="number"  name="weight"
-       min="0" max="1000" />&nbsp; Pounds
+      <input v-model="weight.curr_weight" type="number" 
+       min="0" max="1000"/>&nbsp;
        <br>
        <br>
       <input v-model="weight.curr_date" type="date" />&nbsp;
@@ -36,6 +36,17 @@ export default {
             },
         }
     },
+
+  created() {
+  if (this.WeightInputService != 0) {
+    WeightInputService
+      .getWeightById(this.weightInputID)
+      .then(response => {
+        this.weight = response.data;
+      })
+  }
+},
+
   methods: {
     createWeight() {
       WeightInputService.createWeightInput(this.weight)
@@ -53,7 +64,7 @@ export default {
         WeightInputService
           .createWeightInput(this.weight)
           .then(response => {
-            if (response.status === 201) {
+            if (response.status === 200) {
               this.$router.push(`/weight`);
             }
           })
@@ -81,8 +92,8 @@ export default {
 <style>
 #weightForm {
  position: absolute;
-  top: 200%;
-  left: 54%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 
