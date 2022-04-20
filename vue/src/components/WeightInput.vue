@@ -36,6 +36,17 @@ export default {
             },
         }
     },
+
+  created() {
+  if (this.WeightInputService != 0) {
+    WeightInputService
+      .getWeightById(this.weightInputID)
+      .then(response => {
+        this.weight = response.data;
+      })
+  }
+},
+
   methods: {
     createWeight() {
       WeightInputService.createWeightInput(this.weight)
@@ -81,8 +92,8 @@ export default {
 <style>
 #weightForm {
  position: absolute;
-  top: 200%;
-  left: 54%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 
