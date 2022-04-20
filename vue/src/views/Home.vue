@@ -29,6 +29,7 @@ import BarChart from '../components/Bar.vue'
 import WeightInputService from "@/services/WeightInputService";
 import HydrationService from "@/services/HydrationService";
 import Nutrition from "@/services/Nutrition";
+import ProfileService from "@/services/ProfileService";
 
 export default {
   name: "home",
@@ -54,11 +55,13 @@ export default {
       nutritionObject:[],
       nutritionPieGraphData: [],
 
+
       // this is inputted as prop for hydration bar graph
       hydrationObject:[],
       hydrationBarGraphData: [],
       hydrationBarGraphRecommendedData: [],
       hydrationBarDates: [],
+      recommended_hydration: {},
 
        carbs: "",
         proteins: "",
@@ -71,6 +74,9 @@ export default {
     }
   },
   created(){
+    ProfileService.getProfile().then(response => {
+      this.recommended_hydration = ((response.data.current_weight * .5) * .8)
+    })
     WeightInputService.getAllWeight().then(response => {
       this.weightObject = response.data
       this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
@@ -80,7 +86,9 @@ export default {
     HydrationService.getAllHydrations().then(response => {
       this.hydrationObject = response.data
       this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-      this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+      for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+        this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+      }
       this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
       this.isLoadingBarGraph = true;
     })
@@ -152,13 +160,16 @@ export default {
     },
      hydrationWeek() {
        this.isLoadingBarGraph = false
-      HydrationService.getHydrationByWeek().then(response => {
+       HydrationService.getHydrationByWeek().then(response => {
         this.hydrationObject = response.data
         this.hydrationBarGraphData = []
         this.hydrationBarGraphRecommendedData = []
         this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-        // TODO need to add recommended
+         this.hydrationBarGraphRecommendedData = []
+         for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+           this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+         }
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
         this.isLoadingBarGraph = true
@@ -172,7 +183,10 @@ export default {
         this.hydrationBarGraphRecommendedData = []
         this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationBarGraphRecommendedData = []
+        for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+          this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+        }
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
         this.isLoadingBarGraph = true
       })
@@ -185,10 +199,12 @@ export default {
         this.hydrationBarGraphRecommendedData = []
         this.hydrationBarDates = []
         this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-        this.hydrationObject.forEach(hydration => this.hydrationBarGraphRecommendedData.push(hydration.amount_drank))
+        this.hydrationBarGraphRecommendedData = []
+        for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
+          this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
+        }
         this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
         this.isLoadingBarGraph = true
-
       })
     },
   }
