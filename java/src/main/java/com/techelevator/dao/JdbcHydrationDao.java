@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
-@CrossOrigin
-@RestController
-@PreAuthorize("isAuthenticated()")
-@RequestMapping("/water")
+
 @Service
 public class JdbcHydrationDao implements HydrationDao {
 
