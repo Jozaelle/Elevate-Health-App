@@ -89,7 +89,7 @@ const router = new Router({
     },
     {
       path: "/weight/:weightInputID",
-      name: "weightID",
+      name: "weightInputID",
       component: WeightInputView
     },
     {

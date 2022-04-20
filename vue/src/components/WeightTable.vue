@@ -15,7 +15,7 @@
             <td>{{weight.curr_date}}</td>
             <td>{{weight.curr_weight}}</td>
             <td>
-              <router-link tag="button" :to="{ name: 'weightID', 
+              <router-link tag="button" :to="{ name: 'weightInputID', 
               params: {weightInputID: weight.weight_id} }">Edit</router-link>
             </td>
              <td>
