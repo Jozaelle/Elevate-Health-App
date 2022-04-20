@@ -81,7 +81,7 @@ export default {
             //['Proteins', 'Fats', 'Carbs'],
         datasets: [
           {
-            backgroundColor: ['#E46651', '#00D8FF', '#DD1B16'],
+            backgroundColor: ['#0ba59d', '#00D8FF', 'rgb(98, 182, 140)'],
             data: this.pieGraphData
           }
         ]
@@ -94,3 +94,4 @@ export default {
   },
 }
 </script>
+

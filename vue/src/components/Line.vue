@@ -86,12 +86,12 @@ export default {
         datasets: [
           {
             label: 'Current Weight',
-            backgroundColor: '#f87979',
+            backgroundColor: '#0ba59d',
             data: this.lineGraphData
           },
           {
             label: 'Goal Weight',
-            backgroundColor: '#0022ff',
+            backgroundColor: '#00D8FF',
             //TODO need to get the calculation from profile
             data: [160,160,160,160,160,160,160]
           }

@@ -82,7 +82,7 @@ export default {
         datasets: [
           {
             label: 'Current Hydration',
-            backgroundColor: '#f87979',
+            backgroundColor: '#0ba59d',
             data: this.barGraphData
           },
           {

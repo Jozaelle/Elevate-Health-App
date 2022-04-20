@@ -101,7 +101,8 @@ th, td {
 
 th {
   text-align: left;
-  background-color: #ff4658;
+  background-color: #0ba59d;
+  color: #e8f7f7
 }
 
 tr:hover {
@@ -122,15 +123,16 @@ td:hover::before{
 				background-color: rgba(255,255,255,0.2);
 				z-index: -1;
 }
-#add-link{
+/* #add-link{
   position: absolute;
   top: 7%;
   left: 46%;
   text-align: center;
-  font-size: xx-large;
+  font-size: small;
+  font-weight: bold;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 
-}
+} */
 
 #add-link{
   position: absolute;
@@ -138,11 +140,12 @@ td:hover::before{
   left: 43%;
   text-align: center;
   opacity: 0.9;
-  font-size: xx-large;
+  font-size: small;
+  font-weight: bold;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
-  background-color: #ff4658;
-  color: black;
+  background-color: #0ba59d;
+  color: #e8f7f7;
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: uppercase;

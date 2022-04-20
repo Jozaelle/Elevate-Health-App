@@ -111,7 +111,8 @@ th, td {
 
 th {
   text-align: left;
-  background-color: #ff4658;
+  background-color: #0ba59d;
+  color: #e8f7f7
 }
 
 tr:hover {
@@ -137,12 +138,13 @@ td:hover::before{
   top: 1%;
   left: 43%;
   text-align: center;
-  font-size: xx-large;
+  font-size: medium;
+  font-weight: bold;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
   opacity: 0.9;
-  background-color: #ff4658;
-  color: black;
+  background-color: #0ba59d;
+  color: #e8f7f7;
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: uppercase;

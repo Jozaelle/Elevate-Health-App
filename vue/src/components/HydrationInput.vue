@@ -2,7 +2,7 @@
   <div>
     <form @submit.prevent="createHydration" id="water">
       <p>Daily Recommended Water Intake: {{recommended_hydration}} ounces</p>
-      <label for="hydration">How Many 8 oz. Glasses of Water Did You Drink Today?</label>
+      <label for="hydration">How Many Ounces of Water Did You Drink Today?</label>
       <br>
       <br>
       <input v-model="hydration.amount_drank" type="number" id="hydration" name="hydration"
