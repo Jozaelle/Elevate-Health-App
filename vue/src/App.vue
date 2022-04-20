@@ -3,20 +3,20 @@
   <div id="app">
      <div id="mySidenav" class="sidenav">
        <img src="../public/elevate-logo.png" id="logo" >
-       <router-link tag="button" class="btn" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
+       <router-link tag="button" class="btn" v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>&nbsp;&nbsp;
        <router-link tag="button" class="btn" v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>
       <div class="drop-down">
-       <button class="dropbtn" v-on:click="nutritionDropDown" >Nutrition</button>
+       <button class="dropbtn" v-on:click="nutritionDropDown" v-if="$store.state.token != ''">Nutrition</button>
     
     <div id="myDropdown" v-if="showDropDown">
-    <router-link  v-bind:to="{ name: 'water' }" class="btn1">Water</router-link>
+    <router-link  v-bind:to="{ name: 'water' }" class="water-btn" v-if="$store.state.token != ''">Water</router-link>
     <br>
     <br>
-    <router-link  v-bind:to="{ name: 'nutrition' }" class="btn2" >Food
+    <router-link  v-bind:to="{ name: 'nutrition' }" class="food-btn" v-if="$store.state.token != ''">Food
     </router-link>
     <br>
     <br>
-    <router-link  v-bind:to="{ name: 'weight' }" class="btn3" >Weight
+    <router-link  v-bind:to="{ name: 'weight' }" class="weight-btn" v-if="$store.state.token != ''">Weight
       <br>
       <br>
     </router-link>
@@ -25,7 +25,7 @@
       </div>
        <br>
 
-       <router-link tag="button" class="btn-log" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;&nbsp;
+       <router-link tag="button" class="btn-logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;&nbsp;
      </div>
     <div id="contents">
       <router-view />
@@ -85,22 +85,22 @@ export default {
     left: 0;
     margin-top: 5px;
     margin-left: 22px; 
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     color:ivory
 }
 
-.btn-log {
+.btn-logout {
     border-radius: 50%;
     height: 6em;
     width: 6em;
     background-color: transparent;
     left: 0;
-    margin-top: 200px;
+    margin-top: 0px;
     margin-left: 22px; 
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     color:ivory
 }
-.btn1{
+.water-btn{
     border-radius: 50%;
     height: 6;
     width: 6em;
@@ -112,7 +112,7 @@ export default {
     margin-bottom: 15px;
     color:ivory
  }
- .btn2{
+ .food-btn{
     border-radius: 50%;
     height: 6em;
     width: 6em;
@@ -124,7 +124,7 @@ export default {
     margin-bottom: 15px;
     color:ivory
  }
- .btn3{
+ .weight-btn{
     border-radius: 50%;
     height: 6em;
     width: 6em;
