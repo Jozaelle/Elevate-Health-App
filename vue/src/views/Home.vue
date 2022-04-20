@@ -73,20 +73,11 @@ export default {
     ProfileService.getProfile().then(response => {
       this.recommended_hydration = ((response.data.current_weight * .5) * .8)
     })
-    WeightInputService.getAllWeight().then(response => {
-      this.weightObject = response.data
-      this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
-      this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
-      this.isLoadingLineGraph = true;
+    WeightInputService.getAllWeight().then(() => {
+      this.weightWeek()
     });
-    HydrationService.getAllHydrations().then(response => {
-      this.hydrationObject = response.data
-      this.hydrationObject.forEach(hydration => this.hydrationBarGraphData.push(hydration.amount_drank))
-      for (let i = 0; i < this.hydrationBarGraphData.length; i++) {
-        this.hydrationBarGraphRecommendedData.push(this.recommended_hydration)
-      }
-      this.hydrationObject.forEach(hydration => this.hydrationBarDates.push(hydration.curr_date))
-      this.isLoadingBarGraph = true;
+    HydrationService.getAllHydrations().then(() => {
+      this.hydrationWeek()
     })
     Nutrition.getNutritionByDate().then(response => {
       this.nutritionObject = response.data;
@@ -94,17 +85,17 @@ export default {
       this.totalOfCalories(this.nutritionObject.carbs,this.nutritionObject.proteins,this.nutritionObject.fats)
       //get carbs as percent of calories and  push result to array
       this.percentOfCarbs(this.nutritionObject.carbs)
-      this.nutritionPieGraphData.push((this.percentCarbs))
+      this.nutritionPieGraphData.push(Math.floor(this.nutritionObject.carbs))
       //get fats as percent of calories and push
       this.percentOfFats(this.nutritionObject.fats);
-      this.nutritionPieGraphData.push(this.percentFats)
+      this.nutritionPieGraphData.push(this.nutritionObject.fats)
       // get proteins as percent of calories and push
       this.percentOfProteins(this.nutritionObject.proteins);
-      this.nutritionPieGraphData.push(this.percentProteins)
+      this.nutritionPieGraphData.push(this.nutritionObject.proteins)
       // assign the labels in respective order
-      this.nutritionLabels.push(this.percentCarbs + "%")
-      this.nutritionLabels.push(this.percentFats + "%")
-      this.nutritionLabels.push(this.percentProteins + "%")
+      this.nutritionLabels.push("Carbs: " + this.percentCarbs + "%")
+      this.nutritionLabels.push("Fats: " + this.percentFats + "%")
+      this.nutritionLabels.push("Proteins: " + this.percentProteins + "%")
       this.isLoadingPieChart = true;
     })
   },
@@ -113,13 +104,13 @@ export default {
         this.totalCalories = (carbs*4 + proteins*4 + fats*9)
      },
     percentOfCarbs(carbs) {
-        this.percentCarbs = ((carbs*4 * 100) / this.totalCalories)
+        this.percentCarbs = Math.round((carbs*4 * 100) / this.totalCalories)
     },
     percentOfProteins(proteins) {
-      this.percentProteins = ((proteins*4 * 100) / this.totalCalories)
+      this.percentProteins = Math.round((proteins*4 * 100) / this.totalCalories)
     },
     percentOfFats(fats) {
-      this.percentFats = ((fats*9 * 100) / this.totalCalories)
+      this.percentFats = Math.round((fats*9 * 100) / this.totalCalories)
     },
 
     weightWeek() {
