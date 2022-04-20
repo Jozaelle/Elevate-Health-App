@@ -1,7 +1,6 @@
 <template>
   <div class="profile-container">
       <profile-form v-bind:profile_id="parseInt($route.params.profile_id)"/>
-
   </div>
 </template>
 
@@ -19,7 +18,6 @@ export default {
       this.showPassword = !this.showPassword;
     }
   }
-
 }
 </script>
 <style scoped>

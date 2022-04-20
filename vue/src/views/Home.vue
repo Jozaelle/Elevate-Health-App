@@ -10,14 +10,14 @@
     </div>
     <div id="hydrationBarChart" v-if="isLoadingBarGraph">
       <h1 id="graphTitle">Hydration Bar Graph</h1>
-      <BarChart class="grid-item" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates" />
+      <BarChart class="grid-item" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates"  />
       <button type="button" v-on:click="hydrationWeek">Week View</button>
       <button type="button" v-on:click="hydrationMonth">Month View</button>
       <button type="button" v-on:click="hydrationYear">Year View</button>
     </div>
     <div id="nutritionPieChart" v-if="isLoadingPieChart">
       <h1 id="graphTitle">Nutrition Pie Graph</h1>
-      <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" />
+      <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" :pieGraphLabels="nutritionLabels" :totalCalories="totalCalories"/>
     </div>
   </div>
 </template>
@@ -54,7 +54,12 @@ export default {
       // this is inputted as prop for the pie/doughnut
       nutritionObject:[],
       nutritionPieGraphData: [],
+      nutritionLabels: [],
 
+      totalCalories: "",
+      percentCarbs: "",
+      percentProteins: "",
+      percentFats: "",
 
       // this is inputted as prop for hydration bar graph
       hydrationObject:[],
@@ -62,15 +67,6 @@ export default {
       hydrationBarGraphRecommendedData: [],
       hydrationBarDates: [],
       recommended_hydration: {},
-
-       carbs: "",
-        proteins: "",
-        fats: "",
-        number_of_servings: "",
-        totalCalories: "",
-        percentCarbs: "",
-        percentProteins: "",
-        percentFats: "",
     }
   },
   created(){
@@ -94,36 +90,38 @@ export default {
     })
     Nutrition.getNutritionByDate().then(response => {
       this.nutritionObject = response.data;
-      this.nutritionPieGraphData.push(this.nutritionObject.calories)
-      this.nutritionPieGraphData.push((this.nutritionObject.carbs))
-      this.nutritionPieGraphData.push(this.nutritionObject.fats)
-      this.nutritionPieGraphData.push(this.nutritionObject.proteins)
+      // got the total calories
+      this.totalOfCalories(this.nutritionObject.carbs,this.nutritionObject.proteins,this.nutritionObject.fats)
+      //get carbs as percent of calories and  push result to array
+      this.percentOfCarbs(this.nutritionObject.carbs)
+      this.nutritionPieGraphData.push((this.percentCarbs))
+      //get fats as percent of calories and push
+      this.percentOfFats(this.nutritionObject.fats);
+      this.nutritionPieGraphData.push(this.percentFats)
+      // get proteins as percent of calories and push
+      this.percentOfProteins(this.nutritionObject.proteins);
+      this.nutritionPieGraphData.push(this.percentProteins)
+      // assign the labels in respective order
+      this.nutritionLabels.push(this.percentCarbs + "%")
+      this.nutritionLabels.push(this.percentFats + "%")
+      this.nutritionLabels.push(this.percentProteins + "%")
       this.isLoadingPieChart = true;
-    })
-    Nutrition.getNutritionByDate()
-      .then( response => {
-        this.carbs = (response.data.carbs * 4)
-        this.proteins = (response.data.proteins * 4)
-        this.fats = (response.data.fats * 9)
-        this.totalOfCalories(this.carbs, this.proteins, this.fats)
-        this.percentOfCarbs()
-        this.percentOfProteins()
-        this.percentOfFats()
     })
   },
   methods: {
-     totalOfCalories(carbs, proteins, fats) {
-        this.totalCalories = (carbs + proteins + fats)
+    totalOfCalories(carbs, proteins, fats) {
+        this.totalCalories = (carbs*4 + proteins*4 + fats*9)
      },
-    percentOfCarbs() {
-        this.percentCarbs = ((this.carbs * 100) / this.totalCalories)
+    percentOfCarbs(carbs) {
+        this.percentCarbs = ((carbs*4 * 100) / this.totalCalories)
     },
-    percentOfProteins() {
-      this.percentProteins = ((this.proteins * 100) / this.totalCalories)
+    percentOfProteins(proteins) {
+      this.percentProteins = ((proteins*4 * 100) / this.totalCalories)
     },
-    percentOfFats() {
-      this.percentFats = ((this.fats * 100) / this.totalCalories)
+    percentOfFats(fats) {
+      this.percentFats = ((fats*9 * 100) / this.totalCalories)
     },
+
     weightWeek() {
       this.isLoadingLineGraph = false;
       WeightInputService.getWeightLastWeek().then(response => {
@@ -158,7 +156,8 @@ export default {
         this.isLoadingLineGraph = true;
       })
     },
-     hydrationWeek() {
+
+    hydrationWeek() {
        this.isLoadingBarGraph = false
        HydrationService.getHydrationByWeek().then(response => {
         this.hydrationObject = response.data
@@ -247,4 +246,5 @@ export default {
 #emptyLeftSpace{
   grid-area: empty;
 }
+
 </style>
