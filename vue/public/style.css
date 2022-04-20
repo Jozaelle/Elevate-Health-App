@@ -24,7 +24,7 @@ h2{
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
-    width: 80px; /* 0 width - change this with JavaScript */
+    width: 125px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 15; /* Stay on top */
     top: 0; /* Stay at the top */
@@ -33,7 +33,7 @@ h2{
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 0; 
     transition: 0.4s; 
-    opacity: .6;
+    opacity: .7;
 
   }
   

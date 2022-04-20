@@ -199,7 +199,7 @@ export default {
 
 .home{
   display: grid;
-  grid-template-columns: 100px 30% 30% 30%;
+  grid-template-columns: 130px 30% 30% 30%;
   grid-template-areas: "empty weight weight weight"
                         "empty hydration hydration nutrition";
   padding-top: 20px;
