@@ -87,7 +87,7 @@ export default {
           },
           {
             label: 'Recommended Hydration',
-            backgroundColor: 'rgba(132,169,255,0.62)',
+            backgroundColor: '#00D8FF',
             data: this.barGraphRecommended,
           },
         ]
