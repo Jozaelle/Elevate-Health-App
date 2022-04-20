@@ -1,6 +1,6 @@
 <template>
-  <div id="weight">
-    <form @submit.prevent="createWeight" >
+  <div id="weightForm">
+    <form @submit.prevent="submitWeight" >
       <label for="weight">Weight Update?</label>
       <br>
       <br>
@@ -19,6 +19,12 @@
 <script>
 import WeightInputService from "@/services/WeightInputService";
 export default {
+   props: {
+    weightInputID: {
+      type: Number,
+      default: 0
+    }
+  },
   components: {},
   data() {
         return {
@@ -30,6 +36,17 @@ export default {
             },
         }
     },
+
+  created() {
+  if (this.WeightInputService != 0) {
+    WeightInputService
+      .getWeightById(this.weightInputID)
+      .then(response => {
+        this.weight = response.data;
+      })
+  }
+},
+
   methods: {
     createWeight() {
       WeightInputService.createWeightInput(this.weight)
@@ -39,24 +56,52 @@ export default {
         curr_date: "",
         curr_weight: ""
       }
-    }
+    },
+
+    submitForm() {
+
+      if (this.weightInputID === 0) {
+        WeightInputService
+          .createWeightInput(this.weight)
+          .then(response => {
+            if (response.status === 201) {
+              this.$router.push(`/weight`);
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "adding");
+          });
+      } else {
+        WeightInputService
+          .editWeight(this.weight)
+          .then(response => {
+            if (response.status === 200) {
+              this.$router.push(`/weight`);
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "updating");
+          });
+      }
+    },
+  
   }
 }
 </script>
 
 <style>
-#weight{
+#weightForm {
  position: absolute;
-  top: 350%;
-  left: 54%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 
   border-radius: 25px;
-  background: #dfe5ff;
+  background: #e8f7f7;
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
-  width: 600px;
-  height: 900px;
+  width: 350px;
+  height: 200px;
   padding-top: 50px;
   
 }

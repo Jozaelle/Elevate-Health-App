@@ -4,13 +4,18 @@ import com.techelevator.dao.HydrationDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.FoodIntake;
 import com.techelevator.model.Hydration;
+import com.techelevator.model.TrackWeight;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
 
-
+@CrossOrigin
+@RestController
+@RequestMapping("/hydration")
 public class HydrationController {
 
     @Autowired
@@ -43,6 +48,21 @@ public class HydrationController {
     @GetMapping(path = "/lastYear")
     public List<Hydration> getLastYearHydration(Principal principal) {
         return hydrationDao.getLastYearHydration(userDao.findIdByUsername(principal.getName()));
+    }
+
+    @PutMapping(path = "/edit")
+    public Hydration editHydration(@RequestBody Hydration hydration) {
+
+        if (hydrationDao.editHydrationById(hydration)) {
+            return hydration;
+        }else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Water input not found to update.");
+        }
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public void deleteWeightById(@PathVariable int id){
+        hydrationDao.deleteHydrationById(id);
     }
 
 }

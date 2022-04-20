@@ -2,6 +2,7 @@
   
   <div id="app">
      <div id="mySidenav" class="sidenav">
+       <img src="../public/elevate-logo.png" id="logo" >
        <router-link tag="button" class="btn" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
        <router-link tag="button" class="btn" v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>
       <div class="drop-down">
@@ -27,7 +28,6 @@
        <router-link tag="button" class="btn-log" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;&nbsp;
      </div>
     <div id="contents">
-      <img src="../public/elevate-logo.png" id="logo" >
       <router-view />
     </div>
   </div>
@@ -54,85 +54,85 @@ export default {
 <style scoped>
 
   #app {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
  .btn{
     border-radius: 50%;
-    height: 5.1em;
-    width: 5.1em;
+    height: 6em;
+    width: 6em;
     background-color: transparent;
     top: 0;
     left: 0;
     margin-top: 5px;
-    margin-left: 5px; 
+    margin-left: 22px; 
     margin-bottom: 15px;
     color:ivory
  }
  #logo{
-    width: 180px;
-    padding-left: 78px;
+    width: 125px;
+    padding-left: 0px;
     padding-bottom: 30px;
     
  }
  
 .dropbtn {
     border-radius: 50%;
-    height: 5.1em;
-    width: 5.1em;
+    height: 6em;
+    width: 6em;
     background-color: transparent;
     top: 0;
     left: 0;
     margin-top: 5px;
-    margin-left: 5px; 
+    margin-left: 22px; 
     margin-bottom: 15px;
     color:ivory
 }
 
 .btn-log {
     border-radius: 50%;
-    height: 5.1em;
-    width: 5.1em;
+    height: 6em;
+    width: 6em;
     background-color: transparent;
     left: 0;
     margin-top: 200px;
-    margin-left: 5px; 
+    margin-left: 22px; 
     margin-bottom: 15px;
     color:ivory
 }
 .btn1{
     border-radius: 50%;
-    height: 5.1em;
-    width: 5.1em;
+    height: 6;
+    width: 6em;
     background-color: transparent;
     top: 0;
     left: 0;
     margin-top: 5px;
-    margin-left: 15px; 
+    margin-left: 22px; 
     margin-bottom: 15px;
     color:ivory
  }
  .btn2{
     border-radius: 50%;
-    height: 5.1em;
-    width: 5.1em;
+    height: 6em;
+    width: 6em;
     background-color: transparent;
     top: 0;
     left: 0;
     margin-top: 5px;
-    margin-left: 15px; 
+    margin-left: 22px; 
     margin-bottom: 15px;
     color:ivory
  }
  .btn3{
     border-radius: 50%;
-    height: 5.1em;
-    width: 5.1em;
+    height: 6em;
+    width: 6em;
     background-color: transparent;
     top: 0;
     left: 0;
     margin-top: 5px;
-    margin-left: 11px; 
+    margin-left: 22px; 
     margin-bottom: 15px;
     color:ivory
  }

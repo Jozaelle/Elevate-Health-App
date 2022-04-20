@@ -95,7 +95,7 @@ table {
   /* shadow  */
   opacity: 0.9;
   
-  background-color:rgb(255, 255, 255);
+  background-color:#e8f7f7;
   
   box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 450px;

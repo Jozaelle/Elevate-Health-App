@@ -10,8 +10,6 @@
       :width="width"
       :height="height"
       :barGraphData="barGraphData"
-      :barGraphRecommended="barGraphRecommended"
-      :barGraphDates="barGraphDates"
   />
 </template>
 
@@ -27,6 +25,7 @@ import {
   CategoryScale,
   LinearScale
 } from 'chart.js'
+import ProfileService from "@/services/ProfileService";
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
@@ -76,7 +75,7 @@ export default {
   },
   data() {
     return {
-
+      recommended_hydration: [],
       profile: {},
       chartData: {
         labels: this.barGraphDates,
@@ -99,5 +98,12 @@ export default {
       }
     }
   },
+  created() {
+    ProfileService.getProfile().then(response => {
+      for (let i = 0; i < this.barGraphData.length; i++) {
+        this.recommended_hydration.push(((response.data.current_weight * .5) * .8))
+      }
+    })
+  }
 }
 </script>
