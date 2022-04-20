@@ -78,8 +78,22 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 INSERT INTO profile (user_id) VALUES (1);
-INSERT INTO profile (user_id) VALUES (2);
+INSERT INTO profile (user_id, photo) VALUES (2, 'https://media-exp1.licdn.com/dms/image/C5603AQHYxq_jixqcqA/profile-displayphoto-shrink_800_800/0/1649014472211?e=1655942400&v=beta&t=yfIAsTOqSlCOkhmDgSyL8nmS6IvScXE5dUu-HkmIHGY');
 
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-19');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'cereal', 1, 1, 250, 30, 20, 10, 'breakfast', '2022-04-18');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'soup', 1, 1, 300, 25, 10, 5, 'dinner', '2022-04-18');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 275, 30, 20, 15, 'lunch', '2022-04-17');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'steak', 1, 1, 400, 5, 40, 50, 'dinner', '2022-04-17');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-16');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'bacon and eggs', 1, 1, 500, 25, 30, 25, 'breakfast', '2022-04-16');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-15');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
@@ -116,28 +130,299 @@ INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, ca
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-05');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-04-04');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'bacon and eggs', 1, 1, 500, 25, 30, 25, 'breakfast', '2022-04-03');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'potatoes', 1, 1, 300, 45, 10, 5, 'dinner', '2022-04-03');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-04-02');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-04-02');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-04-01');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-31');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-30');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-29');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-28');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-27');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-27');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-26');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-26');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-26');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-25');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-25');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-25');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-25');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-25');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-25');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-24');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-24');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-23');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-23');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-22');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-21');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-20');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-19');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-19');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-18');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-18');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-17');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-17');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-16');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-16');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-16');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-15');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-15');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-14');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-14');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-14');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-13');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-13');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-12');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-12');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-11');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-11');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-10');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-10');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-09');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-09');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-08');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-08');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-08');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-07');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-07');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-06');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-06');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-05');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-05');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-04');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-04');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-03');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-03');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-02');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-02');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-03-02');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-01');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-01');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-01');
 
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-17', 190);
+VALUES (2, '2022-04-19', 222);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-16', 195);
+VALUES (2, '2022-04-18', 223);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-15', 200);
+VALUES (2, '2022-04-17', 225);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-14', 200);
+VALUES (2, '2022-04-16', 224);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-13', 205);
+VALUES (2, '2022-04-15', 226);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-12', 205);
+VALUES (2, '2022-04-14', 225);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-11', 210);
+VALUES (2, '2022-04-13', 226);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-12', 225);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-11', 227);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-10', 126);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-09', 226);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-08', 227);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-07', 225);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-06', 226);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-05', 229);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-04', 228);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-03', 228);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-02', 229);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-01', 230);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-31', 227);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-30', 230);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-29', 229);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-28', 230);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-27', 234);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-26', 232);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-25', 233);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-24', 230);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-23', 233);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-22', 234);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-21', 237);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-20', 235);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-19', 234);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-18', 238);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-17', 239);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-16', 238);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-15', 235);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-14', 238);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-13', 242);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-12', 241);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-11', 240);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-10', 243);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-09', 242);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-08', 239);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-07', 243);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-06', 242);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-05', 244);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-04', 243);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-03', 246);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-02', 244);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-03-01', 245);
+
+
 
 
 /*added some hydration test data*/
@@ -146,19 +431,151 @@ INSERT INTO hydration (user_id,curr_date,amount_drank)
 VALUES (2,'2022/04/14',90);
 
 INSERT INTO hydration (user_id,curr_date,amount_drank)
-VALUES (2,'2022/04/15',50);
+VALUES (2,'2022/04/15',85);
 
 INSERT INTO hydration (user_id,curr_date,amount_drank)
-VALUES (2,'2022/04/16',30);
+VALUES (2,'2022/04/16',80);
 
 INSERT INTO hydration (user_id,curr_date,amount_drank)
-VALUES (2,'2022/04/17',70);
+VALUES (2,'2022/04/17',90);
 
 INSERT INTO hydration (user_id,curr_date,amount_drank)
-VALUES (2,'2022/04/18',45);
+VALUES (2,'2022/04/18',95);
 
 INSERT INTO hydration (user_id,curr_date,amount_drank)
 VALUES (2,'2022/04/19',80);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/13',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/12',95);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/11',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/10',70);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/09',80);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/08',80);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/07',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/06',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/05',95);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/04',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/03',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/02',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/01',85);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/31',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/30',80);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/29',70);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/28',65);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/27',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/26',80);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/25',95);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/24',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/23',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/22',95);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/21',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/20',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/19',95);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/18',85);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/17',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/16',75);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/15',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/14',110);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/13',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/12',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/11',95);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/10',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/09',105);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/08',100);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/07',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/06',85);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/05',80);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/04',85);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/03',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/02',65);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/03/01',50);
 
 --- USER SETUP (Do Not Modify)
 DROP USER IF EXISTS final_capstone_owner;
