@@ -140,8 +140,9 @@ td:hover::before{
   font-size: xx-large;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
-  background-color: rgb(253, 112, 112);
-  color: white;
+  opacity: 0.9;
+  background-color: #ff4658;
+  color: black;
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: uppercase;
