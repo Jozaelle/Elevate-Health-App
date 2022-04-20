@@ -1,6 +1,6 @@
 <template>
   <div id="weightForm">
-    <form @submit.prevent="submitWeight" >
+    <form @submit.prevent="submitForm" >
       <label for="weight">Weight Update?</label>
       <br>
       <br>
