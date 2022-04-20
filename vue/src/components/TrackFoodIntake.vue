@@ -43,7 +43,6 @@
       <input type="text" id="proteins" placeholder="Proteins" v-model="foodIntake.proteins" />
       <br>
       <br>
-
       <label for="meal-type">Meal Breakfast/Lunch/Dinner/Snack</label>
       <br />
       <select name="meal-type" id="meal-type" v-model="foodIntake.meal_type">
@@ -67,7 +66,6 @@
 </template>
 
 <script>
-
 import foodIntakeService from '../services/FoodIntakeService'
 
 export default {

@@ -24,7 +24,7 @@ public class JdbcHydrationDao implements HydrationDao {
     @Override
     public List<Hydration> getAllHydration(int user_id) {
         List<Hydration> hydrationList = new ArrayList<>();
-        String sql = "SELECT * FROM hydration WHERE user_id = ?";
+        String sql = "SELECT * FROM hydration WHERE user_id = ? ORDER BY curr_date DESC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,user_id);
         while (results.next()){
             hydrationList.add(mapRowToHydration(results));

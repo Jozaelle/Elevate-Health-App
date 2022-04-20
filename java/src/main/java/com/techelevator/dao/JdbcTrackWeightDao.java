@@ -22,7 +22,7 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
     public List<TrackWeight> getAllWeight(int user_id) {
 
         List<TrackWeight> trackWeightList = new ArrayList<>();
-        String sql = "SELECT * FROM weight WHERE user_id = ?";
+        String sql = "SELECT * FROM weight WHERE user_id = ? ORDER BY curr_date DESC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,user_id);
         while (results.next()){
             trackWeightList.add(mapRowToWeight(results));

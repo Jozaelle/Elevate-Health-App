@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Doughnut
+  <Doughnut id="pieCharObject"
       :chart-options="chartOptions"
       :chart-data="chartData"
       :chart-id="chartId"
@@ -12,11 +12,11 @@
       :height="height"
       :pieGraphData="pieGraphData"
   />
+  <p class="caloriesText">Total Calories: {{totalCalories}}</p>
   </div>
 </template>
 
 <script>
-//import Nutrition from "@/services/Nutrition";
 import { Doughnut } from 'vue-chartjs/legacy'
 import {
   Chart as ChartJS,
@@ -66,15 +66,22 @@ export default {
     },
     pieGraphData:{
       type: Array
+    },
+    pieGraphLabels:{
+      type: Array
+    },
+    totalCalories:{
+      type: Number
     }
   },
   data() {
     return {
       chartData: {
-        labels: ['Calories', 'Proteins', 'Fats', 'Carbs'],
+        labels: this.pieGraphLabels,
+            //['Proteins', 'Fats', 'Carbs'],
         datasets: [
           {
-            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+            backgroundColor: ['#E46651', '#00D8FF', '#DD1B16'],
             data: this.pieGraphData
           }
         ]
@@ -83,37 +90,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false
       },
-
-        // carbs: "",
-        // proteins: "",
-        // fats: "",
-        // number_of_servings: "",
-        // totalCalories: "",
-        // percentCarbs: "",
-        // percentProteins: "",
-        // percentFats: "",
-
-      
     }
   },
-
-  // methods: {
-  //   totalOfCalories(carbs, proteins, fats) {
-  //       this.totalCalories = (carbs + proteins + fats)
-  //    },
-
-  //   percentOfCarbs() {
-  //       this.percentCarbs = (((this.carbs * 100) / this.totalCalories) * this.number_of_servings)
-  //   },
-
-  //   percentOfProteins() {
-  //     this.percentProteins = ((this.proteins * 100) / this.totalCalories)
-  //   },
-
-  //   percentOfFats() {
-  //     this.percentFats = ((this.fats * 100) / this.totalCalories)
-  //   },
-
-  // }
 }
 </script>
