@@ -35,8 +35,8 @@ public class JdbcTrackWeightDao implements TrackWeightDao {
 
         String sql = "INSERT INTO weight (user_id, curr_date, curr_weight) " +
                 "VALUES (?, ?, ?)";
-                jdbcTemplate.queryForRowSet(sql, trackWeight.getUser_id(), trackWeight.getCurr_date(),
-                        trackWeight.getCurr_weight());
+            jdbcTemplate.update(sql, trackWeight.getUser_id(), trackWeight.getCurr_date(),
+                    trackWeight.getCurr_weight());
 
     }
 

@@ -38,7 +38,7 @@ export default {
     },
 
   created() {
-  if (this.WeightInputService != 0) {
+  if (this.weightInputID != 0) {
     WeightInputService
       .getWeightById(this.weightInputID)
       .then(response => {
@@ -64,8 +64,9 @@ export default {
         WeightInputService
           .createWeightInput(this.weight)
           .then(response => {
-            if (response.status === 200) {
-              this.$router.push(`/weight`);
+            console.log(response.status)
+            if (response.status === 201) {
+              this.$router.push({name: "weight"});
             }
           })
           .catch(error => {
@@ -76,7 +77,7 @@ export default {
           .editWeight(this.weight)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push(`/weight`);
+              this.$router.push({name: "weight"});
             }
           })
           .catch(error => {
