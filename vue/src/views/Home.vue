@@ -3,20 +3,20 @@
     <div id="emptyLeftSpace"></div>
     <div id="weightLineChart" v-if="isLoadingLineGraph">
       <h1 id="graphTitle">Weight</h1>
-      <LineChart class="grid-item" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" />
+      <LineChart class="grid-item" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" :lineGraphGoal="weightLineGraphGoal"/>
       <button type="button" v-on:click="weightWeek">Week View</button>
       <button type="button" v-on:click="weightMonth">Month View</button>
       <button type="button" v-on:click="weightYear">Year View</button>
     </div>
     <div id="hydrationBarChart" v-if="isLoadingBarGraph">
-      <h1 id="graphTitle">Hydration Bar Graph</h1>
+      <h1 id="graphTitle">Hydration</h1>
       <BarChart class="grid-item" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates"  />
       <button type="button" v-on:click="hydrationWeek">Week View</button>
       <button type="button" v-on:click="hydrationMonth">Month View</button>
       <button type="button" v-on:click="hydrationYear">Year View</button>
     </div>
     <div id="nutritionPieChart" v-if="isLoadingPieChart">
-      <h1 id="graphTitle">Nutrition Pie Graph</h1>
+      <h1 id="graphTitle">Nutrition</h1>
       <DoughnutChart class="grid-item" id="nutritionPieChart" :pieGraphData="nutritionPieGraphData" :pieGraphLabels="nutritionLabels" :totalCalories="totalCalories"/>
     </div>
   </div>
@@ -50,6 +50,8 @@ export default {
       weightObject: [],
       weightLineGraphData: [],
       weightLineGraphDates: [],
+      weightLineGraphGoal: [],
+      goalWeight: {},
 
       // this is inputted as prop for the pie/doughnut
       nutritionObject:[],
@@ -72,10 +74,12 @@ export default {
   created(){
     ProfileService.getProfile().then(response => {
       this.recommended_hydration = ((response.data.current_weight * .5) * .8)
+      this.goalWeight = response.data.goal_weight
     })
     WeightInputService.getAllWeight().then(() => {
       this.weightWeek()
     });
+
     HydrationService.getAllHydrations().then(() => {
       this.hydrationWeek()
     })
@@ -85,7 +89,7 @@ export default {
       this.totalOfCalories(this.nutritionObject.carbs,this.nutritionObject.proteins,this.nutritionObject.fats)
       //get carbs as percent of calories and  push result to array
       this.percentOfCarbs(this.nutritionObject.carbs)
-      this.nutritionPieGraphData.push(Math.floor(this.nutritionObject.carbs))
+      this.nutritionPieGraphData.push(this.nutritionObject.carbs)
       //get fats as percent of calories and push
       this.percentOfFats(this.nutritionObject.fats);
       this.nutritionPieGraphData.push(this.nutritionObject.fats)
@@ -121,6 +125,10 @@ export default {
         this.weightLineGraphDates = []
         this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
         this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+        this.weightLineGraphGoal = []
+        for (let i = 0; i < this.weightObject.length; i++) {
+          this.weightLineGraphGoal.push(this.goalWeight)
+        }
         this.isLoadingLineGraph = true;
       })
     },
@@ -132,6 +140,10 @@ export default {
         this.weightLineGraphDates = []
         this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
         this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+        this.weightLineGraphGoal = []
+        for (let i = 0; i < this.weightObject.length; i++) {
+          this.weightLineGraphGoal.push(this.goalWeight)
+        }
         this.isLoadingLineGraph = true;
       })
 
@@ -144,6 +156,10 @@ export default {
         this.weightLineGraphDates = []
         this.weightObject.forEach(weight => this.weightLineGraphData.push(weight.curr_weight))
         this.weightObject.forEach(weight => this.weightLineGraphDates.push(weight.curr_date))
+        this.weightLineGraphGoal = []
+        for (let i = 0; i < this.weightObject.length; i++) {
+          this.weightLineGraphGoal.push(this.goalWeight)
+        }
         this.isLoadingLineGraph = true;
       })
     },
