@@ -35,7 +35,7 @@ public class HydrationController {
         return hydrationDao.getAllHydration(userDao.findIdByUsername(principal.getName()));
     }
 
-    @GetMapping(path = "")
+    @GetMapping(path = "/date")
     public List<Hydration> getHydrationByDate(Principal principal) {
         return hydrationDao.getHydrationByDate(userDao.findIdByUsername(principal.getName()));
     }
