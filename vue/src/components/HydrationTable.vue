@@ -63,16 +63,6 @@ created(){
 
 <style>
 
-#add-link{
 
-  display: flex;
-  align-items: center;
-  text-align: center;
-  width: 200px;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;;
-}
 
 </style>
