@@ -24,6 +24,7 @@ public class HydrationController {
     @Autowired
     private UserDao userDao;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "")
     public void createHydration(@RequestBody Hydration hydration, Principal principal){
         hydration.setUser_id(userDao.findIdByUsername(principal.getName()));
