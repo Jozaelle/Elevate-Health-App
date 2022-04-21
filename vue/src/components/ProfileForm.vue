@@ -86,19 +86,6 @@ export default {
         })
     }
   },
-
-  // created() {
-  //         this.profile = {
-  //             display_name: this.profile.display_name,
-  //             photo: this.profile.photo,
-  //             birthday: this.profile.birthday,
-  //             age: this.profile.age,
-  //             height_feet: this.profile.height_feet,
-  //             height_inches: this.profile.height_inches,
-  //             current_weight: this.profile.current_weight,
-  //             goal_weight: this.profile.goal_weight
-  //           }
-  // },
   
   methods: {
     saveProfile() {

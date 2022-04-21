@@ -58,7 +58,6 @@ export default {
 #app {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
  .btn{
     border-radius: 50%;
     height: 6em;
