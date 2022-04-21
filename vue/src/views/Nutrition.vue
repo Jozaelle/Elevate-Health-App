@@ -4,6 +4,7 @@
     <!-- <input type="button" onClick="document.getElementById('middle').scrollIntoView();" /> -->
 
    <!-- <button type="button" v-on:click="toggleShowNutrition">Nutrition</button> -->
+    <router-link class="btnStyled" :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
     <div id="tableholder" class="grid-item">
       <table>
         <thead>
@@ -32,7 +33,6 @@
           </tr>
         </tbody>
       </table>
-          <router-link class="btnStyled" :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
     </div>
   </div>
 </template>
@@ -117,41 +117,6 @@ td{
   position: relative;
 }
 
-td:hover::before{
-       content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: -9999px;
-				bottom: -9999px;
-				background-color: rgba(255,255,255,0.2);
-				z-index: -1;
-}
-#add-link{
- 
-  bottom: 94%;
-  left: 43%;
-  text-align: center;
-  font-size: medium;
-  font-weight: bold;
-  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-/*<<<<<<< HEAD*/
-/*=======*/
-/*  */
-/*  opacity: 0.9;*/
-/*  background-color: #0ba59d;*/
-/*  color: #e8f7f7;*/
-/*  padding: 1em 1.5em;*/
-/*  text-decoration: none;*/
-/*  text-transform: uppercase;*/
-/*  border-radius: 10px;*/
-
-/*  z-index: 15; !* Stay on top *!*/
-/*  top: 0; !* Stay at the top *!*/
-/*  overflow-x: hidden;*/
-/*  position: fixed;*/
-/*>>>>>>> 6ee3e61601b81e00f5305d3955033ce2419e79a1*/
-}
 
 </style>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <router-link :to="{ name: 'weightInputID', params: {weightInputID: 0}}" id="add-link">Add Current Weight</router-link>
+      <router-link class="btnStyled" :to="{ name: 'weightInputID', params: {weightInputID: 0}}" id="add-link">Add Current Weight</router-link>
       <table>
         <thead>
           <th>Date</th>
@@ -93,27 +93,5 @@ tr:hover {
 td{
   position: relative;
 }
-
-#add-link{
-
-  display: flex;
-  height: 20px;
-  width: 200px;
-  margin: 20px auto 5px;
-  text-align: center;
-  opacity: 0.9;
-  font-size: small;
-  font-weight: bold;
-  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
-  background-color: #0ba59d;
-  color: #e8f7f7;
-  padding: 10px 10px;
-
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 10px
-}
-
 
 </style>

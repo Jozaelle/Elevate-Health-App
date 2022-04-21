@@ -1,6 +1,6 @@
 <template>
-   <div>
     <div>
+      <router-link class="btnStyled" :to="{ name: 'hydrationID', params: {hydrationID: 0}}" id="add-link">Add Ounces</router-link>
       <table>
         <thead>
           <th>Date</th>
@@ -13,18 +13,16 @@
             <td>{{hydration.curr_date}}</td>
             <td>{{hydration.amount_drank}}</td>
             <td>
-              <router-link tag="button" :to="{ name: 'hydrationID', 
+              <router-link class="btnStyled" tag="button" :to="{ name: 'hydrationID',
               params: {hydrationID: hydration.hydration_id} }">Edit</router-link>
             </td>
              <td>
-              <button v-on:click="deleteHydration(hydration.hydration_id)">Delete</button>
+              <button class="btnStyled" v-on:click="deleteHydration(hydration.hydration_id)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
-       <router-link :to="{ name: 'hydrationID', params: {hydrationID: 0}}" id="add-link">Add Ounces</router-link>
     </div>
-  </div>
 </template>
 
 <script>
@@ -78,10 +76,7 @@ table {
 
   /* shadow  */
   opacity: 0.9;
-  
   background-color:#e8f7f7;
-  
-  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 450px;
   height: 930px;
   border-radius: 25px;
@@ -117,33 +112,17 @@ td:hover::before{
 				background-color: rgba(255,255,255,0.2);
 				z-index: -1;
 }
-/* #add-link{
-  position: absolute;
-  top: 7%;
-  left: 46%;
-  text-align: center;
-  font-size: small;
-  font-weight: bold;
-  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-
-} */
 
 #add-link{
-  position: absolute;
-  top: 1%;
-  left: 43%;
+
+  display: flex;
+  align-items: center;
   text-align: center;
-  opacity: 0.9;
-  font-size: small;
-  font-weight: bold;
-  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
-  background-color: #0ba59d;
-  color: #e8f7f7;
-  padding: 1em 1.5em;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 10px
+  width: 200px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;;
 }
 
 </style>
