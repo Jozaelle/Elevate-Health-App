@@ -70,8 +70,7 @@ props: {
       this.recommended_hydration = ((currentWeight * .5) * .8)
     },
 
-        submitForm() {
-
+    submitForm() {
       if (this.hydrationID === 0) {
         HydrationService
           .createHydration(this.hydration)

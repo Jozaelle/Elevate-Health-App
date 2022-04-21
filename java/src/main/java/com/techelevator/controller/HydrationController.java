@@ -24,6 +24,7 @@ public class HydrationController {
     @Autowired
     private UserDao userDao;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "")
     public void createHydration(@RequestBody Hydration hydration, Principal principal){
         hydration.setUser_id(userDao.findIdByUsername(principal.getName()));
@@ -63,6 +64,11 @@ public class HydrationController {
         }else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Water input not found to update.");
         }
+    }
+
+    @GetMapping(path = "/{id}")
+    public Hydration getHydrationById(@PathVariable int id){
+        return hydrationDao.getHydrationById(id);
     }
 
     @DeleteMapping(path = "/{id}")

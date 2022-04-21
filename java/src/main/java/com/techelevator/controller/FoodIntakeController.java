@@ -45,6 +45,7 @@ public class FoodIntakeController {
         return foodIntakeDao.getByMealType(type);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "")
     public FoodIntake createFoodIntake(@RequestBody FoodIntake foodIntake, Principal principal){
         foodIntake.setUser_id(userDao.findIdByUsername(principal.getName()));

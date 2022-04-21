@@ -35,6 +35,18 @@ public class JdbcHydrationDao implements HydrationDao {
     }
 
     @Override
+    public Hydration getHydrationById(int id) {
+        String sql = "Select * From hydration Where hydration_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
+        if(result.next()){
+            return mapRowToHydration(result);
+        }
+        else {
+            return null;
+        }
+    }
+
+    @Override
     public List<Hydration> getHydrationByDate(int user_id) {
         List<Hydration> hydrationList = new ArrayList<>();
         String sql = "Select SUM (amount_drank), curr_date " +
@@ -54,7 +66,7 @@ public class JdbcHydrationDao implements HydrationDao {
     public void createHydration(Hydration hydrationToCreate) {
         String sql = "INSERT INTO hydration (user_id, curr_date, amount_drank)" +
                 " VALUES (?,?,?)";
-        jdbcTemplate.queryForRowSet(sql, hydrationToCreate.getUser_id(),
+        jdbcTemplate.update(sql, hydrationToCreate.getUser_id(),
                 hydrationToCreate.getCurr_date(), hydrationToCreate.getAmount_drank());
     }
 
