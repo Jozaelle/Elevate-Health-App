@@ -11,6 +11,8 @@ public interface HydrationDao {
     // get all hydration by id
     List<Hydration> getAllHydration(int user_id);
 
+    public List<Hydration> getHydrationByDate(int user_id);
+
     // create hydration
     void createHydration(Hydration hydrationToCreate);
 

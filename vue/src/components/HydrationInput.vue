@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="createHydration" id="water">
+    <form @submit.prevent="submitForm" id="water">
       <p>Daily Recommended Water Intake: {{recommended_hydration}} ounces</p>
       <label for="hydration">How Many Ounces Did You Drink?</label>
       <br>
@@ -47,7 +47,7 @@ props: {
           this.getRecommendedHydration(this.current_weight);
         })
 
-   if (this.HydrationID != 0) {
+   if (this.hydrationID != 0) {
     HydrationService
       .getHydrationById(this.hydrationID)
       .then(response => {
@@ -57,7 +57,7 @@ props: {
   },
 
   methods: {
-    createHydration() {
+    createHydrationMethod() {
       HydrationService.createHydration(this.hydration)
       this.hydration = {
         hydration_id: "",

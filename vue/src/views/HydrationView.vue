@@ -1,5 +1,5 @@
 <template>
-  <HydrationInput />
+  <hydration-input v-bind:hydrationID="parseInt($route.params.hydrationID)"/>
 </template>
 
 <script>
