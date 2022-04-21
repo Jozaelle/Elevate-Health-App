@@ -19,12 +19,13 @@
 <script>
 import WeightInputService from "@/services/WeightInputService";
 export default {
-   props: {
-    weightInputID: {
-      type: Number,
-      default: 0
-    }
-  },
+props: {
+  weightInputID: {
+    type: Number,
+    default: 0
+ }
+},
+
   components: {},
   data() {
         return {

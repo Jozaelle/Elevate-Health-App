@@ -190,7 +190,10 @@ methods: {
 #meal-type {
   padding: 0.25rem 3rem 0.25rem 3rem;
 }
+
 #success {
-  background-color: rgb(181, 204, 140);
+  background-color: #0ba59d;
+  padding: 0.25rem 3rem 0.25rem 3rem;
 }
+
 </style>

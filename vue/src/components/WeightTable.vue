@@ -1,5 +1,4 @@
 <template>
-   <!-- <button type="button" v-on:click="toggleShowNutrition">Nutrition</button> -->
     <div>
       <router-link :to="{ name: 'weightInputID', params: {weightInputID: 0}}" id="add-link">Add Current Weight</router-link>
       <table>
@@ -42,13 +41,13 @@ export default {
    },
 
    created(){
-    WeightInputService.getAllWeight().then(response => {
+    WeightInputService.getWeightLastWeek().then(response => {
       this.weightArray = response.data
     });
    },
 
   methods: {
-     deleteWeight(id) {
+    deleteWeight(id) {
       WeightInputService.deleteWeight(parseInt(id)).then(() => {
         this.reloadTable()
       })
@@ -58,10 +57,7 @@ export default {
         this.weightArray = response.data
       })
     },
-    toggleShowNutrition(){
-      this.showNutrition.tableHolder = !this.showNutrition.tableHolder;
-      
-    }
+   
   }
 };
 </script>

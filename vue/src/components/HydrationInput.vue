@@ -1,8 +1,8 @@
 <template>
   <div>
-    <form @submit.prevent="createHydration" id="water">
+    <form @submit.prevent="submitForm" id="water">
       <p>Daily Recommended Water Intake: {{recommended_hydration}} ounces</p>
-      <label for="hydration">How Many Ounces of Water Did You Drink Today?</label>
+      <label for="hydration">How Many Ounces Did You Drink?</label>
       <br>
       <br>
       <input v-model="hydration.amount_drank" type="number" id="hydration" name="hydration"
@@ -16,10 +16,17 @@
 </template>
 
 <script>
-import hydrationService from "@/services/HydrationService";
+import HydrationService from "@/services/HydrationService";
 import ProfileService from "@/services/ProfileService";
 
 export default {
+props: {
+    hydrationID: {
+      type: Number,
+      default: 0
+    }
+  },
+
   components: {},
   data() {
         return {
@@ -39,10 +46,19 @@ export default {
           this.current_weight = response.data.current_weight
           this.getRecommendedHydration(this.current_weight);
         })
+
+   if (this.hydrationID != 0) {
+    HydrationService
+      .getHydrationById(this.hydrationID)
+      .then(response => {
+        this.hydration = response.data;
+      })
+    }
   },
+
   methods: {
-    createHydration() {
-      hydrationService.createHydration(this.hydration)
+    createHydrationMethod() {
+      HydrationService.createHydration(this.hydration)
       this.hydration = {
         hydration_id: "",
         user_id: "",
@@ -52,7 +68,35 @@ export default {
     },
     getRecommendedHydration(currentWeight){
       this.recommended_hydration = ((currentWeight * .5) * .8)
-    }
+    },
+
+        submitForm() {
+
+      if (this.hydrationID === 0) {
+        HydrationService
+          .createHydration(this.hydration)
+          .then(response => {
+            console.log(response.status)
+            if (response.status === 201) {
+              this.$router.push({name: "water"});
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "adding");
+          });
+      } else {
+        HydrationService
+          .editHydration(this.hydration)
+          .then(response => {
+            if (response.status === 200) {
+              this.$router.push({name: "water"});
+            }
+          })
+          .catch(error => {
+            this.handleErrorResponse(error, "updating");
+          });
+      }
+    },
   }
 }
 </script>

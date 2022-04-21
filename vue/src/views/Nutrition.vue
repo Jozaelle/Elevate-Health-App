@@ -128,13 +128,29 @@ td:hover::before{
 				z-index: -1;
 }
 #add-link{
-  position: absolute;
-  top: 1%;
+ 
+  bottom: 94%;
   left: 43%;
   text-align: center;
   font-size: medium;
   font-weight: bold;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+/*<<<<<<< HEAD*/
+/*=======*/
+/*  */
+/*  opacity: 0.9;*/
+/*  background-color: #0ba59d;*/
+/*  color: #e8f7f7;*/
+/*  padding: 1em 1.5em;*/
+/*  text-decoration: none;*/
+/*  text-transform: uppercase;*/
+/*  border-radius: 10px;*/
+
+/*  z-index: 15; !* Stay on top *!*/
+/*  top: 0; !* Stay at the top *!*/
+/*  overflow-x: hidden;*/
+/*  position: fixed;*/
+/*>>>>>>> 6ee3e61601b81e00f5305d3955033ce2419e79a1*/
 }
 
 </style>

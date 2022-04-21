@@ -243,9 +243,23 @@ export default {
 
 #graphTitle{
   text-align: center;
-  margin: 0;
   padding-top: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
+  
+
+/* title background */
+    background-color:rgba(255, 255, 255, .95);
+    
+    width: 300px;
+    margin-top: 5px;
+    margin-left: 22px; 
+    margin-bottom: 0.6px;
+    color:rgba(0, 0, 0, 0.637);
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    
 }
 #weightLineChart{
   grid-area: weight;
