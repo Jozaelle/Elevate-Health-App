@@ -300,7 +300,7 @@ INSERT INTO weight (user_id, curr_date, curr_weight)
 VALUES (2, '2022-04-11', 227);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
-VALUES (2, '2022-04-10', 126);
+VALUES (2, '2022-04-10', 226);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
 VALUES (2, '2022-04-09', 226);

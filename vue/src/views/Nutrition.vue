@@ -70,7 +70,7 @@ export default {
       })
     },
     reloadTable() {
-      foodIntakeService.getAllFoodIntakes().then(response => {
+      foodIntakeService.getLastWeek().then(response => {
         this.foodIntake = response.data
       })
     },

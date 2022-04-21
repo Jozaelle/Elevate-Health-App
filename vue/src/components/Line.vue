@@ -77,6 +77,9 @@ export default {
     },
     lineGraphDates: {
       type: Array,
+    },
+    lineGraphGoal:{
+      type:Array
     }
   },
   data() {
@@ -93,7 +96,7 @@ export default {
             label: 'Goal Weight',
             backgroundColor: '#00D8FF',
             //TODO need to get the calculation from profile
-            data: [160,160,160,160,160,160,160]
+            data: this.lineGraphGoal
           }
         ],
         options: {
