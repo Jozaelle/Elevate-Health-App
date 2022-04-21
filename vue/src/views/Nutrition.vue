@@ -134,8 +134,8 @@ td:hover::before{
 				z-index: -1;
 }
 #add-link{
-  position: absolute;
-  top: 1%;
+ 
+  bottom: 94%;
   left: 43%;
   text-align: center;
   font-size: medium;
@@ -148,7 +148,12 @@ td:hover::before{
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: uppercase;
-  border-radius: 10px
+  border-radius: 10px;
+
+  z-index: 15; /* Stay on top */
+  top: 0; /* Stay at the top */
+  overflow-x: hidden;
+  position: fixed;
 }
 
 </style>
