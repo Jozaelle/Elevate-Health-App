@@ -78,7 +78,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 INSERT INTO profile (user_id) VALUES (1);
-INSERT INTO profile (user_id, photo) VALUES (2, 'https://media-exp1.licdn.com/dms/image/C5603AQHYxq_jixqcqA/profile-displayphoto-shrink_800_800/0/1649014472211?e=1655942400&v=beta&t=yfIAsTOqSlCOkhmDgSyL8nmS6IvScXE5dUu-HkmIHGY');
+
 
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 350, 35, 14, 17, 'lunch', '2022-04-22');
