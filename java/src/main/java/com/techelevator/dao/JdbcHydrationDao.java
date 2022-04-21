@@ -49,14 +49,14 @@ public class JdbcHydrationDao implements HydrationDao {
     @Override
     public List<Hydration> getHydrationByDate(int user_id) {
         List<Hydration> hydrationList = new ArrayList<>();
-        String sql = "Select SUM (amount_drank), curr_date " +
+        String sql = "Select SUM (amount_drank) AS amount_drank, curr_date " +
                 "From hydration " +
                 "Where user_id = ? " +
                 "Group By curr_date " +
                 "Order By curr_date ASC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
         while (results.next()) {
-            hydrationList.add(mapRowToHydration(results));
+            hydrationList.add(mapRowToHydrationSum(results));
         }
         return hydrationList;
     }
@@ -73,11 +73,13 @@ public class JdbcHydrationDao implements HydrationDao {
     @Override
     public List<Hydration> getLastWeekHydration(int user_id) {
         List<Hydration> hydrationList = new ArrayList<>();
-        String sql = "SELECT * FROM hydration WHERE curr_date > (NOW() - interval '7 day') AND user_id = ? " +
+        String sql = "SELECT SUM (amount_drank) AS amount_drank, curr_date FROM hydration " +
+                "WHERE curr_date > (NOW() - interval '7 day') AND user_id = ? " +
+                "GROUP BY curr_date " +
                 "ORDER BY curr_date ASC;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
         while (results.next()) {
-            Hydration hydration = mapRowToHydration(results);
+            Hydration hydration = mapRowToHydrationSum(results);
             hydrationList.add(hydration);
         }
         return hydrationList;
@@ -86,11 +88,13 @@ public class JdbcHydrationDao implements HydrationDao {
     @Override
     public List<Hydration> getLastMonthHydration(int user_id) {
         List<Hydration> hydrationList = new ArrayList<>();
-        String sql = "SELECT * FROM hydration WHERE curr_date > (NOW() - interval '30 day') AND user_id = ? " +
+        String sql = "SELECT SUM (amount_drank) AS amount_drank, curr_date " +
+                "FROM hydration WHERE curr_date > (NOW() - interval '30 day') AND user_id = ? " +
+                "GROUP BY curr_date " +
                 "ORDER BY curr_date ASC;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
         while (results.next()) {
-            Hydration hydration = mapRowToHydration(results);
+            Hydration hydration = mapRowToHydrationSum(results);
             hydrationList.add(hydration);
         }
         return hydrationList;
@@ -100,11 +104,13 @@ public class JdbcHydrationDao implements HydrationDao {
     @Override
     public List<Hydration> getLastYearHydration(int user_id) {
         List<Hydration> hydrationList = new ArrayList<>();
-        String sql = "SELECT * FROM hydration WHERE curr_date > (NOW() - interval '365 day') AND user_id = ? " +
+        String sql = "SELECT SUM (amount_drank) AS amount_drank, curr_date " +
+                "FROM hydration WHERE curr_date > (NOW() - interval '365 day') AND user_id = ? " +
+                "GROUP BY curr_date " +
                 "ORDER BY curr_date ASC;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user_id);
         while (results.next()) {
-            Hydration hydration = mapRowToHydration(results);
+            Hydration hydration = mapRowToHydrationSum(results);
             hydrationList.add(hydration);
         }
         return hydrationList;
@@ -132,6 +138,13 @@ public class JdbcHydrationDao implements HydrationDao {
         hydration.setAmount_drank(results.getFloat("amount_drank"));
         hydration.setCurr_date(results.getDate("curr_date").toLocalDate());
         hydration.setUser_id(results.getInt("user_id"));
+        return hydration;
+    }
+    private Hydration mapRowToHydrationSum(SqlRowSet results) {
+        Hydration hydration = new Hydration();
+        hydration.setAmount_drank(results.getFloat("amount_drank"));
+        hydration.setCurr_date(results.getDate("curr_date").toLocalDate());
+
         return hydration;
     }
 }
