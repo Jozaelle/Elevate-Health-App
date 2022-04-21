@@ -1,71 +1,70 @@
 <template>
-  <div>
+   <div>
     <div>
       <table>
         <thead>
           <th>Date</th>
-          <th>Weight</th>
+          <th>Ounces</th>
           <th>Edit</th>
           <th>Delete</th>
         </thead>
         <tbody>
-          <tr v-for="weight in weightArray" v-bind:key="weight.weight_id">
-            <td>{{weight.curr_date}}</td>
-            <td>{{weight.curr_weight}}</td>
+          <tr v-for="hydration in hydrationArray" v-bind:key="hydration.hydration_id">
+            <td>{{hydration.curr_date}}</td>
+            <td>{{hydration.amount_drank}}</td>
             <td>
-              <router-link tag="button" :to="{ name: 'weightInputID', 
-              params: {weightInputID: weight.weight_id} }">Edit</router-link>
+              <router-link tag="button" :to="{ name: 'hydrationID', 
+              params: {hydrationID: hydration.hydration_id} }">Edit</router-link>
             </td>
              <td>
-              <button v-on:click="deleteWeight(weight.weight_id)">Delete</button>
+              <button v-on:click="deleteHydration(hydration.hydration_id)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
-       <router-link :to="{ name: 'weightInputID', params: {weightInputID: 0}}" id="add-link">Add Current Weight</router-link>
+       <router-link :to="{ name: 'hydrationID', params: {hydrationID: 0}}" id="add-link">Add Ounces</router-link>
     </div>
   </div>
-  
 </template>
 
+<script>
 
-<script >
-
-import WeightInputService from '@/services/WeightInputService'
+import HydrationService from '@/services/HydrationService'
 
 export default {
-  
-  components: {  },
 
-   data() {
+data() {
+
     return{
-      weightArray: []
+      hydrationArray: []
     }   
-   },
+},
 
-   created(){
-    WeightInputService.getWeightLastWeek().then(response => {
-      this.weightArray = response.data
+created(){
+    HydrationService.getHydrationByWeek().then(response => {
+      this.hydrationArray = response.data
     });
    },
 
-  methods: {
-    deleteWeight(id) {
-      WeightInputService.deleteWeight(parseInt(id)).then(() => {
+ methods: {
+    deleteHydration(id) {
+      HydrationService.deleteHydration(parseInt(id)).then(() => {
         this.reloadTable()
       })
     },
     reloadTable() {
-      WeightInputService.getAllWeight().then(response => {
-        this.weightArray = response.data
+      HydrationService.getAllWeight().then(response => {
+        this.hydrationArray = response.data
       })
-    },
-   
-  }
-};
+    }, 
+ }  
+
+}
+
 </script>
 
-<style scoped>
+<style>
+
 table {
   margin-top: 100px;
   overflow: hidden;

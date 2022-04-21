@@ -3,6 +3,7 @@
   <div id="app">
      <div id="mySidenav" class="sidenav">
        <img src="../public/elevate-logo.png" id="logo" >
+      
        <router-link tag="button" class="btn" v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>&nbsp;&nbsp;
        <router-link tag="button" class="btn" v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>
       <div class="drop-down">
@@ -27,6 +28,7 @@
 
        <router-link tag="button" class="btn-logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;&nbsp;
      </div>
+    
     <div id="contents">
       <router-view />
     </div>
@@ -73,6 +75,7 @@ export default {
     width: 125px;
     padding-left: 0px;
     padding-bottom: 30px;
+    /* opacity: .9; */
     
  }
  

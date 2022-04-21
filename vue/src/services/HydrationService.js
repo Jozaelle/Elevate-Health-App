@@ -20,4 +20,16 @@ export default {
     getHydrationLastYear() {
         return axios.get(`/hydration/lastYear`)
     },
+
+    editHydration(hydration){
+        return axios.put(`/hydration/edit`, hydration)
+    },
+
+    deleteHydration(id){
+        return axios.delete(`hydration/${id}`)
+    },
+
+    getHydrationById(id) {
+        return axios.get(`/hydration/${id}`)
+    },
 }

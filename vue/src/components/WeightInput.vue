@@ -25,6 +25,7 @@ export default {
       default: 0
     }
   },
+  
   components: {},
   data() {
         return {

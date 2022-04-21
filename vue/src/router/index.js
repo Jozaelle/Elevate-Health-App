@@ -12,6 +12,7 @@ import Nutrition from "@/views/Nutrition.vue"
 import WeightTableView from '@/views/WeightTableView.vue'
 import HydrationView from '@/views/HydrationView.vue'
 import WeightInputView from '@/views/WeightInputView.vue'
+import HydrationTableView from '@/views/HydrationTableView.vue'
 
 
 Vue.use(Router)
@@ -101,6 +102,12 @@ const router = new Router({
     {
       path: "/water",
       name: "water",
+      component: HydrationTableView
+    },
+
+    {
+      path: "/water/:hydrationID",
+      name: "hydrationID",
       component: HydrationView
     }
   ]
