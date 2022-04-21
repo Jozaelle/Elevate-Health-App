@@ -1,6 +1,5 @@
 <template id="template">
   <div id="app" >
-    
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
 
@@ -44,7 +43,7 @@
       <br>
       <br />
       <br />
-      <button type="submit" id="submit">Sign in</button>
+      <button class="btnStyled" type="submit" id="submit">Sign in</button>
       <br />
       <br />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>

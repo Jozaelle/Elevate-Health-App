@@ -1,21 +1,20 @@
 <template>
-  <div class="profile-container">
-    <br>
-    <br>
-    <!--
-
-    <img :src="profile.photo" id="photo" alt="">
-
-    -->
-    <img :src="profile.photo ? profile.photo : defaultPicture" :key="profile.photo" class="profile-photo">
-    <br>
-    <p>Name: {{profile.display_name}}</p>
-    <p>Birthday: {{profile.birthday}}</p>
-    <p>Age: {{profile.age}}</p>
-    <p>Height: {{profile.height_feet}}', {{profile.height_inches}}"</p>
-    <p>Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})</p>
-    <p>Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})</p>
-    <button @click="$router.push('create-profile')">Update Profile</button>
+  <div id="profile">
+    <div class="empty"></div>
+    <div class="profile-container">
+      <br>
+      <br>
+      <img :src="profile.photo ? profile.photo : defaultPicture" :key="profile.photo" class="profile-photo">
+      <br>
+      <p>Name: {{profile.display_name}}</p>
+      <p>Birthday: {{profile.birthday}}</p>
+      <p>Age: {{profile.age}}</p>
+      <p>Height: {{profile.height_feet}}', {{profile.height_inches}}"</p>
+      <p>Current Weight: {{profile.current_weight}} pounds | (Current BMI: {{bmi.toFixed(1)}})</p>
+      <p>Goal Weight: {{profile.goal_weight}} pounds | (Goal BMI: {{bmiGoal.toFixed(1)}})</p>
+      <br>
+      <button class="btnStyled" @click="$router.push('create-profile')">Update Profile</button>
+    </div>
   </div>
 </template>
 
@@ -68,15 +67,14 @@ export default {
 </script>
 
 <style scoped>
-button {
-  border: none;
-  border-radius: 12px;
-  color: black;
-  padding: 15px 15px;
-  text-align: center;
-  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
+
+#profile{
+  display: grid;
+  grid-template-areas: none;
 }
 .profile-container{
+
+  grid-area: profile;
   position: absolute;
   top: 50%;
   left: 50%;

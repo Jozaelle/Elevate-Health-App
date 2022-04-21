@@ -23,21 +23,18 @@
             <td>{{intake.meal_type}}</td>
             <td>{{intake.day_of_meal}}</td>
             <td>
-              <router-link tag="button" :to="{ name: 'food-intake', 
+              <router-link tag="button"  class="btnStyled" :to="{ name: 'food-intake',
               params: {foodIntakeID: intake.food_intake_id} }">Edit</router-link>
             </td>
             <td>
-              <button v-on:click="deleteFood(intake.food_intake_id)">Delete</button>
+              <button class="btnStyled" v-on:click="deleteFood(intake.food_intake_id)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
-          <router-link :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
+          <router-link class="btnStyled" :to="{ name: 'food-intake', params: {foodIntakeID: 0}}" id="add-link">Add Food</router-link>
     </div>
-     
-    
   </div>
-  
 </template>
 
 
@@ -94,10 +91,7 @@ table {
 
   /* shadow  */
   opacity: 0.9;
-  
   background-color:#e8f7f7;
-  
-  box-shadow: 0 20px 15px 0 rgb(0 0 0 / 40%), 0 6px 20px 0 rgb(0 0 0 / 40%);
   width: 450px;
   height: 930px;
   border-radius: 25px;
@@ -141,14 +135,6 @@ td:hover::before{
   font-size: medium;
   font-weight: bold;
   font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
-  opacity: 0.9;
-  background-color: #0ba59d;
-  color: #e8f7f7;
-  padding: 1em 1.5em;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 10px
 }
 
 </style>

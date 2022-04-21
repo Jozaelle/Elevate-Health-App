@@ -1,9 +1,5 @@
 <template>
-  <div>
-    
       <weight-input v-bind:weightInputID="parseInt($route.params.weightInputID)"/>
-
-  </div>
 </template>
 
 <script>

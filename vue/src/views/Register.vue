@@ -1,6 +1,5 @@
 <template>
   <div id="register" class="text-center">
-
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3-mb-3-font-weight-normal">Create Account</h1>
       <br>
@@ -39,7 +38,7 @@
         required
       />
       <br><br><br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="btn btn-lg btn-primary btn-block btnStyled" type="submit">
         Create Account
       </button>
       <br><br>

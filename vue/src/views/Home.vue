@@ -4,16 +4,16 @@
     <div id="weightLineChart" v-if="isLoadingLineGraph">
       <h1 id="graphTitle">Weight</h1>
       <LineChart class="grid-item" :lineGraphData="weightLineGraphData" :lineGraphDates="weightLineGraphDates" :lineGraphGoal="weightLineGraphGoal"/>
-      <button type="button" v-on:click="weightWeek">Week View</button>
-      <button type="button" v-on:click="weightMonth">Month View</button>
-      <button type="button" v-on:click="weightYear">Year View</button>
+      <button type="button" class="btnStyled" v-on:click="weightWeek">Week View</button>
+      <button type="button" class="btnStyled" v-on:click="weightMonth">Month View</button>
+      <button type="button" class="btnStyled" v-on:click="weightYear">Year View</button>
     </div>
     <div id="hydrationBarChart" v-if="isLoadingBarGraph">
       <h1 id="graphTitle">Hydration</h1>
       <BarChart class="grid-item" :barGraphData="hydrationBarGraphData" :barGraphRecommended="hydrationBarGraphRecommendedData" :barGraphDates="hydrationBarDates"  />
-      <button type="button" v-on:click="hydrationWeek">Week View</button>
-      <button type="button" v-on:click="hydrationMonth">Month View</button>
-      <button type="button" v-on:click="hydrationYear">Year View</button>
+      <button type="button" class="btnStyled" v-on:click="hydrationWeek">Week View</button>
+      <button type="button" class="btnStyled" v-on:click="hydrationMonth">Month View</button>
+      <button type="button" class="btnStyled" v-on:click="hydrationYear">Year View</button>
     </div>
     <div id="nutritionPieChart" v-if="isLoadingPieChart">
       <h1 id="graphTitle">Nutrition</h1>

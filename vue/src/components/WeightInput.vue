@@ -11,7 +11,7 @@
       <input v-model="weight.curr_date" type="date" />&nbsp;
       <br>
       <br>
-       <button type="submit">Submit</button>
+       <button class="btnStyled" type="submit">Submit</button>
       </form>
   </div>
 </template>
@@ -46,7 +46,6 @@ export default {
       })
   }
 },
-
   methods: {
     createWeight() {
       WeightInputService.createWeightInput(this.weight)
@@ -85,7 +84,6 @@ export default {
           });
       }
     },
-  
   }
 }
 </script>

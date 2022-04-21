@@ -10,7 +10,7 @@
       <input v-model="hydration.curr_date" type="date" />&nbsp;
       <br>
       <br>
-       <button type="submit">Submit</button>
+       <button type="submit" class="btnStyled">Submit</button>
       </form>
   </div>
 </template>

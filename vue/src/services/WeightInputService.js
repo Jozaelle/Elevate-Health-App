@@ -33,7 +33,4 @@ export default {
   getWeightById(id) {
     return axios.get(`/weight/${id}`)
   }
-
-
-
 }

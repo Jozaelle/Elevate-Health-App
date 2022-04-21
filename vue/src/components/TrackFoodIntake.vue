@@ -12,7 +12,6 @@
       <input type="text" id="serving-size" placeholder="Serving Size" v-model="foodIntake.serving_size" />
       <br />
       <br />
-
       <label for="number-of-servings">Number of Servings</label>
       <br />
       <input
@@ -61,7 +60,7 @@
       <br />
       <div id="success" v-if="isCreated">You Successfully Added a Food</div>
       <br />
-      <button type="submit" >Submit</button>
+      <button class="btnStyled" type="submit" >Submit</button>
       <br>
     </form>
   </div>

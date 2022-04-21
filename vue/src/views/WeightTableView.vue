@@ -1,7 +1,5 @@
 <template>
-  <div>
     <weight-table />
-  </div>
 </template>
 
 <script>

@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 
-  #app {
+#app {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
@@ -65,7 +65,7 @@ export default {
     top: 0;
     left: 0;
     margin-top: 5px;
-    margin-left: 22px; 
+    margin-left: 22px;
     margin-bottom: 15px;
     color:ivory
  }
@@ -73,7 +73,6 @@ export default {
     width: 125px;
     padding-left: 0px;
     padding-bottom: 30px;
-    
  }
  
 .dropbtn {

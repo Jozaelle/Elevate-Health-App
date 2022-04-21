@@ -1,10 +1,7 @@
 <template>
-  <div>
     <div class="containers">
       <track-food-intake v-bind:foodIntakeID="parseInt($route.params.foodIntakeID)"/>
-     
     </div>
-  </div>
 </template>
 
 <script>
