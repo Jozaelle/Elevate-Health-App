@@ -81,29 +81,43 @@ INSERT INTO profile (user_id) VALUES (1);
 INSERT INTO profile (user_id, photo) VALUES (2, 'https://media-exp1.licdn.com/dms/image/C5603AQHYxq_jixqcqA/profile-displayphoto-shrink_800_800/0/1649014472211?e=1655942400&v=beta&t=yfIAsTOqSlCOkhmDgSyL8nmS6IvScXE5dUu-HkmIHGY');
 
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-19');
+VALUES (2, 'burger', 1, 1, 350, 35, 14, 17, 'lunch', '2022-04-22');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'cereal', 1, 1, 250, 30, 20, 10, 'breakfast', '2022-04-18');
+VALUES (2, 'cereal', 1, 1, 307, 55, 5, 11, 'breakfast', '2022-04-22');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'soup', 1, 1, 300, 25, 10, 5, 'dinner', '2022-04-18');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-04-21');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'sandwhich', 1, 1, 275, 30, 20, 15, 'lunch', '2022-04-17');
+VALUES (2, 'cereal', 1, 1, 307, 55, 5, 11, 'breakfast', '2022-04-21');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'steak', 1, 1, 400, 5, 40, 50, 'dinner', '2022-04-17');
+VALUES (2, 'burger', 1, 1, 350, 35, 14, 17, 'lunch', '2022-04-20');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-16');
+VALUES (2, 'cereal', 1, 1, 307, 55, 5, 11, 'breakfast', '2022-04-20');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'soup', 1, 1, 433, 23, 29, 21, 'dinner', '2022-04-19');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 409, 48, 14, 22, 'lunch', '2022-04-19');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'cereal', 1, 1, 307, 55, 5, 11, 'breakfast', '2022-04-18');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'soup', 1, 1, 433, 23, 29, 21, 'dinner', '2022-04-18');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'sandwhich', 1, 1, 409, 48, 14, 22, 'lunch', '2022-04-17');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'steak', 1, 1, 679, 0, 48, 62, 'dinner', '2022-04-17');
+INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
+VALUES (2, 'burger', 1, 1, 350, 35, 14, 17, 'lunch', '2022-04-16');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'bacon and eggs', 1, 1, 500, 25, 30, 25, 'breakfast', '2022-04-16');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-15');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'cereal', 1, 1, 250, 30, 20, 10, 'breakfast', '2022-04-15');
+VALUES (2, 'cereal', 1, 1, 307, 55, 5, 11, 'breakfast', '2022-04-15');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'soup', 1, 1, 300, 25, 10, 5, 'dinner', '2022-04-14');
+VALUES (2, 'soup', 1, 1, 433, 23, 29, 21, 'dinner', '2022-04-14');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'sandwhich', 1, 1, 275, 30, 20, 15, 'lunch', '2022-04-14');
+VALUES (2, 'sandwhich', 1, 1, 409, 48, 14, 22, 'lunch', '2022-04-14');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'steak', 1, 1, 400, 5, 40, 50, 'dinner', '2022-04-13');
+VALUES (2, 'steak', 1, 1, 679, 0, 48, 62, 'dinner', '2022-04-13');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-13');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
@@ -111,21 +125,21 @@ VALUES (2, 'bacon and eggs', 1, 1, 500, 25, 30, 25, 'breakfast', '2022-04-13');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'potatoes', 1, 1, 300, 45, 10, 5, 'dinner', '2022-04-12');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-04-11');
+VALUES (2, 'sandwhich', 1, 1, 409, 48, 14, 22, 'lunch', '2022-04-11');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-04-10');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-04-09');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-04-09');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-08');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'sandwhich', 1, 1, 300, 25, 20, 10, 'lunch', '2022-04-07');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-04-07');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-04-07');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-04-06');
+VALUES (2, 'soup', 1, 1, 433, 23, 29, 21, 'lunch', '2022-04-06');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-04-06');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-04-06');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-04-05');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
@@ -139,7 +153,7 @@ VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-04-02');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-04-02');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-04-01');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-04-01');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-31');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
@@ -149,7 +163,7 @@ VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-29');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-28');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-27');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-03-27');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-27');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
@@ -163,7 +177,7 @@ VALUES (2, 'sandwhich', 1, 1, 350, 45, 20, 10, 'lunch', '2022-03-25');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-25');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
-VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-25');
+VALUES (2, 'salad', 1, 1, 148, 7, 13, 4, 'lunch', '2022-03-25');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'burger', 1, 1, 400, 45, 30, 25, 'lunch', '2022-03-25');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
@@ -271,6 +285,15 @@ VALUES (2, 'tomato soup', 1, 1, 300, 20, 20, 5, 'lunch', '2022-03-01');
 INSERT INTO foodintake (user_id, food_type, serving_size, number_of_servings, calories, carbs, fats, proteins, meal_type, day_of_meal)
 VALUES (2, 'salad', 1, 1, 250, 10, 25, 10, 'lunch', '2022-03-01');
 
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-22', 221);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-21', 224);
+
+INSERT INTO weight (user_id, curr_date, curr_weight)
+VALUES (2, '2022-04-20', 224);
 
 INSERT INTO weight (user_id, curr_date, curr_weight)
 VALUES (2, '2022-04-19', 222);
@@ -426,6 +449,15 @@ VALUES (2, '2022-03-01', 245);
 
 
 /*added some hydration test data*/
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/22',90);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/21',85);
+
+INSERT INTO hydration (user_id,curr_date,amount_drank)
+VALUES (2,'2022/04/20',80);
 
 INSERT INTO hydration (user_id,curr_date,amount_drank)
 VALUES (2,'2022/04/14',90);
