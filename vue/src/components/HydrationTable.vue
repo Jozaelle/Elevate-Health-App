@@ -39,7 +39,7 @@ data() {
 },
 
 created(){
-    HydrationService.getHydrationByWeek().then(response => {
+    HydrationService.getAllHydrations().then(response => {
       this.hydrationArray = response.data
     });
    },
@@ -51,7 +51,7 @@ created(){
       })
     },
     reloadTable() {
-      HydrationService.getAllWeight().then(response => {
+      HydrationService.getAllHydrations().then(response => {
         this.hydrationArray = response.data
       })
     }, 
@@ -63,47 +63,6 @@ created(){
 
 <style>
 
-th, td {
-  padding: 15px;
-  background-color: rgba(255,255,255,0.2);
-  color: black;
-}
 
-th {
-  text-align: left;
-  background-color: #0ba59d;
-  color: #e8f7f7
-}
-
-tr:hover {
-       background-color: rgba(255,255,255,0.3);
-}
-
-td{
-  position: relative;
-}
-
-/*td:hover::before{*/
-/*        content: "";*/
-/*				position: absolute;*/
-/*				left: 0;*/
-/*				right: 0;*/
-/*				top: -9999px;*/
-/*				bottom: -9999px;*/
-/*				background-color: rgba(255,255,255,0.2);*/
-/*				z-index: -1;*/
-/*}*/
-
-#add-link{
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  width: 200px;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;;
-}
 
 </style>

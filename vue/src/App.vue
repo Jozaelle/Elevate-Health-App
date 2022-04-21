@@ -7,13 +7,13 @@
        <router-link tag="button" class="btn" v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>&nbsp;&nbsp;
        <router-link tag="button" class="btn" v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>
       <div class="drop-down">
-       <button class="dropbtn" v-on:click="nutritionDropDown" v-if="$store.state.token != ''">Nutrition</button>
+       <button class="dropbtn" v-on:click="nutritionDropDown" v-if="$store.state.token != ''">Tracker</button>
     
     <div id="myDropdown" v-if="showDropDown">
     <router-link  v-bind:to="{ name: 'water' }" class="water-btn" v-if="$store.state.token != ''">Water</router-link>
     <br>
     <br>
-    <router-link  v-bind:to="{ name: 'nutrition' }" class="food-btn" v-if="$store.state.token != ''">Food
+    <router-link  v-bind:to="{ name: 'nutrition' }" class="food-btn" v-if="$store.state.token != ''">Nutrition
     </router-link>
     <br>
     <br>
