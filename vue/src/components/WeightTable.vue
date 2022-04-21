@@ -123,16 +123,6 @@ td:hover::before{
 				background-color: rgba(255,255,255,0.2);
 				z-index: -1;
 }
-/* #add-link{
-  position: absolute;
-  top: 7%;
-  left: 46%;
-  text-align: center;
-  font-size: small;
-  font-weight: bold;
-  font-family:Verdana, Geneva, Tahoma, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-
-} */
 
 #add-link{
   position: absolute;
