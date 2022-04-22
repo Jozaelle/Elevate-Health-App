@@ -41,7 +41,7 @@ export default {
    },
 
    created(){
-    WeightInputService.getWeightLastWeek().then(response => {
+    WeightInputService.getAllWeight().then(response => {
       this.weightArray = response.data
     });
    },

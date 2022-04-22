@@ -13,7 +13,6 @@ public class Hydration {
     public Hydration() {
 
     }
-
     public int getHydration_id() {
         return hydration_id;
     }

@@ -76,12 +76,9 @@ export default {
       default: 0
     }
   },
-
 data() {
   return {
-
     isCreated: false,
-
     foodIntake: {
       food_intake_id: "",
       user_id: "",
@@ -95,7 +92,6 @@ data() {
       fats: "",
       proteins: "",
     },
-    
   }
 },
 

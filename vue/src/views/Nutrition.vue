@@ -54,7 +54,7 @@ export default {
    },
 
    created(){
-    foodIntakeService.getLastWeek().then(response => {
+    foodIntakeService.getAllFoodIntakes().then(response => {
       this.foodIntake = response.data
     });
    },
@@ -67,7 +67,7 @@ export default {
       })
     },
     reloadTable() {
-      foodIntakeService.getLastWeek().then(response => {
+      foodIntakeService.getAllFoodIntakes().then(response => {
         this.foodIntake = response.data
       })
     },
