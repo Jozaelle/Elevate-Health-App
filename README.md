@@ -3,7 +3,7 @@ Elevate Health
 _Duration: 2 weeks
 For TechElevator Final Capstone 
 
-Project description
+Project description: 
    Agile group capstone project in which my team and I developed an application centered around tracking Nutrition and water intake, and additionally tracks weight changes. The user is able to create a profile that allows them to input their daily progress and keep a visual log so that they can see their progress. 
    
 
