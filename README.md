@@ -5,7 +5,7 @@
 <img width="1679" alt="Screen Shot 2022-05-01 at 9 44 41 PM" src="https://user-images.githubusercontent.com/97193394/166175801-777288bc-c8e9-4dd7-9fd1-4ebc17d8ea3b.png">
 <img width="1679" alt="Screen Shot 2022-05-01 at 9 43 16 PM" src="https://user-images.githubusercontent.com/97193394/166175807-678686af-9799-44bb-92b6-9fef9eb45d65.png">
 <img width="1680" alt="Screen Shot 2022-05-01 at 9 51 52 PM" src="https://user-images.githubusercontent.com/97193394/166175823-7c7b8163-6cb7-4992-9f0f-9f70a206e1ba.png">
-Elevate Health
+
 
 _Duration: 2 weeks
 For TechElevator Final Capstone 
@@ -17,8 +17,13 @@ Project description:
 
 ## Tech Used
   Fullstack: Vue, Java, JavaScript, CSS, PostgreSQL, etc. 
+  
+ - Used Chart.js to create Line, Bar and Doughnut Charts for the home page
+- Used PostgreSQL to store data
+- Used Spring Boot for the backend
+- Used Vue.js and Axios for the front end
 
-
+}
 
 ## Setup & Deployment
 
